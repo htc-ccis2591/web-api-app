@@ -3,12 +3,29 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Update Me</title>
+    <title>Ryan's Weather App</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <main>
+        <header>
+            <h1>Ryan's Weather App</h1>
+        </header>
+        <section>
+            <form>
+                <div>
+                    <label>API Key</label>
+                    <input name="apiKey" id="apiKey" type="text">
+                </div>
+                <label>City Name:</label>
+                <input type="text" name="cityName" id="cityName">
+                <button id="submit">Submit</button>
+                <br></br>
+                <label id="lblWeather"></label>
+            </form>
+        </section>
+        <section id="weather" aria-live="polite" aria-relevant="additions removals"></section>
 
 
     </main>
