@@ -2,12 +2,12 @@ $(document).ready(function () {
 
     weatherApp = {
 
-
+            
             $targetArea: $("#weather"),
             weatherApiKey: "",
 
             localStorageKey: "openWeatherApi",
-
+            
             getFormData: function () {
                 if (weatherApp.weatherApiKey === null || weatherApp.weatherApiKey === "") {
                     weatherApp.weatherApiKey = $("#apiKey").val().trim();
@@ -32,7 +32,12 @@ $(document).ready(function () {
                 $.getJSON(url, function (data) {
 
                     if (data.cod === "200") {
-                        $("#lblWeather").append("text");
+                        $("#mainDiv").addClass("divFormat");
+                        $("#lblTempHead").text("Temperature:");
+                        $("#lblWeather").append(Math.round(data.list[0].main.temp));
+                        var jDate = data.list[0].dt_txt;
+                        var fullData = new Date(jDate);
+                        $("#lblTime").addClass("timeTitle").append(fullData.toDateString());
                         weatherApp.$targetArea.html("success");
 
                     } else {
