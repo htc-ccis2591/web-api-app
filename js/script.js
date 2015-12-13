@@ -16,30 +16,35 @@ $(document).ready(function () {
                 }
 
                 var city = $("#city").val().trim();
-                if (city === null || city.length < 5) {
+                if (city === null || city.length < 10) {
 
                     weatherApp.$targetArea.html("Enter a city");
-                } else {
+                } else {                        console.log(Desc);
+
+                        cityDesc = data.city.name;
+                   
+                        
+                        console.log(cityDesc);
+                        console.log(cityTemp);
+
                     weatherApp.getWeatherData(city);
                 }
 console.log(weatherApiKey);
             },
 
             getWeatherData: function (city) {
-                var url = "api.openweathermap.org/data/2.5/forecast?q=" + city + ",us&type=like&mode=html " + weatherApp.weatherApiKey + " &units=imperial";
+                var url = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + ",us" + weatherApp.weatherApiKey + " &units=imperial";
                 $.getJSON(url, function (data) {
 
                     if (data.cod === 200) {
 
 
                         Desc = $("<p>").insertAfter("#weather");
-                        console.log(Desc);
+                 
 
-                        cityDesc = data.city.name;
+                        cityDesc = data.list[0].weather[0].description;
                    
-                        
-                         console.log(cityDesc);
-                        console.log(cityTemp);
+              console.log(cityDesc);
 
                         display = weatherApp.$targetArea.html("The current weather is: " + cityDescDesc + ".  The current temperature is: " + cityTempTemp + " F.");
                         $(Desc).append(display);
