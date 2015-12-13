@@ -48,8 +48,8 @@ $(document).ready(function () {
             
             $.getJSON(urlCurrent, function (data) {
                 if (data.cod === 200) {
-                    weatherApp.$targetArea.html("Success!");
-                    weatherApp.$targetArea.append('<h3>' + "Current Weather" + '</h3>');
+                    //weatherApp.$targetArea.html("Success!");
+                    weatherApp.$targetArea.html('<h3>' + "Current Weather" + '</h3>');
                     weatherDesc = data.weather[0].description;
                     weatherApp.$targetArea.append('<p>' + "Condition:  " + weatherDesc + '</p>');
                     weatherTemp = data.main.temp;
@@ -70,44 +70,14 @@ $(document).ready(function () {
             });
             
         },
-
-        loadApiKey: function () {
-            if (typeof (localStorage) === 'undefined') {
-                weatherApp.$targetArea.html("Sorry, local storage is not supported for this browser");
-
-            } 
-            else {
-                //Get API Key
-                weatherApp.weatherApiKey = localStorage.getItem(weatherApp.localStorageKey);
-                if (weatherApp.weatherApiKey === null || weatherApp.weatherApiKey === "") {
-                   // weatherApp.$targetArea.html("Sorry, no api key was found.");
-                    return false;
-                }
-                return true;
-            }
-        },
-        saveAPIKey: function () {
-            if (typeof (localStorage) === 'undefined') {
-                weatherApp.$targetArea.html("Sorry, local storage is not supported for this browser.");
-            } 
-            else {
-                if (weatherApp.weatherApiKey === null || weatherApp.weatherApiKey === "") {
-                    weatherApp.$targetArea.html("Sorry, you must enter an API Key.");
-                } else {
-                    localStorage.setItem(weatherApp.localStorageKey, weatherApp.weatherApiKey);
-                    $("#apidiv").attr("class", "hide");
-                }
-            }
-        },
-        
-        
+    
         getWeatherDataCurrentName : function (cityname) {
             var urlCurrentName = "http://api.openweathermap.org/data/2.5/weather?q=" + cityname + "&appid=" + weatherApp.weatherApiKey + "&type=like" + "&units=imperial";
             
             $.getJSON(urlCurrentName, function (data) {
                 if (data.cod === 200) {
-                    weatherApp.$targetArea.html("Success!");
-                    weatherApp.$targetArea.append('<h3>' + "Current Weather" + '</h3>');
+                   // weatherApp.$targetArea.html("Success!");
+                    weatherApp.$targetArea.html('<h3>' + "Current Weather" + '</h3>');
                     weatherDescName = data.weather[0].description;
                     weatherApp.$targetArea.append('<p>' + "Condition:  " + weatherDescName + '</p>');
                     weatherTempName = data.main.temp;
@@ -128,36 +98,6 @@ $(document).ready(function () {
             });
             
         },
-
-        loadApiKey: function () {
-            if (typeof (localStorage) === 'undefined') {
-                weatherApp.$targetArea.html("Sorry, local storage is not supported for this browser");
-
-            } 
-            else {
-                //Get API Key
-                weatherApp.weatherApiKey = localStorage.getItem(weatherApp.localStorageKey);
-                if (weatherApp.weatherApiKey === null || weatherApp.weatherApiKey === "") {
-                   // weatherApp.$targetArea.html("Sorry, no api key was found.");
-                    return false;
-                }
-                return true;
-            }
-        },
-        saveAPIKey: function () {
-            if (typeof (localStorage) === 'undefined') {
-                weatherApp.$targetArea.html("Sorry, local storage is not supported for this browser.");
-            } 
-            else {
-                if (weatherApp.weatherApiKey === null || weatherApp.weatherApiKey === "") {
-                    weatherApp.$targetArea.html("Sorry, you must enter an API Key.");
-                } else {
-                    localStorage.setItem(weatherApp.localStorageKey, weatherApp.weatherApiKey);
-                    $("#apidiv").attr("class", "hide");
-                }
-            }
-        },
-        
         
         getFormData5: function (city) {
             if (weatherApp.weatherApiKey === null || weatherApp.weatherApiKey === "") {
@@ -179,7 +119,7 @@ $(document).ready(function () {
             
             $.getJSON(url5, function (data) {
                 if (data.cod === "200") {
-                    weatherApp.$targetArea.append("Success!");
+                    //weatherApp.$targetArea.append("Success!");
                     weatherApp.$targetArea.append('<h2>' + "5 Day Forecast" + '</h2>')
                     weatherApp.$targetArea.append('<h3>' + "Today" + '</h3>');
                     weatherDesc = data.list[0].weather[0].description;
