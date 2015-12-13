@@ -3,12 +3,37 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Update Me</title>
+    <title>Weather API's!!!</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <h1>Get your local weather</h1>
+    <h2>Get your current forecast by entering your city name</h2>
+    <h2>Get your current forecast and 5 day forecast by entering your City ID</h2>
+    <ul>Some popular City Id's</ul>
+    <li>Minneapolis, MN = 5037649</li>
+    <li>Chicago, IL = 4887398</li>
+    <li>New York, NY = 5128581</li>
+    <li>Los Angeles, CA = 5368361</li>
+    <li>Please visit <a href="http://www.geonames.org/">http://www.geonames.org/</a> to find your City's ID</li>
+    <br>
     <main>
+<section id="form">
+            <form>
+                <div id="apidiv">
+                    <label>Enter your API key:</label>
+                    <input type="text" name="apikey" id="apikey">
+                </div>
+                <label>City:</label>
+                <input type="text" name="city" id="city">
+                <button id="submit">Submit</button>
+            </form>
+        </section>
+
+        <section id="weather" aria-live="polite" aria-relevant="additions removals">
+        
+        </section>
 
 
     </main>
