@@ -1,3 +1,162 @@
 article, aside, figure, figcaption, footer, header, nav, section {
     display: block;
 }
+
+body {
+    min-width: 900px;
+}
+
+header {
+    text-align: center;
+    font-family: "lucida calligraphy", cursive;
+    background-color: lightcyan;
+    color: green;
+}
+
+nav {
+    float: left;
+    padding: 5px;
+    width: 120px;
+}
+
+#data {
+    margin: 10px;
+    max-width: 475px;
+}
+
+#dataEntry {
+    height: 77px;
+    float: left;
+    margin: 5px;
+}
+
+#buttons {
+    margin-right: 15px;
+}
+
+#currentWeatherButton {
+    margin-bottom: 5px;
+}
+
+#hourlyWeatherButton {
+    margin-bottom: 5px;
+}
+
+#instructionStatement {
+    float: left;
+    text-align: center;
+    width: 480px;
+}
+
+#currentHead {
+    color: khaki;
+    background-color: mediumvioletred;
+    font-size: 140%;
+}
+
+#currentData {
+    position: fixed;
+    left: 520px;
+    width: 475px;
+    padding-top: 5px;
+}
+
+#error {
+    position: relative;
+    left: 30px;
+}
+
+#hourlyHead {
+    text-align: center;
+    padding: 2px;
+    border-style: double;
+    border-width: 2px;
+    border-color: plum;
+}
+
+#hourlyData {
+    position: fixed;
+    padding: 8px;
+    left: 1000px;
+    width: 180px;
+    height: 450px;    
+}
+
+#hourlyDivInfo {
+    color: lightseagreen;
+}
+
+#futureData {
+    position: fixed;
+    top: 375px;
+    max-height: 120px;
+    width: 980px;    
+}
+
+#futureDiv1Info {    
+    padding: 8px;
+    padding-right: 28px;
+    position: fixed;
+    left: 20px;
+}
+
+#futureDiv2Info {    
+    padding: 8px;
+    padding-right: 32px;    
+    position: fixed;
+    left: 155px;
+}
+
+#futureDiv3Info {
+    padding: 8px;
+    padding-right: 30px;
+    position: fixed;
+    left: 293px;
+}
+
+#futureDiv4Info {
+    padding: 8px;
+    padding-right: 32px;
+    position: fixed;
+    left: 425px;
+}
+
+#futureDiv5Info {
+    padding: 8px;
+    padding-right: 33px;
+    position: fixed;
+    left: 560px;
+}
+
+#futureDiv6Info {
+    padding: 8px;
+    padding-right: 35px;    
+    position: fixed;
+    left: 695px;
+}
+
+#futureDiv7Info {
+    padding: 8px;
+    padding-right: 26px;
+    position: fixed;
+    left: 834px;
+}
+
+#futureHead {
+    text-align: center;
+    background-color: gold;
+}
+
+.titleTemp {
+    font-family: "elephant", fantasy;
+    font-size: 120%;
+    color: lightcoral;
+}
+
+.secondData {
+    color: mediumslateblue;
+}
+
+.hide {
+    display: none;
+}
