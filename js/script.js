@@ -158,6 +158,10 @@ getFutureForecast: function () {
 
         $("#submit").click(function () {
             weatherApp.getFormData();
+            $("#city").val("");
+        $(weatherApp.timeForecast).empty();
+        $(weatherApp.furtureForecast).empty();
+    
             return false;
         });
     if (weatherApp.loadApiKey()) {

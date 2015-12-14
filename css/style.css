@@ -3,7 +3,7 @@ article, aside, figure, figcaption, footer, header, nav, section {
 }
 
 body {
-    background-color: floralwhite;
+    background-color: white;
     font-family: Arial, sans-serif;
     font-size: 1.3em;
 }
@@ -38,6 +38,24 @@ input {
     text-align: center;
 }  
 
+#timeForecast p {
+        width: 80%;
+    margin: auto;
+    color: blue;
+    font-style: italic;
+    font-size: 25px;
+    text-align: center;    
+}
+
+#furtureForecast p {
+            width: 80%;
+    margin: auto;
+    color: blue;
+    font-style: italic;
+    font-size: 25px;
+    text-align: center;   
+    
+}
 .hide {
 display: none;
 }
