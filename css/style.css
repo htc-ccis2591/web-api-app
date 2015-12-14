@@ -1,13 +1,18 @@
-article, aside, figure, figcaption, footer, header, nav, section {
+article,
+aside,
+figure,
+figcaption,
+footer,
+header,
+nav,
+section {
     display: block;
 }
-
 body {
     background-color: white;
     font-family: Arial, sans-serif;
     font-size: 1.3em;
 }
-
 header {
     color: rebeccapurple;
     font-family: Papyrus, fantasy;
@@ -15,47 +20,44 @@ header {
     text-align: center;
     padding: 20px;
 }
-
 #form {
     width: 50%;
     margin: auto;
+    font-size: 30px;
+    color: white;
+    background-color: black;
 }
-
 label {
     padding: 10px;
 }
-
+button {
+    font-size: 30px;
+    color: red;
+    background-color: black;
+}
 input {
     line-height: 1.5em;
 }
-
 #weather {
-    width: 80%;
-    margin: auto;
     color: blue;
     font-style: italic;
     font-size: 25px;
-    text-align: center;
-}  
-
-#timeForecast p {
-        width: 80%;
-    margin: auto;
-    color: blue;
-    font-style: italic;
-    font-size: 25px;
-    text-align: center;    
 }
-
-#furtureForecast p {
-            width: 80%;
-    margin: auto;
-    color: blue;
+#weather p {}
+#time {
+    color: red;
     font-style: italic;
     font-size: 25px;
-    text-align: center;   
-    
+}
+#time p {
+    font-style: italic;
+    font-size: 25px;
+}
+#future {
+    color: purple;
+    font-style: italic;
+    font-size: 25px;
 }
 .hide {
-display: none;
+    display: none;
 }
