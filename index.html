@@ -3,17 +3,54 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Update Me</title>
+    <title>Weather App</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <main>
+    <div id="wrapper">
+        <header>
+            <h2>Weather API App</h2>
+        </header>
+        <main>
+            <section id="data">
+                <div id="instructionStatement">
+                    <p>Enter the name of a city in the United States. If the exact city name does not exist in the database another city will be chosen as close to target as possible.</p>
+                </div>
 
+                <nav id="buttons">
+                    <button type="submit" id="currentWeatherButton" disabled="true">Current Weather</button>
+                    <button type="submit" id="hourlyWeatherButton" disabled="true">Hourly Forecast</button>
+                    <button type="submit" id="futureWeatherButton" disabled="true">Future Forecast</button>
+                </nav>
 
-    </main>
+                <form id="dataEntry">
+                    <label>
+                        <input type="text" id="cityName" name= "cityName" size=25px placeholder="Enter U.S. City Name here"> </label>
+                    <button type="submit" id="submit">Submit</button>
+                    <br>
+                    <div id="apiLabel">
+                        <label>
+                            <input type="text" id="apiEntry" name="apiEntry" size=35px placeholder="Enter API code here">
+                        </label>
+                    </div>
+                </form>
+            </section>
 
+            <div id="error" aria-atomic="true" aria-live="polite" aria-relevant="additions"></div>
+            <section id=currentData>
+                <div id="current" aria-atomic="true" aria-live="polite" aria-relevant="additions"></div>
+            </section>
+            <section id=hourlyData>
+                <div id="hourly" aria-atomic="true" aria-live="polite" aria-relevant="additions"></div>
+            </section>
+            <section id=futureData>
+                <div id="future" aria-atomic="true" aria-live="polite" aria-relevant="additions"></div>
+            </section>
 
+        </main>
+
+    </div>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" language="Javascript"></script>
