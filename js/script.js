@@ -23,6 +23,7 @@ $(document).ready(function () {
 
 
 
+
             getFormData: function () {
                 if (weatherApp.weatherApiKey === null || weatherApp.weatherApiKey === "") {
                     weatherApp.weatherApiKey = $("#apikey").val().trim();
@@ -53,20 +54,20 @@ $(document).ready(function () {
 
                         weatherName = data.name;
                         weatherDescription = data.weather[0].description;
-                        weatherTemp = data.main.temp;
+                        weatherTemp = (Math.round(data.main.temp));
                         weatherHumidity = data.main.humidity;
                         weatherWind = data.wind.speed;
 
                         currentWeather = $(weatherApp.currentWeather).appendTo("#weather");
 
                         city = $("<h3>").appendTo(currentWeather);
-                        citydisplay = city.text("The current weather for " + weatherName).appendTo(city);
+                        citydisplay = city.text("Current Weather: " + weatherName).appendTo(city);
 
                         conditions = $("<p>").insertAfter(city);
                         conditionsDisplay = conditions.text("Current Conditions: " + weatherDescription).appendTo(conditions);
 
                         temp = $("<p>").insertAfter(city);
-                        tempDisplay = temp.text("Current Temperature: " + weatherTemp).appendTo(temp);
+                        tempDisplay = (temp.text("Current Temperature: " + weatherTemp + " F").appendTo(temp));
 
 
                         humidity = $("<p>").insertAfter(temp);
@@ -88,7 +89,7 @@ $(document).ready(function () {
 
             },
 
-            // FORECAST__________________________________________________________________________________________________________________
+            // HOURLY FORECAST__________________________________________________________________________________________________________________
 
             getWeatherForecast: function () {
                 var url = "http://api.openweathermap.org/data/2.5/forecast?q=" + weatherApp.city + ",us&appid=" + weatherApp.weatherApiKey + "&units=imperial";
@@ -97,75 +98,76 @@ $(document).ready(function () {
                     if (data.cod === "200") {
 
                         nextTempTime = data.list[0].dt_txt;
-                        nextTemp = data.list[0].main.temp;
+                        nextTemp = (Math.round(data.list[0].main.temp));
                         nextHumidity = data.list[0].main.humidity;
                         nextConditions = data.list[0].weather[0].main;
-                        nextTempMin = data.list[0].main.temp_min;
-                        nextTempMax = data.list[0].main.temp_max;
+                        nextTempMin = (Math.round(data.list[0].main.temp_min));
+                        nextTempMax = (Math.round(data.list[0].main.temp_max));
 
-                        nextTempTime1 = data.list[8].dt_txt;
-                        nextTemp1 = data.list[8].main.temp;
-                        nextHumidity1 = data.list[8].main.humidity;
-                        nextConditions1 = data.list[8].weather[0].main;
-                        nextTempMin1 = data.list[8].main.temp_min;
-                        nextTempMax1 = data.list[8].main.temp_max;
+                        nextTempTime1 = data.list[1].dt_txt;
+                        nextTemp1 = (Math.round(data.list[1].main.temp));
+                        nextHumidity1 = data.list[1].main.humidity;
+                        nextConditions1 = data.list[1].weather[0].main;
+                        nextTempMin1 = (Math.round(data.list[1].main.temp_min));
+                        nextTempMax1 = (Math.round(data.list[1].main.temp_max));
 
-                        nextTempTime2 = data.list[16].dt_txt;
-                        nextTemp2 = data.list[16].main.temp;
-                        nextHumidity2 = data.list[16].main.humidity;
-                        nextConditions2 = data.list[16].weather[0].main;
-                        nextTempMin2 = data.list[16].main.temp_min;
-                        nextTempMax2 = data.list[16].main.temp_max;
+                        nextTempTime2 = data.list[2].dt_txt;
+                        nextTemp2 = (Math.round(data.list[2].main.temp));
+                        nextHumidity2 = data.list[2].main.humidity;
+                        nextConditions2 = data.list[2].weather[0].main;
+                        nextTempMin2 = (Math.round(data.list[2].main.temp_min));
+                        nextTempMax2 = (Math.round(data.list[2].main.temp_max));
 
-                        nextTempTime3 = data.list[24].dt_txt;
-                        nextTemp3 = data.list[24].main.temp;
-                        nextHumidity3 = data.list[24].main.humidity;
-                        nextConditions3 = data.list[24].weather[0].main;
-                        nextTempMin3 = data.list[24].main.temp_min;
-                        nextTempMax3 = data.list[24].main.temp_max;
+                        nextTempTime3 = data.list[3].dt_txt;
+                        nextTemp3 = (Math.round(data.list[3].main.temp));
+                        nextHumidity3 = data.list[3].main.humidity;
+                        nextConditions3 = data.list[3].weather[0].main;
+                        nextTempMin3 = (Math.round(data.list[3].main.temp_min));
+                        nextTempMax3 = (Math.round(data.list[3].main.temp_max));
 
-                        nextTempTime4 = data.list[32].dt_txt;
-                        nextTemp4 = data.list[32].main.temp;
-                        nextHumidity4 = data.list[32].main.humidity;
-                        nextConditions4 = data.list[32].weather[0].main;
-                        nextTempMin4 = data.list[32].main.temp_min;
-                        nextTempMax4 = data.list[32].main.temp_max;
+                        nextTempTime4 = data.list[4].dt_txt;
+                        nextTemp4 = (Math.round(data.list[4].main.temp));
+                        nextHumidity4 = data.list[4].main.humidity;
+                        nextConditions4 = data.list[4].weather[0].main;
+                        nextTempMin4 = (Math.round(data.list[4].main.temp_min));
+                        nextTempMax4 = (Math.round(data.list[4].main.temp_max));
 
                         futureTemp = $(weatherApp.timeForecast).appendTo("#time");
 
                         nextWeather = $("<h3>").appendTo(futureTemp);
-                        nextWeatherDisplay = nextWeather.text("Five day forcast for " + weatherName);
+                        nextWeatherDisplay = nextWeather.text("Forecast over the next 15 hours (3 hour incriments): " + weatherName);
 
-                        dayOneHeader = $("<h4>Day One</h4>").insertAfter(nextWeather);
+                        dayOneHeader = $("<h4>3 Hours</h4>").insertAfter(nextWeatherDisplay);
 
                         dayOne = $("<p>").appendTo(dayOneHeader);
-                        dayOneDisplay = dayOne.text("Date/Time: " + nextTempTime + ".....Weather Conditions: " + nextConditions + ".....Temperature: " + nextTemp + "F .....Min Temp " + nextTempMin + "F .....Max Temp " + nextTempMax + "F .....Humidity :" + nextHumidity + "%").append(dayOne);
+                        dayOneDisplay = dayOne.text("Date/Time: " + nextTempTime + ".....Weather Conditions: " + nextConditions + ".....Temperature: " + nextTemp + " F .....Min Temp " + nextTempMin + " F .....Max Temp " + nextTempMax + " F .....Humidity :" + nextHumidity + "%").append(dayOne);
 
-                        dayTwoHeader = $("<h4>Day Two</h4>").insertAfter(dayOne);
+                        dayTwoHeader = $("<h4>6 Hours</h4>").insertAfter(dayOne);
 
                         dayTwo = $("<p>").insertAfter(dayTwoHeader);
-                        dayTwoDisplayDisplay = dayTwo.text("Date/Time: " + nextTempTime1 + ".....Weather Conditions: " + nextConditions1 + ".....Temperature: " + nextTemp1 + "F .....Min Temp " + nextTempMin1 + "F .....Max Temp " + nextTempMax1 + "F .....Humidity :" + nextHumidity1 + "%").appendTo(dayTwo);
+                        dayTwoDisplayDisplay = dayTwo.text("Date/Time: " + nextTempTime1 + ".....Weather Conditions: " + nextConditions1 + ".....Temperature: " + nextTemp1 + " F .....Min Temp " + nextTempMin1 + " F .....Max Temp " + nextTempMax1 + " F .....Humidity :" + nextHumidity1 + "%").appendTo(dayTwo);
 
-                        dayThreeHeader = $("<h4>Day Three</h4>").insertAfter(dayTwo);
+                        dayThreeHeader = $("<h4>9 Hours</h4>").insertAfter(dayTwo);
 
                         dayThree = $("<p>").insertAfter(dayThreeHeader);
-                        dayThreeDisplay = dayThree.text("Date/Time: " + nextTempTime2 + ".....Weather Conditions: " + nextConditions2 + ".....Temperature: " + nextTemp2 + "F .....Min Temp " + nextTempMin2 + "F .....Max Temp " + nextTempMax2 + " F .....Humidity :" + nextHumidity2 + "%").appendTo(dayThree);
+                        dayThreeDisplay = dayThree.text("Date/Time: " + nextTempTime2 + ".....Weather Conditions: " + nextConditions2 + ".....Temperature: " + nextTemp2 + " F .....Min Temp " + nextTempMin2 + " F .....Max Temp " + nextTempMax2 + " F .....Humidity :" + nextHumidity2 + "%").appendTo(dayThree);
 
-                        dayFourHeader = $("<h4>Day Four</h4>").insertAfter(dayThree);
+                        dayFourHeader = $("<h4>12 Hours</h4>").insertAfter(dayThree);
+                        
                         dayFour = $("<p>").insertAfter(dayFourHeader);
-                        dayFourDisplay = dayFour.text("Date/Time: " + nextTempTime3 + ".....Weather Conditions: " + nextConditions3 + ".....Temperature: " + nextTemp3 + "F .....Min Temp " + nextTempMin3 + "F .....Max Temp " + nextTempMax3 + " F .....Humidity :" + nextHumidity3 + "%").appendTo(dayFour);
+                        dayFourDisplay = dayFour.text("Date/Time: " + nextTempTime3 + ".....Weather Conditions: " + nextConditions3 + ".....Temperature: " + nextTemp3 + " F .....Min Temp " + nextTempMin3 + " F .....Max Temp " + nextTempMax3 + " F .....Humidity :" + nextHumidity3 + "%").appendTo(dayFour);
 
-                        dayFiveHeader = $("<h4>Day Five</h4>").insertAfter(dayFour);
+                        dayFiveHeader = $("<h4>15 Hours</h4>").insertAfter(dayFour);
 
                         dayFive = $("<p>").insertAfter(dayFiveHeader);
-                        dayFiveDisplay = dayFive.text("Date/Time: " + nextTempTime4 + ".....Weather Conditions: " + nextConditions4 + ".....Temperature: " + nextTemp4 + "F .....Min Temp " + nextTempMin4 + "F .....Max Temp " + nextTempMax4 + " F .....Humidity :" + nextHumidity4 + "%").appendTo(dayFive);
+                        dayFiveDisplay = dayFive.text("Date/Time: " + nextTempTime4 + ".....Weather Conditions: " + nextConditions4 + ".....Temperature: " + nextTemp4 + " F .....Min Temp " + nextTempMin4 + " F .....Max Temp " + nextTempMax4 + " F .....Humidity :" + nextHumidity4 + "%").appendTo(dayFive);
 
                     }
 
                 });
             },
 
-            // 16 day Forecast_____________________________________________________________________________________________________________
+            // 7 day Forecast_____________________________________________________________________________________________________________
 
             getFutureForecast: function () {
                 var url = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + weatherApp.city + ",us&appid=" + weatherApp.weatherApiKey + "&units=imperial";
@@ -173,18 +175,90 @@ $(document).ready(function () {
 
                     if (data.cod === "200") {
 
-                        nextForecastTemp = data.list[0].temp.day;
-                        nextForecastWeather = data.list[0].weather[0].main;
+                        nextForecastTemp = (Math.round(data.list[1].temp.day));
+                        nextForecastWeather = data.list[1].weather[0].main;
+                        dayTempMorn = (Math.round(data.list[1].temp.morn));
+                        dayTempNight = (Math.round(data.list[1].temp.night));
+
+                        dayTemp2 = (Math.round(data.list[2].temp.day));
+                        dayWeather2 = data.list[2].weather[0].main;
+                        dayTempMorn2 = (Math.round(data.list[2].temp.morn));
+                        dayTempNight2 = (Math.round(data.list[2].temp.night));
+
+                        dayTemp3 = (Math.round(data.list[3].temp.day));
+                        dayWeather3 = data.list[3].weather[0].main;
+                        dayTempMorn3 = (Math.round(data.list[3].temp.morn));
+                        dayTempNight3 = (Math.round(data.list[3].temp.night));
+
+                        dayTemp4 = (Math.round(data.list[4].temp.day));
+                        dayWeather4 = data.list[4].weather[0].main;
+                        dayTempMorn4 = (Math.round(data.list[4].temp.morn));
+                        dayTempNight4 = (Math.round(data.list[4].temp.night));
+
+                        dayTemp5 = (Math.round(data.list[5].temp.day));
+                        dayWeather5 = data.list[5].weather[0].main;
+                        dayTempMorn5 = (Math.round(data.list[5].temp.morn));
+                        dayTempNight5 = (Math.round(data.list[5].temp.night));
+
+                        dayTemp6 = (Math.round(data.list[6].temp.day));
+                        dayWeather6 = data.list[6].weather[0].main;
+                        dayTempMorn6 = (Math.round(data.list[6].temp.morn));
+                        dayTempNight6 = (Math.round(data.list[6].temp.night));
+
 
 
                         futureForecast = $(weatherApp.furtureForecast).appendTo("#future");
+                        $("<h3>" + "7 Day Forecast: " + weatherName + "</h3>").appendTo(futureForecast);
 
-                        futureForecastTemp = $("<p>").appendTo(futureForecast);
 
 
-                        displayForecastTemp = futureForecastTemp.text("In 7 days, the weather will be " + nextForecastWeather + " , and the temp will be " + nextForecastTemp + " F.");
+                        //TABLE ---------------------------------------------------------------------
 
-                        $(displayForecastTemp).append(futureForecastTemp);
+                        dayTableMain = $("<table></table>").insertAfter(futureForecast);
+                        dayTableHead = $("<tr></tr>").appendTo(dayTableMain);
+
+                        dayTableName6 = $("<th>Day Six</th>").insertAfter(dayTableHead);
+                        dayTableName5 = $("<th>Day Five</th>").insertAfter(dayTableHead);
+                        dayTableName4 = $("<th>Day Four</th>").insertAfter(dayTableHead);
+                        dayTableName3 = $("<th>Day Three</th>").insertAfter(dayTableHead);
+                        dayTableName2 = $("<th>Day Two</th>").insertAfter(dayTableHead);
+
+
+                        dayOneWeather = $("<td>" + "Weather: " + nextForecastWeather + "</td>").appendTo(dayTableName2);
+                        dayOneTemp = $("<td>" + "Temperature: " + nextForecastTemp + "F " + "</td>").appendTo(dayOneWeather);
+                        dayOneMorn = $("<td>" + "Morning Temp: " + dayTempMorn + " F" + "</td>").appendTo(dayOneTemp);
+                        dayOneNight = $("<td>" + "Night Temp: " + dayTempNight + " F" + "</td>").appendTo(dayOneMorn);
+
+                        dayTwoWeather = $("<td>" + "Weather: " + dayWeather2 + "</td>").appendTo(dayTableName3);
+                        dayTwoTemp = $("<td>" + "Temperature: " + dayTemp2 + " F" + "</td>").appendTo(dayTwoWeather);
+                        dayTwoMorn = $("<td>" + "Morning Temp: " + dayTempMorn2 + " F" + "</td>").appendTo(dayTwoTemp);
+                        dayTwoNight = $("<td>" + "Night Temp: " + dayTempNight2 + " F" + "</td>").appendTo(dayTwoMorn);
+
+                        dayThreeWeather = $("<td>" + "Weather: " + dayWeather3 + "</td>").appendTo(dayTableName4);
+                        dayThreeTemp = $("<td>" + "Temperature: " + dayTemp3 + " F" + "</td>").appendTo(dayThreeWeather);
+                        dayThreeMorn = $("<td>" + "Morning Temp: " + dayTempMorn3 + " F" + "</td>").appendTo(dayThreeTemp);
+                        dayThreeNight = $("<td>" + "Night Temp: " + dayTempNight3 + "F" + "</td>").appendTo(dayThreeMorn);
+
+                        dayFourWeather = $("<td>" + "Weather: " + dayWeather4 + "</td>").appendTo(dayTableName5);
+                        dayFourTemp = $("<td>" + "Temperature: " + dayTemp4 + " F" + "</td>").appendTo(dayFourWeather);
+                        dayFourMorn = $("<td>" + "Morning Temp: " + dayTempMorn4 + " F" + "</td>").appendTo(dayFourTemp);
+                        dayFourNight = $("<td>" + "Night Temp: " + dayTempNight4 + " F" + "</td>").appendTo(dayFourMorn);
+
+                        dayFiveWeather = $("<td>" + "Weather: " + dayWeather5 + "</td>").appendTo(dayTableName6);
+                        dayFiveTemp = $("<td>" + "Temperature: " + dayTemp5 + " F" + "</td>").appendTo(dayFiveWeather);
+                        dayFiveMorn = $("<td>" + "Morning Temp: " + dayTempMorn5 + " F" + "</td>").appendTo(dayFiveTemp);
+                        dayFiveNight = $("<td>" + "Night Temp: " + dayTempNight5 + " F" + "</td>").appendTo(dayFiveMorn);
+
+
+
+
+
+
+
+
+                        //displayForecastTemp = futureForecastTemp.text("In 7 days, the weather will be " + nextForecastWeather + " , and the temp will be " + nextForecastTemp + " F.");
+
+                        //$(displayForecastTemp).append(futureForecastTemp);
 
 
                     }
