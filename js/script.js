@@ -50,7 +50,7 @@ $(document).ready(function () {
 
                         weatherName = data.name;
                         weatherDesc = data.weather[0].description;
-                        weatherTemp = data.main.temp;
+                        weatherTemp = (Math.round(data.main.temp));
 
                         display = weatherApp.$targetArea.html("The current weather for " + weatherName + " is: " + weatherDesc + ".  The current temperature is: " + weatherTemp + " F.");
 
@@ -81,13 +81,13 @@ $(document).ready(function () {
 
                     if (data.cod === "200") {
                         nextTempTime = data.list[0].dt_txt;
-                        nextTemp = data.list[0].main.temp;
+                        nextTemp = (Math.round(data.list[0].main.temp));
 
 
                      futureTemp =  $(weatherApp.timeForecast).insertAfter("#weather");
                     
                         currentTemp = $("<p>").appendTo(futureTemp);
-                        displayTemp = currentTemp.text("The current weather at " + nextTempTime + " will be: " + nextTemp + " F.");
+                        displayTemp = currentTemp.text("The current weather on " + nextTempTime + " will be: " + nextTemp + " F.");
                        
                         $(displayTemp).append(currentTemp);
 
@@ -105,14 +105,15 @@ getFutureForecast: function () {
 
                     if (data.cod === "200") {
                       
-                        nextForecastTemp = data.list[0].temp.day;
-                        nextForecastWeather = data.list[0].weather[0].main;
+                        nextForecastTemp = (Math.round(data.list[0].temp.day));
+                        nextForecastWeather = data.list[6].weather[0].main;
 
                         console.log(nextForecastTemp);
                         console.log(nextForecastWeather);
                      futureForecast =  $(weatherApp.furtureForecast).insertAfter("#timeForecast");
                     
                        futureForecastTemp = $("<p>").appendTo(futureForecast);
+                        
                         
                        
                         displayForecastTemp = futureForecastTemp.text("In 7 days, the weather will be " + nextForecastWeather + " , and the temp will be " + nextForecastTemp + " F.");
