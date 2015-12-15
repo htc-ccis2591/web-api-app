@@ -6,10 +6,15 @@ $(document).ready(function () {
     weatherApp = {
 
         $targetArea: $("#weather"),
-
         weatherApiKey: "",
-
         localStorageKey: "openWeatherApi",
+        $btnHourly: $("<button/>", {
+                text: "Hourly forecast",
+                id: "btnHourly"}),
+        $btnSixteenDays: $("<button/>", {
+            text: "16 days forecast",
+            id: "btnSixteenDays"}),                    
+        
 
 
 
@@ -58,7 +63,7 @@ $(document).ready(function () {
                         "<li> Maximum Temperature: " + weatherMaxTemp + "°F" + "</li>" +
                         "<li> Minimum Temperature: " + weatherMinTemp + "°F" + "</li>" +
                         "<li> Humidity: " + weatherHumidity + " %" + "</li>" +
-                        "<li> Wind Speed: " + weatherWindSpeed + " mph" + "</li>").insertBefore(weatherApp.btnHourly).insertBefore(weatherApp.btnFifteenDays);
+                        "<li> Wind Speed: " + weatherWindSpeed + " mph" + "</li>").insertBefore(weatherApp.$btnHourly).insertBefore(weatherApp.$btnSixteenDays);
 
                 } else {
                     weatherApp.$targetArea.html("Sorry, no weather data available.!");
@@ -104,26 +109,26 @@ $(document).ready(function () {
         
         
                 
-
-
-        btnHourly: function () {
-            var $btnHourly = $("<button/>", {
-                text: "Hourly forecast",
-                id: "btnHourly",
-                click: function () {
-                    alert("hi");
-                }
-            });
-        },
-        btnSixteenDays: function () {
-            var btnSixteenDays = $("<button/>", {
-                text: "16 days forecast",
-                id: "btnSixteenDays",
-                click: function () {
-                    alert("hi second");
-                }
-            });
-        },
+//
+//
+//        btnHourly: function () {
+//            var $btnHourly = $("<button/>", {
+//                text: "Hourly forecast",
+//                id: "btnHourly",
+//                click: function () {
+//                    alert("hi");
+//                }
+//            });
+//        },
+//        btnSixteenDays: function () {
+//            var btnSixteenDays = $("<button/>", {
+//                text: "16 days forecast",
+//                id: "btnSixteenDays",
+//                click: function () {
+//                    alert("hi second");
+//                }
+//            });
+//        },
 
         loadApiKey: function () {
             if (typeof (localStorage) === 'undefined') {
