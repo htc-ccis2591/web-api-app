@@ -8,6 +8,7 @@ $(document).ready(function () {
         $targetArea: $("#weather"),
         weatherApiKey: "",
         localStorageKey: "openWeatherApi",
+        
         $btnHourly: $("<button/>", {
                 text: "Hourly forecast",
                 id: "btnHourly"}),
@@ -18,11 +19,17 @@ $(document).ready(function () {
 
 
 
-        getFormData: function () {
+        getApiKey: function () {
             if (weatherApp.weatherApiKey === null || weatherApp.weatherApiKey === "") {
                 weatherApp.weatherApiKey = $("#apikey").val().trim();
                 weatherApp.saveApiKey();
             }
+        },
+        
+        getZipData: function () {
+            
+            weatherApp.getApiKey();
+            
             var zip = $("#zip").val().trim();
 
             if (zip === null) {
@@ -36,6 +43,11 @@ $(document).ready(function () {
             console.log(apikey);
             console.log(zip);
         },
+        
+//        getCityIdData: function () {
+//            weatherApp.getApiKey();
+//            
+//            var cityId = weatherApp.g
 
         getWeatherData: function (zipcode) {
             var url = "http://api.openweathermap.org/data/2.5/weather?zip=" + zipcode + ",us&appid=" + weatherApp.weatherApiKey + "&units=imperial";
@@ -53,17 +65,33 @@ $(document).ready(function () {
                         weatherHumidity = data.main.humidity,
                         weatherWindSpeed = data.wind.speed,
                         weatherCityID = data.id;
-                    console.log(weatherCityID);
+                    //console.log(weatherCityID);
+                    //weatherApp.getWeatherData(weatherCityID)
 
                     weatherApp.$targetArea.html(
-                        "</br><li><b>Success!</b></li>" +
+                        "</br><li><b>Today's forecast!</b></li>" +                                             
                         "<li>Here is the weather information for " + "<b>" + weatherCity + "</b>" + "</li>" +
                         "<li>Currently, " + weatherDesc + "</li>" +
                         "<li> Current Temperature: " + weatherCurrentTemp + "°F" + "</li>" +
                         "<li> Maximum Temperature: " + weatherMaxTemp + "°F" + "</li>" +
                         "<li> Minimum Temperature: " + weatherMinTemp + "°F" + "</li>" +
                         "<li> Humidity: " + weatherHumidity + " %" + "</li>" +
-                        "<li> Wind Speed: " + weatherWindSpeed + " mph" + "</li>").insertBefore(weatherApp.$btnHourly).insertBefore(weatherApp.$btnSixteenDays);
+                        "<li> Wind Speed: " + weatherWindSpeed + " mph" + "</li>"
+                         
+                    )
+                    weatherApp.$btnHourly.insertBefore(weatherApp.$targetArea);
+                    weatherApp.$btnSixteenDays.insertAfter(weatherApp.$btnHourly);
+                    
+                    weatherApp.$btnHourly.click(function () {
+                        weatherApp.getHourlyData(weatherCityID);
+                        return false;
+                    });
+                    
+                    weatherApp.$btnSixteenDays.click(function() {
+                        weatherApp.getSixteenDaysData(weatherCityID);
+                        return false;
+                    });
+                        
 
                 } else {
                     weatherApp.$targetArea.html("Sorry, no weather data available.!");
@@ -74,12 +102,29 @@ $(document).ready(function () {
             });
         },
         
-        getHourlyData: function(hourlyData){
-            var url = "http://api.openweathermap.org/data/2.5/forecast?id=" + weatherApp.weatherCityID + "&appid=" + weatherApp.weatherApiKey + "&units=imperial";
+        getHourlyData: function(cityId){
+            var url = "http://api.openweathermap.org/data/2.5/forecast?id=" + cityId + "&appid=" + weatherApp.weatherApiKey + "&units=imperial";
+            //524901
             $.getJSON(url, function(data) {
-                if (data.cod === 200) {
-                    console.log("Hello from hourly forecast");
+                 //console.log("Hello from hourly forecast");
+                if (data.cod === "200") {                    
+                    console.log("Hello from hourly Inside");
+                    weatherApp.$targetArea.empty();
                     
+                    weatherApp.$targetArea.html("Hourly weather!");
+                   
+                    for(i = 0; i < data.list.length; i++)
+                    {
+                        $("#weather").append("<li>" + (data.list[i].dt_txt).substr(11) + "  " + data.list[i].main.temp + "°F"+ "</li>");
+                        
+  
+                    //var time = data.list[i].dt_txt;                          
+                    //var temp = data.list[i].main.temp;
+                    //console.log(time);
+                    //console.log(temp);
+                        
+                    }
+                                
                     
                 }
                 else {
@@ -90,11 +135,16 @@ $(document).ready(function () {
             });
         },
         
-         getSixteenDaysData: function(sixteenDaysData){
-            var url = "http://api.openweathermap.org/data/2.5/forecast/daily?id=" + weatherApp.weatherCityID + "&appid=" + weatherApp.weatherApiKey + "&units=imperial";
+        
+        
+        
+         getSixteenDaysData: function(cityId){
+            var url = "http://api.openweathermap.org/data/2.5/forecast/daily?id=" + cityId + "&appid=" + weatherApp.weatherApiKey + "&units=imperial";
             $.getJSON(url, function(data) {
-                if (data.cod === 200) {
+                if (data.cod === "200") {
                     console.log("Hello from 16 days forecast");
+                    
+                     weatherApp.$targetArea.empty();
                     
                     
                 }
@@ -109,26 +159,6 @@ $(document).ready(function () {
         
         
                 
-//
-//
-//        btnHourly: function () {
-//            var $btnHourly = $("<button/>", {
-//                text: "Hourly forecast",
-//                id: "btnHourly",
-//                click: function () {
-//                    alert("hi");
-//                }
-//            });
-//        },
-//        btnSixteenDays: function () {
-//            var btnSixteenDays = $("<button/>", {
-//                text: "16 days forecast",
-//                id: "btnSixteenDays",
-//                click: function () {
-//                    alert("hi second");
-//                }
-//            });
-//        },
 
         loadApiKey: function () {
             if (typeof (localStorage) === 'undefined') {
@@ -163,7 +193,7 @@ $(document).ready(function () {
 
     $("#submit").click(function () {
 
-        weatherApp.getFormData();
+        weatherApp.getZipData();
         return false;
 
     });
