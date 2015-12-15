@@ -1,3 +1,37 @@
 article, aside, figure, figcaption, footer, header, nav, section {
     display: block;
 }
+
+body{
+    background: skyblue;
+    
+}
+
+header {
+    background-color: coral;
+}
+
+#form{
+display:inline-block;
+margin-right:30px;
+text-align: left;
+margin: 50px 20px 10px 0;
+    font-size: 18px;
+    
+}
+
+.hide {
+    display: none;
+}
+
+li{
+    display: block;
+    //width: 300px;
+    height: 40px;
+    font-size: 18px;   
+    
+}
+
+#baseNav li{
+    width: 200px;
+    height: 25px

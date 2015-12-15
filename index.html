@@ -3,16 +3,44 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Update Me</title>
+    <title>My Weather Application</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <main>
+    
+ 
+   <main>
+        <header>
+            <h1>Welcome to AskMeWeather</h1>
+        </header>
+           
+           <div id = "mainNav">
+           <ul id = "baseNav">
+               <li><a href = "tours.html" title = "About us" class = "aboutUS"> About us</a></li>
+                  <li><a href = "tours.html" title = "City Information" class = "cityInfo"> City Information</a></li>
+                  <li><a href = "tours.html" title = "Explore our Lakes" class = "lakes"> Lakes</a></li>
+                  <li><a href = "tours.html" title = "Explore our Animals" class = "Animals"> Animals</a></li>                           
+                              
+               </ul>
+           </div>
 
+        <section id="form">
+            <form>
+                <div id = "apidiv">
+                    <label>Enter your API key:</label>
+                    <input type="text" name="apikey" id="apikey">
+                </div>
+                <label><br>Zip Code:</label>
+                <input type="text" name="zip" id="zip">
+                <br>
+                <br>
+                <button id = "submit">Submit</button>              
+            </form>
+        </section>
 
+        <section id="weather" aria-live="polite" aria-relevant="additions removals"></section>
     </main>
-
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
