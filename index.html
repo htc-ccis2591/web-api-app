@@ -3,17 +3,67 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Update Me</title>
+    <title>My Awesome Weather App</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <main>
+        <header>
+            <h1 class = "name">My Awesome Weather App!!!</h1>
+        </header>
 
+        <!-- used to populate API data -->
+        <div class = "webApp">
+            <div id = "placeholder">
+                <div class = "api-info">
+                    <h1 id = "test">CURRENT CITY</h1>
+                    <div id="theDiv"></div>
+                </div>
+            </div>
+            <div id = "placeholder">
+                <div class = "api-info">
+                    <h1 id = "test2" >CURRENT TEMP</h1>
+                </div>
+            </div>
+            <div id = "placeholder">
+                <div class = "api-info">
+                    <h1>7 Days Humidity Forecast</h1>
+                    <h6 id = "test3"></h6>
+                </div>            
+            </div>
+            <div id = "placeholder">
+                <div class = "api-info">                    
+                    <h1 id = "test4">Country</h1>
+                </div>            
+            </div>
+            <div id = "placeholder">
+                <div class = "api-info">
+                    <h1>Temp Every 3 Hours</h1>
+                    <h6 id = "test5"></h6>
+                </div>
+            </div>
+                    
+                        
+        </div>
+        <!-- END -->
+
+        <section id="form">
+            <form>
+                <div id="input-text">
+                    <section id="weather" aria-live="polite" aria-relevant="additions removals"></section>
+                    <input type="text" name="apikey" id="apikey" placeholder="Enter your API Key">
+                    <input type="text" name="city" id="city" placeholder="Please Enter City">
+                    <div class = "button-position">
+                        <button class = "button" id="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </section>
 
     </main>
-
-
+    
+        
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" language="Javascript"></script>
