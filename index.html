@@ -1,17 +1,47 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>-->
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Update Me</title>
+    <title>My Weather App</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <main>
+    <div id="header">
+<h1>Weather Forecast</h1>
+</div>
 
+<div id="side">
+        <section id="form">
+            <form>
+                <div id="apidiv">
+                    <label>Enter API key:</label>
+                    <input type="text" name="apikey" id="apikey">
+                    <button id="save">Save API</button>
+                </div>
+                <div id="infodiv">
+                    <label>City:</label>
+                    <input type="text" name="city" id="city">
+                    <label>State:</label>
+                    <input type="text" name="state" id="state">
+                    <br>
+                    <button id="forecast">3 Day Forecast</button>
+                    <button id="geolookup">Geolookup</button>
+                    <button id="hourly">Hourly</button>
+                    <button id="ureset">Search Again</button>
+                </div>
+            </form>
+        </section>
+</div>
 
-    </main>
+<div id="section">
+        <section id="weather" aria-live="polite" aria-relevant="additions removals"></section>
+</div>
+
+<div id="footer">
+Copyright &copy; Antonette Arabiana
+</div>
 
 
     <!-- jQuery -->

@@ -1,3 +1,62 @@
-article, aside, figure, figcaption, footer, header, nav, section {
+header,
+side,
+section,
+footer {
     display: block;
 }
+body
+{
+    font-family: Georgia, sans-serif;
+    font-size: 1em;
+}
+
+#header {
+    background-color:pink;
+    color:black;
+    text-align:center;
+    padding:5px;
+    border: 1px solid black;
+}
+#side {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:200px;
+    float:left;
+    padding:2px;	  
+    border: 1px solid black;
+}
+#section {
+    width: auto;
+    float:left;
+    padding:15px;	 
+}
+#footer {
+    background-color:pink;
+    color:black;
+    clear:both;
+    text-align:center;
+    padding:5px;	
+    border: 1px solid black;
+
+}
+#infodiv {
+    display: none;
+    padding: 10px;
+}
+
+button
+{
+    width: 173px;
+    padding: 5px;
+    font-family: Georgia, sans-serif;
+    font-size: 1em;
+}
+img
+{
+    float: left;
+    margin: 0 0 5px 5px;
+    padding: 10px;
+    height: 80px;
+}
+
