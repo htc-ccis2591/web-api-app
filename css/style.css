@@ -1,3 +1,67 @@
-article, aside, figure, figcaption, footer, header, nav, section {
-    display: block;
+﻿ html, body { 
+     height: 100%; 
+     margin: 0; 
+     padding: 0; 
+
+ }
+  #map { 
+          height: 50%;
+         
+
+      }
+  #data-display{
+      
+  }
+  #weather-data-display{
+      
+      margin-left: 50px;
+  }
+#target-display{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+#wrapper{
+    width: 800px;
+    height: 800px;
+    margin: 0 auto;
+    background-color: gray;
+    color: white;
+     border-spacing: 2px;
+     border-style: solid;
+    border-color: black;
+}
+body{
+   
+    background-image: url(../images/Grey-Wood-Background-08.jpg);
+    background-size:100%;
+}
+.targControls{
+    float: left;
+    margin-bottom: 25px;
+    position: relative;
+   margin-right: 5px;
+
+}
+#dataShowCase{
+    margin-top: 25px;
+    position:absolute;
+}
+#my-loc{
+    float: right;
+}
+#myLocButton{
+    float: right;
+    
+
+}
+#dataShowCase2{
+    float: right; 
+    margin-top: 40px;
+    margin-right: 100px;
+   
+}
+#dataShowCase2 h3{
+    margin: 0px;
+     margin-bottom: 18.720px;
 }

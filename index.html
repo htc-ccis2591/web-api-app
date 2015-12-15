@@ -1,26 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Update Me</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-    <main>
-
-
-    </main>
-
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" language="Javascript"></script>
-
-    <!-- javascript -->
-    <script src="js/script.js"></script>
-
-</body>
-
+﻿<!DOCTYPE html>
+<html>
+  <head>
+      <title>Joe's Map App</title>
+      <link href="css/style.css" rel="stylesheet" />
+  </head>
+    
+  <body>
+      <div id="wrapper">
+      <div id="target-display"><h2>No Current Focus</h2></div>
+      <input id="pac-input" class="controls" type="text"
+        placeholder="Enter a location">
+      <button id="submit">Search</button>
+          <button id="myLocButton">My Location</button>
+          <div id="my-loc"></div>
+          
+    <div id="map"></div>
+      
+    
+      <button class="targControls" id="saveTarget">Save Target</button>
+      <button class="targControls" id="loadTargert">Load Saves</button>
+      <button class="targControls" id="clearMap">Clear Map</button>
+      <button class="targControls" id="clearSaves">Clear Saves</button>
+          <section aria-live="polite" aria-relevant="additions removals">
+              <div id="dataShowCase"></div>
+              <div id="dataShowCase2"></div>
+       
+          </section>
+          <script src="js/jquery.js"></script>
+      
+      <script type="text/javascript"></script>
+    
+    <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8P0XsPoCnnzQpWyl9UfIyzfVQbka_wlk&libraries=places">
+     </script>
+          <script src="js/script.js"></script>
+        </div> 
+  </body>
+        
 </html>
