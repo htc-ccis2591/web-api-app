@@ -1,3 +1,34 @@
-article, aside, figure, figcaption, footer, header, nav, section {
-    display: block;
+ html, body { 
+     height: 100%; 
+     margin: 0; 
+     padding: 50px; 
+     font-family: monospace;
+ }
+body {
+    background-image: url(../img/bg.jpg);
+    background-size:100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#map { 
+    height: 60%;
+    width: 800px;
+}
+#title {
+    text-align: right;
+    margin-right: 50px;
+}
+#controls {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 50px;
+    text-align: right;
+    font-weight: bold;
+}
+#contentBar{
+    width: 760px;
+    margin-top: 15px;
+    padding: 20px;
+    background-color: lightgray;
+    color: black;
 }
