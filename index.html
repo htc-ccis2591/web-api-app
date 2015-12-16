@@ -9,23 +9,45 @@
 
 <body>
     <main>
-        <header>
+        <div id="divTop">
+        <header id="header">
             <h1>Ryan's Weather App</h1>
         </header>
         <section>
             <form>
-                <div>
-                    <label>API Key</label>
+<!--                <div id="divApi">-->
+                    <label>API Key:</label>
                     <input name="apiKey" id="apiKey" type="text">
                 </div>
+                <div id="divName">
+                     
                 <label>City Name:</label>
                 <input type="text" name="cityName" id="cityName">
-                <button id="submit">Submit</button>
+                     <button id="submit">Submit</button>
+                    
+                    <input type="radio" name="radChoice" id="radChoiceDay">Daily by City:
+                    
+                <input type="radio" name="radChoice" id="radChoice5Day">5 Day by City:
+            
+               
+                    
+                </div>
                 <div id="mainDiv">
                 <h1 id="lblTime"></h1>
                 <label id="lblTempHead"><b></b></label>
                  <label id="lblWeather"></label>
-                </div>   
+                <br></br>    
+                    <label id="lblDesHead"></label>
+                    <label id="lblDes"></label> 
+                <br></br>
+                    <label id="windSpeedHead"></label>
+                    <label id="windSpeed"></label>
+                <br> </br>
+                    <img id="img" src="http://openweathermap.org/img/w/code.png" alt="image">
+                </div>
+                <div>
+                    <button id="btnNext" type="button"></button>
+                </div>
             </form>
         </section>
         <section id="weather" aria-live="polite" aria-relevant="additions removals"></section>
@@ -40,6 +62,7 @@
 
     <!-- javascript -->
     <script src="js/script.js"></script>
+    <script src="js/moment.js"></script>
 
 </body>
 
