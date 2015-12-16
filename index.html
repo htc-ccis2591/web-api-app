@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Update Me</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-    <main>
-
-
-    </main>
-
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" language="Javascript"></script>
-
-    <!-- javascript -->
-    <script src="js/script.js"></script>
-
-</body>
-
+<html>
+    <head>
+        <title>Steinbach | Google Maps API Project</title>
+        <link href="css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        
+        <div id="map"></div>
+        
+        <div id="contentBar">
+            <div id="title"><h2>Google Maps API</h2></div>
+            <div id="controls">
+                <input id="searchtext" class="controls" type="text" placeholder="Please Enter A Location">
+                <button id="search">Search</button>
+                <button class="controls" id="clearMap">Clear</button>
+            </div>
+        </div> 
+        
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8P0XsPoCnnzQpWyl9UfIyzfVQbka_wlk&libraries=places"></script>
+            <script src="js/script.js"></script>
+        
+    </body>      
 </html>
