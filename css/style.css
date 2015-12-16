@@ -1,3 +1,26 @@
 article, aside, figure, figcaption, footer, header, nav, section {
     display: block;
 }
+.timeTitle{
+
+    background-color: darkorange
+}
+.divFormat{
+    background-color: lightcyan;
+}
+.div2ndFormat{
+    background-color: lightcyan;
+}
+.removePadding{
+   display: flex;
+}
+.adjustment
+{
+
+    padding: 1em;
+    
+}
+.error{
+    color: red;
+    
+}
