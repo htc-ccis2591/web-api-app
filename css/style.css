@@ -1,3 +1,10 @@
-article, aside, figure, figcaption, footer, header, nav, section {
-    display: block;
+
+#apidiv { text-align: center;
+    class: hide;
+}
+.hide{
+    display: none;
+}
+
+#form2 { text-align: right;
 }

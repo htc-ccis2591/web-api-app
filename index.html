@@ -2,18 +2,67 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Update Me</title>
+    <title>Take Time Off</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <main>
+        <header>
+            <h1>Take Time Off</h1>
+        </header>
+        <div>Use this web app on Mondays and Wednesdays to know if you need to take Fridays off based on the weather</div>
 
+        <section id="form">
+            <form>
+                <div id="apidiv">
+                    <label>Enter your API key:</label>
+                    <input  type="text" name="apikey" id="apikey">
+                </div>
+                <br>
+                      Use the box below on Monday for this coming Friday<br>
+                <br>
+                <label>Town:</label>
+                <input type="text" name="town" id="town">
+                <button id="submit">Submit</button>
+            </form>
+        </section>
+        <div>This is the description for the upcoming Friday</div>
+        <div id="weather"></div>
+        <div>This is the temperature for the upcoming Friday</div>
+        <div id="daytemp"></div>
+        
+        <section id="form2">
+        <form>
+            <div>Use this on Wednesday to see for two Fridays from now<br>
+            <label>City ID</label>
+            <input type="text" name="cityid" id="cityid">
+                   <button id="click">Submit</button><br>
+                <div>This is a description for two fridays from now</div>
+                <div id="nine"></div>
+            <div>This is the temperature for two fridays form now </div>
+            <div id="temps"></div>    
+            </div>
+            </form>
+        </section>
+        
+        <section id="form3">
+        <form>
+            <div>For the people that want todays weather for Shakopee </div>
+            <button id="click2">Click</button><br>
+            <div>Todays weathers description</div>
+        <div id="lonlatdes"></div>
+            <div>Todays weather temperature</div>
+        <div id="lonlattemp"></div>
+        </form>
+        </section>
+<section id="form" aria-live="polite" aria-relevant="additions removals"></section>
+        <section id="form2" aria-live="polite" aria-relevant="additions removals"></section>
+        <section id="form3" aria-live="polite" aria-relevant="additions removals"></section>
 
     </main>
-
-
+    
+        
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" language="Javascript"></script>
