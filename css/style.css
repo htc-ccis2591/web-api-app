@@ -1,3 +1,55 @@
 article, aside, figure, figcaption, footer, header, nav, section {
-    display: block;
+    display: block;   
+}
+
+body {
+    background-color: black;
+    color: orange;
+    font-family: Arial, sans-serif;
+    font-size: 1.5em;
+}
+
+header {
+    color: deepskyblue;
+    font-family: helvetica;
+    font-size: 1.0em;
+    text-align: center;
+    padding: 0px;
+}
+
+#form {
+    width: 90%;
+    margin: auto;   
+}
+
+#tempValue, #condValue, #locValue, #dateValue, #weathValue, #cityTitle, #dateValue2, #tempValue2, #condValue2, #dateValue3, #tempValue3, #condValue3, #dayDisp, #minDisp, #maxDisp, #dayDisp2, #minDisp2, #maxDisp2, #dayDisp3, #minDisp3, #maxDisp3, #currWeath{
+    color: deepskyblue;
+}
+
+#forecastTitle {
+    font-size: 1.3em;
+    color: deepskyblue;
+    text-decoration: underline;
+    font-weight: 800;
+}
+
+label {
+    padding: 5px;
+}
+
+input {
+    line-height: 1.3em;
+}
+
+#weather {
+    width: 80%;
+    margin: auto;
+}   
+
+.hide {
+    display: none;
+}
+
+.submit {
+    clear: both;
 }

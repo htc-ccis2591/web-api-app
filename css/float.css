@@ -1,0 +1,12 @@
+
+section#usercontent article {
+    float:left;
+}
+section#usercontent aside {
+    float:right;
+}
+
+.clearfloats
+{
+    clear:both;
+}

@@ -35,3 +35,7 @@ The presentation must include:
 - A walkthrough of your application object and its properties and methods.
 - A walkthrough of your HTML page, showing where the dynamic data is loaded.
 - A demo of your working application.
+
+36789c5dc063c2a75bfd70722a3641ed
+
+city id: 5037649
