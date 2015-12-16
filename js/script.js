@@ -165,29 +165,33 @@ $(document).ready(function () {
 
                         dayOneHeader = $("<h4>3 Hours</h4>").insertAfter(nextWeatherDisplay);
 
-                        dayOne = $("<p>").appendTo(dayOneHeader);
-                        dayOneDisplay = dayOne.text("Date/Time: " + nextTempTime + ".....Weather Conditions: " + nextConditions + ".....Temperature: " + nextTemp + " F .....Min Temp " + nextTempMin + " F .....Max Temp " + nextTempMax + " F .....Humidity :" + nextHumidity + "%");
+                        dayOne = $("<p>").text("Date/Time: " + nextTempTime + ".....Weather Conditions: " + nextConditions + ".....Temperature: " + nextTemp + " F .....Min Temp " + nextTempMin + " F .....Max Temp " + nextTempMax + " F .....Humidity :" + nextHumidity + "%").appendTo(dayOneHeader);
+                        
+                        // dayOneDisplay = dayOne.text("Date/Time: " + nextTempTime + ".....Weather Conditions: " + nextConditions + ".....Temperature: " + nextTemp + " F .....Min Temp " + nextTempMin + " F .....Max Temp " + nextTempMax + " F .....Humidity :" + nextHumidity + "%");
 
                         // 6 HOUR FORECAST -----------------
 
                         dayTwoHeader = $("<h4>6 Hours</h4>").insertAfter(dayOne);
 
-                        dayTwo = $("<p>").insertAfter(dayTwoHeader);
-                        dayTwoDisplayDisplay = dayTwo.text("Date/Time: " + nextTempTime1 + ".....Weather Conditions: " + nextConditions1 + ".....Temperature: " + nextTemp1 + " F .....Min Temp " + nextTempMin1 + " F .....Max Temp " + nextTempMax1 + " F .....Humidity :" + nextHumidity1 + "%");
+                        dayTwo = $("<p>").text("Date/Time: " + nextTempTime1 + ".....Weather Conditions: " + nextConditions1 + ".....Temperature: " + nextTemp1 + " F .....Min Temp " + nextTempMin1 + " F .....Max Temp " + nextTempMax1 + " F .....Humidity :" + nextHumidity1 + "%").insertAfter(dayTwoHeader);
+                        
+                        // dayTwoDisplayDisplay = dayTwo.text("Date/Time: " + nextTempTime1 + ".....Weather Conditions: " + nextConditions1 + ".....Temperature: " + nextTemp1 + " F .....Min Temp " + nextTempMin1 + " F .....Max Temp " + nextTempMax1 + " F .....Humidity :" + nextHumidity1 + "%");
 
                         // 9 HOUR FORECAST --------------------
 
                         dayThreeHeader = $("<h4>9 Hours</h4>").insertAfter(dayTwo);
 
-                        dayThree = $("<p>").insertAfter(dayThreeHeader);
-                        dayThreeDisplay = dayThree.text("Date/Time: " + nextTempTime2 + ".....Weather Conditions: " + nextConditions2 + ".....Temperature: " + nextTemp2 + " F .....Min Temp " + nextTempMin2 + " F .....Max Temp " + nextTempMax2 + " F .....Humidity :" + nextHumidity2 + "%");
+                        dayThree = $("<p>").text("Date/Time: " + nextTempTime2 + ".....Weather Conditions: " + nextConditions2 + ".....Temperature: " + nextTemp2 + " F .....Min Temp " + nextTempMin2 + " F .....Max Temp " + nextTempMax2 + " F .....Humidity :" + nextHumidity2 + "%").insertAfter(dayThreeHeader);
+                        
+                        // dayThreeDisplay = dayThree.text("Date/Time: " + nextTempTime2 + ".....Weather Conditions: " + nextConditions2 + ".....Temperature: " + nextTemp2 + " F .....Min Temp " + nextTempMin2 + " F .....Max Temp " + nextTempMax2 + " F .....Humidity :" + nextHumidity2 + "%");
 
                         // 12 HOUR FORECAST --------------------
 
                         dayFourHeader = $("<h4>12 Hours</h4>").insertAfter(dayThree);
 
-                        dayFour = $("<p>").insertAfter(dayFourHeader);
-                        dayFourDisplay = dayFour.text("Date/Time: " + nextTempTime3 + ".....Weather Conditions: " + nextConditions3 + ".....Temperature: " + nextTemp3 + " F .....Min Temp " + nextTempMin3 + " F .....Max Temp " + nextTempMax3 + " F .....Humidity :" + nextHumidity3 + "%");
+                        dayFour = $("<p>").text("Date/Time: " + nextTempTime3 + ".....Weather Conditions: " + nextConditions3 + ".....Temperature: " + nextTemp3 + " F .....Min Temp " + nextTempMin3 + " F .....Max Temp " + nextTempMax3 + " F .....Humidity :" + nextHumidity3 + "%").insertAfter(dayFourHeader);
+                        
+                        // dayFourDisplay = dayFour.text("Date/Time: " + nextTempTime3 + ".....Weather Conditions: " + nextConditions3 + ".....Temperature: " + nextTemp3 + " F .....Min Temp " + nextTempMin3 + " F .....Max Temp " + nextTempMax3 + " F .....Humidity :" + nextHumidity3 + "%");
 
                         // 15 HOUR FORECAST ------------------------
 
