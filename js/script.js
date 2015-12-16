@@ -10,10 +10,10 @@ $(document).ready(function () {
         localStorageKey: "openWeatherApi",
         
         $btnHourly: $("<button/>", {
-                text: "Hourly forecast",
+                text: "3 Hourly forecast",
                 id: "btnHourly"}),
         $btnSixteenDays: $("<button/>", {
-            text: "16 days forecast",
+            text: "7 days forecast",
             id: "btnSixteenDays"}),                    
         
 
@@ -26,6 +26,11 @@ $(document).ready(function () {
             }
         },
         
+//        getCityData: function () {
+//            weatherApp.getApiKey();
+//            var city = $("#zip").val().trim();
+            
+        
         getZipData: function () {
             
             weatherApp.getApiKey();
@@ -33,21 +38,18 @@ $(document).ready(function () {
             var zip = $("#zip").val().trim();
 
             if (zip === null) {
-                (weatherApp.$targetArea.html("Enter a zip code.")).insertBefore($("#form"));
+                (weatherApp.$targetArea.html("Enter a zip code."));
             } else if (zip.length != 5) {
-                (weatherApp.$targetArea.html("Zip code is not valid. It must be 5 characters long!")).insertBefore($("#form"));
+                (weatherApp.$targetArea.html("Zip code is not valid. It must be 5 characters long!"));
             } else {
                 weatherApp.getWeatherData(zip);
             }
 
-            console.log(apikey);
-            console.log(zip);
+//            console.log(apikey);
+//            console.log(zip);
         },
         
-//        getCityIdData: function () {
-//            weatherApp.getApiKey();
-//            
-//            var cityId = weatherApp.g
+
 
         getWeatherData: function (zipcode) {
             var url = "http://api.openweathermap.org/data/2.5/weather?zip=" + zipcode + ",us&appid=" + weatherApp.weatherApiKey + "&units=imperial";
@@ -69,8 +71,8 @@ $(document).ready(function () {
                     //weatherApp.getWeatherData(weatherCityID)
 
                     weatherApp.$targetArea.html(
-                        "</br><li><b>Today's forecast!</b></li>" +                                             
-                        "<li>Here is the weather information for " + "<b>" + weatherCity + "</b>" + "</li>" +
+                        "</br><li><b>Today's forecast</b>"+" " + "for" +  "</li>" +
+                        "<li>" + "<h3>" + weatherCity + "</h3>" + "</li>" +
                         "<li>Currently, " + weatherDesc + "</li>" +
                         "<li> Current Temperature: " + weatherCurrentTemp + "°F" + "</li>" +
                         "<li> Maximum Temperature: " + weatherMaxTemp + "°F" + "</li>" +
@@ -83,15 +85,16 @@ $(document).ready(function () {
                     weatherApp.$btnSixteenDays.insertAfter(weatherApp.$btnHourly);
                     
                     weatherApp.$btnHourly.click(function () {
-                        weatherApp.getHourlyData(weatherCityID);
+                        weatherApp.getHourlyData(weatherCityID, weatherCity);
                         return false;
                     });
                     
                     weatherApp.$btnSixteenDays.click(function() {
-                        weatherApp.getSixteenDaysData(weatherCityID);
+                        weatherApp.getSixteenDaysData(weatherCityID, weatherCity);
                         return false;
                     });
                         
+                    
 
                 } else {
                     weatherApp.$targetArea.html("Sorry, no weather data available.!");
@@ -102,7 +105,7 @@ $(document).ready(function () {
             });
         },
         
-        getHourlyData: function(cityId){
+        getHourlyData: function(cityId, city){
             var url = "http://api.openweathermap.org/data/2.5/forecast?id=" + cityId + "&appid=" + weatherApp.weatherApiKey + "&units=imperial";
             //524901
             $.getJSON(url, function(data) {
@@ -111,18 +114,17 @@ $(document).ready(function () {
                     console.log("Hello from hourly Inside");
                     weatherApp.$targetArea.empty();
                     
-                    weatherApp.$targetArea.html("Hourly weather!");
+                    weatherApp.$targetArea.html("<h3>" + "3 Hourly forecast for " + "</h3>" + "<h2>" + city +"</h2>");
                    
                     for(i = 0; i < data.list.length; i++)
                     {
-                        $("#weather").append("<li>" + (data.list[i].dt_txt).substr(11) + "  " + data.list[i].main.temp + "°F"+ "</li>");
+                        var jDate = data.list[i].dt_txt; 
+                        var momentDate = moment.utc(jDate, "YYYY-MM-DD HH:mm:ss");
+                        var day = momentDate.local().format('MMM Do YY, h a');
+                 
+                        $("#weather").append("<li>" + day + "&nbsp;" + "&nbsp;" + "&nbsp;" + "&nbsp;" + "<u>"+ data.list[i].weather[0].description + "</u>"+ "&nbsp;" + "&nbsp;" + "&nbsp;" + "&nbsp;" + data.list[i].main.temp + "°F"+ "</li>");
                         
-  
-                    //var time = data.list[i].dt_txt;                          
-                    //var temp = data.list[i].main.temp;
-                    //console.log(time);
-                    //console.log(temp);
-                        
+                          
                     }
                                 
                     
@@ -138,13 +140,37 @@ $(document).ready(function () {
         
         
         
-         getSixteenDaysData: function(cityId){
+         getSixteenDaysData: function(cityId, city){
             var url = "http://api.openweathermap.org/data/2.5/forecast/daily?id=" + cityId + "&appid=" + weatherApp.weatherApiKey + "&units=imperial";
             $.getJSON(url, function(data) {
                 if (data.cod === "200") {
-                    console.log("Hello from 16 days forecast");
+                    console.log("Hello from 7 days forecast");
                     
                      weatherApp.$targetArea.empty();
+                     weatherApp.$targetArea.html("<h3>" + "7 days weather forecast for "+ "</h3>" + "<h2>" + city + "</h2>");
+                    
+
+                   
+                    for(i=0; i < data.list.length; i++)
+                        
+                    var dt=parseInt(data.list[i].dt*1000);
+                    var myDate = new Date(dt);
+                    var jDate = (myDate.toLocaleString()).substr(0,10); 
+                    console.log(jDate);
+                        
+
+                    //var momentDate = moment.utc(myDate, "YYYY-MM-DD HH:mm:ss");
+                    //console.log(momentDate);
+                    //console.log(momentDate.local().format('MMMM Do YYYY, h:mm:ss a'));
+                    
+                    
+                    $("#weather").append("<li>" + jDate + ":  " + "&nbsp;" + "&nbsp;" + "Max " + data.list[i].temp.max + "°F"  + "&nbsp;" + "&nbsp;" + " - "  + "&nbsp;" + "&nbsp;" + "Min " + data.list[i].temp.min + "°F" + "&nbsp;" + "&nbsp;" + "&nbsp;" + "&nbsp;" +"<u>" + data.list[i].weather[0].main + "</u>" + "</li>");
+                    
+                    // This one work but without the date!
+                     //$("#weather").append("<li>" + "Day " + i + ":  " + "&nbsp;" + "&nbsp;" + "Max " + data.list[i].temp.max + "°F"  + "&nbsp;" + "&nbsp;" + " - "  + "&nbsp;" + "&nbsp;" + "Min " + data.list[i].temp.min + "°F" + "&nbsp;" + "&nbsp;" + "&nbsp;" + "&nbsp;" +"<u>" + data.list[i].weather[0].main + "</u>" + "</li>");
+                        
+
+                    
                     
                     
                 }

@@ -7,48 +7,71 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
+
+
 <body>
-    
- 
-   <main>
+
+
+    <main>
         <header>
-            <h1>Welcome to AskMeWeather</h1>
+            <div id="header">
+                <h1>Welcome to AskMeWeather</h1>
+            </div>
+
         </header>
-           
-           <div id = "mainNav">
-           <ul id = "baseNav">
-               <li><a href = "tours.html" title = "About us" class = "aboutUS"> About us</a></li>
-                  <li><a href = "tours.html" title = "City Information" class = "cityInfo"> City Information</a></li>
-                  <li><a href = "tours.html" title = "Explore our Lakes" class = "lakes"> Lakes</a></li>
-                  <li><a href = "tours.html" title = "Explore our Animals" class = "Animals"> Animals</a></li>                           
-                              
-               </ul>
-           </div>
 
-        <section id="form">
-            <form>
-                <div id = "apidiv">
-                    <label>Enter your API key:</label>
-                    <input type="text" name="apikey" id="apikey">
-                </div>
-                <label><br>Zip Code:</label>
-                <input type="text" name="zip" id="zip">
-                <br>
-                <br>
-                <button id = "submit">Submit</button>              
-            </form>
-        </section>
+        <div id="nav">
+            <ul>
+                <li><a href="tours.html">About us</a></li>
+                <li><a href="tours.html"> City Information</a></li>
+                <li><a href="tours.html">Lakes</a></li>
+                <li><a href="http://ggauchan001.github.io/FinalApp2"> Animal life</a></li>
+                <li><a href="http://ggauchan001.github.io/jquery-moonflowers"> Cafe</a></li>
 
-        <section id="weather" aria-live="polite" aria-relevant="additions removals"></section>
+
+            </ul>
+        </div>
+
+
+        <div id="section">
+
+            <section id="form">
+                <form>
+                    <div id="apidiv">
+                        <label>Enter your API key:</label>
+                        <input type="text" name="apikey" id="apikey">
+                    </div>
+                    <label>
+                        <br>Zip Code:</label>
+                    <input type="text" name="zip" id="zip" placeholder="Enter zipcode here">
+                    <br>
+                    <br>
+                    <button id="submit" class="button">Submit</button>
+                </form>
+            </section>
+
+            <section id="weather" aria-live="polite" aria-relevant="additions removals"></section>
+
     </main>
+
+    <footer>
+        <div id="footer">
+            Copyright © gyangauchan.com
+        </div>
+    </footer>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://momentjs.com/downloads/moment.min.js"></script>
+        <script src="http://momentjs.com/downloads/moment-with-locales.js"></script>
     <script type="text/javascript" language="Javascript"></script>
 
     <!-- javascript -->
     <script src="js/script.js"></script>
+    </div>
 
 </body>
+
+
 
 </html>
