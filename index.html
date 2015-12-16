@@ -3,19 +3,133 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Update Me</title>
+    <title>MJ's API</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/float.css">
+    <link rel="icon" href="mjFavicon.ico">
 </head>
 
 <body>
     <main>
+        <header>
+            <h1>MJ's WEATHER APP</h1>
+        </header>
+        <section id="form">
+            <form>
+                <div id="apidiv">
+                    <label>Enter your API key:</label>
+                    <input type="text" name="apikey" id="apikey">
+                </div>
+                <br>
 
+                <label>Enter City Name for 12 Hour Forecast:</label>
+                <input type="text" name="city" id="city">
+                <br>
+                <br>
+                <label>Enter City Code for 3 Day Forecast:</label>
+                <input type="text" name="cityCode" id="cityCode">
+                <br>
+                <br>
+                <button id="submit">Submit</button>
+                <button id="clear">Clear</button>
+                <br>
+                <br>
+                <label id="forecastTitle"></label>
+                <br>
+                <br>
+                <label id="currWeath">Current Weather Mpls/StPaul: </label>
+<!--                <input type="" name="zipcode" id="zipcode">-->
+                <br><br>
+                
+                
+                <section id="usercontent">
+
+                    
+                    <la
+                    <aside>
+
+                        <label id="dayTitle"></label>
+                        <label id="dayDisp"></label>
+                        <br>
+                        <label id="minTitle"></label>
+                        <label id="minDisp"></label>
+                        <br>
+                        <label id="maxTitle"></label>
+                        <label id="maxDisp"></label>
+                        <br>
+                        <br>
+                        <label id="dayTitle2"></label>
+                        <label id="dayDisp2"></label>
+                        <br>
+                        <label id="minTitle2"></label>
+                        <label id="minDisp2"></label>
+                        <br>
+                        <label id="maxTitle2"></label>
+                        <label id="maxDisp2"></label>
+                        <br>
+                        <br>
+                        <label id="dayTitle3"></label>
+                        <label id="dayDisp3"></label>
+                        <br>
+                        <label id="minTitle3"></label>
+                        <label id="minDisp3"></label>
+                        <br>
+                        <label id="maxTitle3"></label>
+                        <label id="maxDisp3"></label>
+                        <br>
+                        <br>
+                    </aside>
+
+                    <article>
+                        
+                        <label id="dateDisp"></label>
+                        <label id="dateValue"></label>
+                        <br>
+                        <label id="tempDisp"></label>
+                        <label id="tempValue"></label>
+                        <br>
+                        <label id="condDisp"></label>
+                        <label id="condValue"></label>
+                        <br>
+                        <br>
+                        <label id="dateDisp2"></label>
+                        <label id="dateValue2"></label>
+                        <br>
+                        <label id="tempDisp2"></label>
+                        <label id="tempValue2"></label>
+                        <br>
+                        <label id="condDisp2"></label>
+                        <label id="condValue2"></label>
+                        <br>
+                        <br>
+                        <label id="dateDisp3"></label>
+                        <label id="dateValue3"></label>
+                        <br>
+                        <label id="tempDisp3"></label>
+                        <label id="tempValue3"></label>
+                        <br>
+                        <label id="condDisp3"></label>
+                        <label id="condValue3"></label>
+                        <br>
+                        <br>
+                        <label id="condState"></label>
+                        <br>
+                        <br>
+                    </article>
+                    <div class="clearfloats"></div>
+
+
+            </form>
+
+            <section id="forecast" aria-live="polite" aria-relevant="additions removals">
+            </section>
+            </section>
 
     </main>
 
-
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://momentjs.com/downloads/moment-with-locales.js"></script>
     <script type="text/javascript" language="Javascript"></script>
 
     <!-- javascript -->
