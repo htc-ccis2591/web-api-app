@@ -2,13 +2,15 @@ $(document).ready(function () {
 
     weatherApp = {
 
-            $targetArea: $("#weather"),
+            //$targetArea: $("#weather"),
 
             weatherApiKey: "",
 
             city: "",
 
             localStorageKey: "openWeatherApi",
+        
+        // CREATING THE DIV'S THAT GO INTO EACH SECTION -----------------
 
             currentWeather: $("<div>", {
                 id: "currentWeather"
@@ -22,7 +24,7 @@ $(document).ready(function () {
             }),
 
 
-
+// GETTING THE DATA FOR THE API KEY ---------------------
 
             getFormData: function () {
                 if (weatherApp.weatherApiKey === null || weatherApp.weatherApiKey === "") {
@@ -33,14 +35,14 @@ $(document).ready(function () {
                 weatherApp.city = $("#city").val().trim();
                 if (weatherApp.city === null || weatherApp.city.length < 3) {
 
-                    weatherApp.$targetArea.html("Enter a city");
+                    //weatherApp.$targetArea.html("Enter a city");
                 } else {
                     weatherApp.getWeatherData(weatherApp.city);
                 }
 
             },
 
-            // CITY _________________________________________________________________________________________________________________
+            // CALLING THE CITY __________________________________________________
 
             getWeatherData: function (cityCode) {
 
@@ -51,14 +53,21 @@ $(document).ready(function () {
                     if (data.cod === 200) {
 
                         weatherApp.cityName = data.name;
+                        
+                        // DATA FOR CURRENT WEATHER
 
                         weatherName = data.name;
                         weatherDescription = data.weather[0].description;
                         weatherTemp = (Math.round(data.main.temp));
                         weatherHumidity = data.main.humidity;
                         weatherWind = data.wind.speed;
-
+                        
+                        
+                        // INSERTING DIV INTO THE #WEATHER SECTION --------------
+                        
                         currentWeather = $(weatherApp.currentWeather).appendTo("#weather");
+                        
+                        // H3 HEADER ------------------------
 
                         city = $("<h3>").appendTo(currentWeather);
                         citydisplay = city.text("Current Weather: " + weatherName).appendTo(city);
@@ -89,7 +98,7 @@ $(document).ready(function () {
 
             },
 
-            // HOURLY FORECAST__________________________________________________________________________________________________________________
+            // HOURLY FORECAST__________________________________________
 
             getWeatherForecast: function () {
                 var url = "http://api.openweathermap.org/data/2.5/forecast?q=" + weatherApp.city + ",us&appid=" + weatherApp.weatherApiKey + "&units=imperial";
@@ -97,12 +106,15 @@ $(document).ready(function () {
 
                     if (data.cod === "200") {
 
+                        // HOUR 3-----------------------
                         nextTempTime = data.list[0].dt_txt;
                         nextTemp = (Math.round(data.list[0].main.temp));
                         nextHumidity = data.list[0].main.humidity;
                         nextConditions = data.list[0].weather[0].main;
                         nextTempMin = (Math.round(data.list[0].main.temp_min));
                         nextTempMax = (Math.round(data.list[0].main.temp_max));
+                        
+                        // HOUR 6------------------------
 
                         nextTempTime1 = data.list[1].dt_txt;
                         nextTemp1 = (Math.round(data.list[1].main.temp));
@@ -110,6 +122,8 @@ $(document).ready(function () {
                         nextConditions1 = data.list[1].weather[0].main;
                         nextTempMin1 = (Math.round(data.list[1].main.temp_min));
                         nextTempMax1 = (Math.round(data.list[1].main.temp_max));
+                        
+                        // HOUR 9------------------------
 
                         nextTempTime2 = data.list[2].dt_txt;
                         nextTemp2 = (Math.round(data.list[2].main.temp));
@@ -117,6 +131,8 @@ $(document).ready(function () {
                         nextConditions2 = data.list[2].weather[0].main;
                         nextTempMin2 = (Math.round(data.list[2].main.temp_min));
                         nextTempMax2 = (Math.round(data.list[2].main.temp_max));
+                        
+                        // HOUR 12------------------------
 
                         nextTempTime3 = data.list[3].dt_txt;
                         nextTemp3 = (Math.round(data.list[3].main.temp));
@@ -124,6 +140,8 @@ $(document).ready(function () {
                         nextConditions3 = data.list[3].weather[0].main;
                         nextTempMin3 = (Math.round(data.list[3].main.temp_min));
                         nextTempMax3 = (Math.round(data.list[3].main.temp_max));
+                        
+                        // HOUR 15------------------------
 
                         nextTempTime4 = data.list[4].dt_txt;
                         nextTemp4 = (Math.round(data.list[4].main.temp));
@@ -131,6 +149,8 @@ $(document).ready(function () {
                         nextConditions4 = data.list[4].weather[0].main;
                         nextTempMin4 = (Math.round(data.list[4].main.temp_min));
                         nextTempMax4 = (Math.round(data.list[4].main.temp_max));
+                        
+                        
 
                         futureTemp = $(weatherApp.timeForecast).appendTo("#time");
 
@@ -167,7 +187,7 @@ $(document).ready(function () {
                 });
             },
 
-            // 7 day Forecast_____________________________________________________________________________________________________________
+            // 7 day Forecast__________________________________
 
             getFutureForecast: function () {
                 var url = "http://api.openweathermap.org/data/2.5/forecast/daily?q=" + weatherApp.city + ",us&appid=" + weatherApp.weatherApiKey + "&units=imperial";
@@ -213,8 +233,9 @@ $(document).ready(function () {
 
 
                         //TABLE ---------------------------------------------------------------------
-
-                        dayTableMain = $("<table></table>").insertAfter(futureForecast);
+                        
+                        mainTable = $("<table></table>");
+                        dayTableMain = $(mainTable).insertAfter(futureForecast);
                         dayTableHead = $("<tr></tr>").appendTo(dayTableMain);
 
                         dayTableName6 = $("<th>Day Six</th>").insertAfter(dayTableHead);
@@ -302,7 +323,8 @@ $(document).ready(function () {
             $("#city").val("");
             $(weatherApp.timeForecast).empty();
             $(weatherApp.furtureForecast).empty();
-            $(weatherApp.$targetArea).empty();
+            $(weatherApp.currentWeather).empty();
+        $("#future").empty();
 
             return false;
         });
