@@ -1,0 +1,34 @@
+{
+    "Stats" : [
+        {
+            "name": "Opponent Field Goal %",
+            "endpoint": "teamdashboardbyopponent",
+            "permode": "PerGame"
+        },
+        {
+            "name": "Opponent Free Throws Attempted per 100 Possessions",
+            "endpoint": "teamdashboardbyopponent",
+            "permode": "Per100Possessions"
+        },
+        {
+            "name": "Opponent Assists per 100 Possessions",
+            "endpoint": "teamdashboardbyopponent",
+            "permode": "Per100Possessions"
+        },
+        {
+            "name": "Field Goal %",
+            "endpoint": "teamdashboardbygeneralsplits",
+            "permode": "PerGame"
+        },
+        {
+            "name": "Free Throws Attempted per 100 Possessions",
+            "endpoint": "teamdashboardbygeneralsplits",
+            "permode": "Per100Possessions"
+        },
+        {
+            "name": "Assists per 100 Possessions",
+            "endpoint": "teamdashboardbygeneralsplits",
+            "permod": "Per100Possessions"
+        }
+    ]
+}

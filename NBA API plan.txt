@@ -1,0 +1,21 @@
+Project plan 
+
+Site will be used for comparing various sats to each other
+
+Start with one row, choose the team from a drop down. Choose a season. Choose stats to display. Have user define per mode for each, each one generated adding another column. 
+
+    - get start and end dates for each regular season
+
+Include an all team option
+
+Allow for mass correlation calculations between generated datasets, 
+
+http://stackoverflow.com/questions/20035101/no-access-control-allow-origin-header-is-present-on-the-requested-resource
+
+http://stats.nba.com/stats/teamdashboardbygeneralsplits/?SeasonType=Regular%20Season&TeamID=1610612764&MeasureType=Base&PerMode=PerGame&PlusMinus=N&PaceAdjust=N&Rank=N&Season=2014-15&Outcome=%20&Locaton=%20&Month=0&SeasonSegment=%20&DateFrom=%20&DateTo=%20&OpponentTeamID=0&VsConference=%20&VsDivision=%20&GameSegment=%20&Period=0&LastNGames=0
+
+stats.nba.com/stats/teamdashboardbygeneralsplits?SeasonType=Regular Season&TeamID=1610612764&MeasureType=Base&PerMode=PerGame&PlusMinus=N&PaceAdjust=N&Rank=N&Season=2014-15&Outcome= &Location= &Month=0&SeasonSegment= &DateFrom= &DateTo= &OpponentTeamID=0&VsConference= &VsDivision= &GameSegment= &Period=0&LastNGames=0
+
+10 = FG%
+15 = FTA
+20 = AST
