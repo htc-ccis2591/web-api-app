@@ -3,13 +3,34 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Update Me</title>
+    <title>Sarges Final Weather App</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <main>
+        <header>
+            <h1>Sarge's Final Weather App</h1>
+        </header>
 
+        <section id="form">
+            <form>
+                <div id="apiDiv">
+                    <label>Please enter your API key:</label>
+                    <input type="text" name="apikey" id="apikey">
+                </div>
+                <label>Please enter a city:</label>
+                <input type="text" name="city" id="city">
+                <button id="submit">Submit</button>
+
+            </form>
+        </section>
+
+        <section id="weather" aria-live="polite" aria-relevant="additions removals"></section>
+
+        <section id="time" aria-live="polite" aria-relevant="additions removals"></section>
+
+        <section id="future" aria-live="polite" aria-relevant="additions removals"></section>
 
     </main>
 
