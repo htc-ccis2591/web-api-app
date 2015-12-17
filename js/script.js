@@ -34,6 +34,8 @@ $(document).ready(function () {
 
                 weatherApp.city = $("#city").val().trim();
                 if (weatherApp.city === null || weatherApp.city.length < 3) {
+                    
+                    
 
                 } else {
                     weatherApp.getWeatherData(weatherApp.city);
@@ -158,12 +160,12 @@ $(document).ready(function () {
 
                         futureTemp = $(weatherApp.timeForecast).appendTo("#time");
 
-                        nextWeather = $("<h3>").appendTo(futureTemp);
-                        nextWeatherDisplay = nextWeather.text("Forecast over the next 15 hours (3 hour incriments): " + weatherName);
+                        nextWeather = $("<h3>").text("Forecast over the next 15 hours (3 hour incriments): " + weatherName).appendTo(futureTemp);
+                        
 
                         // 3 HOUR FORECAST
 
-                        hourOneHeader = $("<h4>3 Hours</h4>").insertAfter(nextWeatherDisplay);
+                        hourOneHeader = $("<h4>3 Hours</h4>").insertAfter(nextWeather);
 
                         hourOne = $("<p>").text("Date/Time: " + nextTempTime + ".....Weather Conditions: " + nextConditions + ".....Temperature: " + nextTemp + " F .....Min Temp " + nextTempMin + " F .....Max Temp " + nextTempMax + " F .....Humidity :" + nextHumidity + "%").appendTo(hourOneHeader);
                                              
@@ -195,9 +197,14 @@ $(document).ready(function () {
                         hourFiveDisplay = hourFive.text("Date/Time: " + nextTempTime4 + ".....Weather Conditions: " + nextConditions4 + ".....Temperature: " + nextTemp4 + " F .....Min Temp " + nextTempMin4 + " F .....Max Temp " + nextTempMax4 + " F .....Humidity :" + nextHumidity4 + "%");
 
 
+                   } else {
+                        weatherApp.$targetArea.html("Sorry, no weather data is available.  Try again later.");
                     }
 
+                }).fail(function () {
+                    weatherApp.$targetArea.html("Sorry, no weather data is available.  Try again later.");
                 });
+
             },
 
             // 7 day Forecast__________________________________
@@ -303,9 +310,14 @@ $(document).ready(function () {
                         dayFiveMorn = $("<td>" + "Morning Temp: " + dayTempMorn5 + " F" + "</td>").appendTo(dayFiveTemp);
                         dayFiveNight = $("<td>" + "Night Temp: " + dayTempNight5 + " F" + "</td>").appendTo(dayFiveMorn);
 
+                    } else {
+                        weatherApp.$targetArea.html("Sorry, no weather data is available.  Try again later.");
                     }
 
+                }).fail(function () {
+                    weatherApp.$targetArea.html("Sorry, no weather data is available.  Try again later.");
                 });
+
             },
 
 
@@ -318,7 +330,7 @@ $(document).ready(function () {
 
                     weatherApiKey = localStorage.getItem(weatherApp.localStorageKey);
                     if (weatherApiKey === null || weatherApp.weatherApiKey === "") {
-                        //weatherApp.$targetArea.html("Sorry, no api key was found.");
+                         //weatherApp.$targetArea.html("Sorry, no api key was found.");
                         return false;
                     }
                     return true;
@@ -333,7 +345,7 @@ $(document).ready(function () {
                     weatherApp.$targetArea.html("Sorry, local storage is not supported for this browser.");
                 } else {
                     if (weatherApp.weatherApiKey === null || weatherApp.weatherApiKey === "") {
-                        //weatherApp.$targetArea.html("Sorry, you must have an API Key.");
+                        weatherApp.$targetArea.html("Sorry, you must have an API Key.");
                     } else {
                         localStorage.setItem(weatherApp.localStorageKey, weatherApp.weatherApiKey);
                         $("#apiDiv").attr("class", "hide");
