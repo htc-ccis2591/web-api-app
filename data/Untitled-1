@@ -1,0 +1,56 @@
+/*        var typestat2;
+if ($("#perunit").val() == "Opponent Field Goal %" || $("#perunit").val() == "Field Goal %")
+                        typestat2 = 10;
+                    if ($("#perunit").val() == "Opponent Free Throws Attempted per 100 Possessions" || $("#perunit").val() == "Free Throws Attempted per 100 Possessions")
+                        typestat2 = 15;
+                    if ($("#perunit").val() == "Opponent Assists per 100 Possessions" || $("#perunit").val() == "Assists per 100 Possessions")
+                        typestat2 = 20;
+                    var IsOpp2 = "Base";                  
+                    if ($("#perunit").val() == "Opponent Field Goal %" || $("#perunit").val() == "Opponent Free Throws Attempted per 100 Possessions" || $("#perunit").val() == "Opponent Assists per 100 Possessions")
+                        IsOpp2 = "Opponent";
+
+$.ajax({
+                        url: "http://stats.nba.com/stats/teamdashboardbygeneralsplits?SeasonType=Regular Season&TeamID=" + teamID + "&MeasureType=" + IsOpp2 + "&PerMode=Per100Possessions&PlusMinus=N&PaceAdjust=N&Rank=N&Season=2014-15&Outcome= &Location= &Month=0&SeasonSegment= &DateFrom= &DateTo= &OpponentTeamID=0&VsConference= &VsDivision= &GameSegment= &Period=0&LastNGames=0",
+                        success: function (data) {
+                            StatTotal2 = StatTotal2 + data["resultSets"][0]["rowSet"][0][typestat2];
+                            StatArray2.push(data["resultSets"][0]["rowSet"][0][typestat2]);
+                            StatArray3.push(data["resultSets"][0]["headers"][typestat2]);
+                            console.log(counter);
+                            if (counter == 29) {
+                                console.log(StatArray);
+                                console.log(StatArray2);
+                                console.log(StatArray3);
+                                StatTotal = StatTotal / 30;
+                                $("#correl").append(Pcorrelation).text(correlation(StatArray, StatArray2));
+                            }
+                            counter = counter + 1;
+                                        }
+                    }); /*
+                    
+                    $.ajax({
+                        url: "http://stats.nba.com/stats/teamdashboardbygeneralsplits?SeasonType=Regular Season&TeamID=" + teamID + "&MeasureType=" + IsOpp2 + "&PerMode=Per100Possessions&PlusMinus=N&PaceAdjust=N&Rank=N&Season=2014-15&Outcome= &Location= &Month=0&SeasonSegment= &DateFrom= &DateTo= &OpponentTeamID=0&VsConference= &VsDivision= &GameSegment= &Period=0&LastNGames=0",
+                        success: function (data) {
+                            var typestat2;
+                            if ($("#perunit").val() == "Opponent Field Goal %" || $("#perunit").val() == "Field Goal %")
+                                typestat2 = 10;
+                            if ($("#perunit").val() == "Opponent Free Throws Attempted per 100 Possessions" || $("#perunit").val() == "Free Throws Attempted per 100 Possessions")
+                                typestat2 = 15;
+                            if ($("#perunit").val() == "Opponent Assists per 100 Possessions" || $("#perunit").val() == "Assists per 100 Possessions")
+                                typestat2 = 20;
+                            StatTotal2 = StatTotal2 + data["resultSets"][0]["rowSet"][0][typestat2];
+                            StatArray2.push(data["resultSets"][0]["rowSet"][0][typestat2]);
+                            StatArray3.push(data["resultSets"][0]["headers"][typestat2]);
+                            console.log(counter);
+                            if (counter == 29) {
+                                console.log(StatArray);
+                                console.log(StatArray2);
+                                console.log(StatArray3);
+                                StatTotal = StatTotal / 30;
+                                var Pcorrelation = $("<p>");
+                                $("#correl1").empty();
+                                Pcorrelation.text((correlation(StatArray, StatArray2)).toString());
+                                $("#correl1").append(Pcorrelation);
+                            }
+                            counter = counter + 1;
+                                        }
+                    });
