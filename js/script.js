@@ -251,13 +251,11 @@ $(document).ready(function () {
                         // INSERTING DIV INTO THE #future SECTION --------------
 
                         futureForecast = $(weatherApp.furtureForecast).appendTo("#future");
+                        
                         $("<h3>" + "7 Day Forecast: " + weatherName + "</h3>").appendTo(futureForecast);
 
-
-
-                        //TABLE ---------------------------------------------------------------------
-
                         // CREATING TABLE ----------------------
+                         
                         mainTable = $("<table></table>");
                         dayTableMain = $(mainTable).insertAfter(futureForecast);
                         dayTableHead = $("<tr></tr>").appendTo(dayTableMain);
@@ -270,35 +268,35 @@ $(document).ready(function () {
                         dayTableName3 = $("<th>Day Three</th>").insertAfter(dayTableHead);
                         dayTableName2 = $("<th>Day Two</th>").insertAfter(dayTableHead);
 
-                        // DAY 1 FORECAST ---------------------------
+                        // DAY 2 FORECAST ---------------------------
 
                         dayOneWeather = $("<td>" + "Weather: " + nextForecastWeather + "</td>").appendTo(dayTableName2);
                         dayOneTemp = $("<td>" + "Temperature: " + nextForecastTemp + "F " + "</td>").appendTo(dayOneWeather);
                         dayOneMorn = $("<td>" + "Morning Temp: " + dayTempMorn + " F" + "</td>").appendTo(dayOneTemp);
                         dayOneNight = $("<td>" + "Night Temp: " + dayTempNight + " F" + "</td>").appendTo(dayOneMorn);
 
-                        // DAY 2 FORECAST --------------------------
+                        // DAY 3 FORECAST --------------------------
 
                         dayTwoWeather = $("<td>" + "Weather: " + dayWeather2 + "</td>").appendTo(dayTableName3);
                         dayTwoTemp = $("<td>" + "Temperature: " + dayTemp2 + " F" + "</td>").appendTo(dayTwoWeather);
                         dayTwoMorn = $("<td>" + "Morning Temp: " + dayTempMorn2 + " F" + "</td>").appendTo(dayTwoTemp);
                         dayTwoNight = $("<td>" + "Night Temp: " + dayTempNight2 + " F" + "</td>").appendTo(dayTwoMorn);
 
-                        // DAY 3 FORECAST ------------------------------
+                        // DAY 4 FORECAST ------------------------------
 
                         dayThreeWeather = $("<td>" + "Weather: " + dayWeather3 + "</td>").appendTo(dayTableName4);
                         dayThreeTemp = $("<td>" + "Temperature: " + dayTemp3 + " F" + "</td>").appendTo(dayThreeWeather);
                         dayThreeMorn = $("<td>" + "Morning Temp: " + dayTempMorn3 + " F" + "</td>").appendTo(dayThreeTemp);
                         dayThreeNight = $("<td>" + "Night Temp: " + dayTempNight3 + "F" + "</td>").appendTo(dayThreeMorn);
 
-                        // DAY 4 FORECAST ------------------------------
+                        // DAY 5 FORECAST ------------------------------
 
                         dayFourWeather = $("<td>" + "Weather: " + dayWeather4 + "</td>").appendTo(dayTableName5);
                         dayFourTemp = $("<td>" + "Temperature: " + dayTemp4 + " F" + "</td>").appendTo(dayFourWeather);
                         dayFourMorn = $("<td>" + "Morning Temp: " + dayTempMorn4 + " F" + "</td>").appendTo(dayFourTemp);
                         dayFourNight = $("<td>" + "Night Temp: " + dayTempNight4 + " F" + "</td>").appendTo(dayFourMorn);
 
-                        // DAY 5 FORECAST -------------------------------
+                        // DAY 6 FORECAST -------------------------------
 
                         dayFiveWeather = $("<td>" + "Weather: " + dayWeather5 + "</td>").appendTo(dayTableName6);
                         dayFiveTemp = $("<td>" + "Temperature: " + dayTemp5 + " F" + "</td>").appendTo(dayFiveWeather);
