@@ -3,8 +3,8 @@
 ## Assignment Goals:
 - Build a JavaScript application object.
 - Learn to use an online JSON data web API.
-- Use jQuery to get ajax data and show appropriate error messages if the data cannot be obtained.
-- Use jQuery to dynamically add the data to the web page.
+- Use ajax to get JSON data and show an appropriate error messages if the data cannot be obtained.
+- Use jQuery or Angular 2 to dynamically add the data to the web page.
 - Use Aria attributes in HTML to indicate dynamic data
 
 ## GitHub Repository
@@ -20,7 +20,8 @@ If you do not use the Open Weather API, you must send me your API key via email.
 
 - A functional web application - No points will be awarded for a non-functional application.
 - You must use at least three different web API methods in your application.  
-- You must use jQuery to get the ajax data and provide an on screen (not an alert) message if the request for data fails.
+- You must use jQuery or Angular2
+- Use ajax with JSON data and provide an on screen (not an alert) message if the request for data fails.
 - You must use Aria attributes correctly in your HTML to indicate where live data is used.
 
 ## Presentation
