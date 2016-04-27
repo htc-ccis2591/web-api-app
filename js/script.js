@@ -14,7 +14,7 @@ var zip = "55344";
     
     var wineKey = "c2b17b38e2a85c5f2d0c9fcac6c39cef"
     function getWine(apiKey){
-        $.getJSON('//http://services.wine.com/api/beta2/service.svc/JSON/apikey=' + apiKey)
+        $.getJSON('//http://services.wine.com/api/beta2/service.svc/JSON/resource?apikey=' + apiKey + '&parameters')
         .done(function(data){
             console.log(data);
         })
