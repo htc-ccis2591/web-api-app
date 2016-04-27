@@ -12,17 +12,17 @@ $(function(){
 var zip = "55344";   
     
     
-    var beerKey = "d6b3926a400f0e8dc33d739b65f1838d"
-    function getBeer(apiKey){
-        $.getJSON('//api.brewerydb.com/v2/styles?key=' + apiKey + '&format=json')
+    var wineKey = "c2b17b38e2a85c5f2d0c9fcac6c39cef"
+    function getWine(apiKey){
+        $.getJSON('//http://services.wine.com/api/version/service.svc/format/categorymap?apikey=key' + apiKey)
         .done(function(data){
             console.log(data);
         })
         .fail(function(){
-            alert('Sorry, something went wrong. No beer for you.');
+            alert('Sorry, something went wrong. No wine for you.');
         });
     };
 
-    getBeer(beerKey);
+    getWine(wineKey);
     
 });
