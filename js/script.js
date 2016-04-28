@@ -35,6 +35,22 @@ $(function () {
         $evSearch = $('#eventSearch');
         
         $content.prepend('<h2>Search for types of events</h2>');
+    //Function to get json data for events
+    function getEventData(eventType) {
+        
+        var eventApi = 'http://api.eventful.com/json/events?q=' + eventType;
+        
+        console.log("apikey=" + apikey);
+        console.log("eventType=" + eventType);
+        
+
+        $.getJSON(eventApi)
+            .done(function (data) {
+                addNewItem(data);
+            }).fail(function () {
+                $('#API').append('<p> Can not load data </p>');
+            });
+    }
         
         $evSearch.on('submit', function (e) {
             eventType = $('#eType').val();
@@ -46,28 +62,6 @@ $(function () {
             $displayOptions.show();
             $content.hide();
         });
-        
-               //Function to get json data for events
-    function getEventData(eventType) {
-        
-        var eventFullApi = 'http://api.eventful.com/json/events?q=' + eventType;
-        
-        console.log("apikey=" + apikey);
-        console.log("eventType=" + eventType);
-        
-
-        $.getJSON(eventFullApi)
-            .done(function (data) {
-                addNewItem(data);
-            }).fail(function () {
-                $('#API').append('<p> Can not load data </p>');
-            });
-    }
-        
-    
- 
-
-
     });
 
     
