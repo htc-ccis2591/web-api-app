@@ -4,7 +4,7 @@ article, aside, figure, figcaption, footer, header, nav, section {
 
 body {
     font-family: Impact, Charcoal, sans-serif;
-    background: url(/images/picjumbo.com_IMG_6648.jpg) no-repeat center fixed;
+    background: url(../images/picjumbo.com_IMG_6648.jpg) no-repeat center fixed;
     background-size: cover;
 }
 
