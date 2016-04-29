@@ -1,27 +1,29 @@
 $(function() {
+    
+    // Declare Variables
+    var $StarWarsFilms = $("#StarWarsFilms");
+    var $StarWarsFilmInfo = $("#StarWarsFilmInfo");
+    var $FilmPeopleShips = $("#StarWarsFilmInfo, #StarWarsPeopleInfo, #StarWarsShipsInfo");
+    
+    // Hide children of asides
+    $FilmPeopleShips.children().remove();
        
-    function loadCharacter(film) { 
+    function loadFilmData(selectedValue) { 
       // ajax method creates html elements when successful
-      $.getJSON('http://swapi.co/api/' + film)
-      .done(function(data){
-          
-          jsonChars = data;
-          $('body').append('<br /><br />' + data.release_date);
-          
-          
-      }).fail(function() {
-          
-         alert('no'); 
-      });
-                     
-         
+        
+        $StarWarsFilmInfo.append('<img src="/Images/Episode' + selectedValue + '.jpg" />');
+        
     }
+
     
-    $('#StarWarsMovie').on('change', function(){
-          
-        loadCharacter('films/' + this.value + '/');        
-    });
     
-     
-    
+    $('#StarWarsFilms').on('change', function(){
+        if (this.value === "0"){
+            $FilmPeopleShips.children().remove();       
+        }
+        else {
+            $FilmPeopleShips.children().remove(); 
+             loadFilmData(this.value);
+        }              
+    });      
 });

@@ -1,3 +1,42 @@
 article, aside, figure, figcaption, footer, header, nav, section {
     display: block;
 }
+
+body {
+    background-image: url(/Images/Stars.jpg);
+    color: white;
+}
+
+header {
+    
+    text-align: center;
+    font-size: 100%;
+    color: yellow;
+    margin: .5% 20% 5%;
+
+}
+#lblFilms {
+    font-size: 200%;
+}
+#FilmSelections {
+    clear: both;
+    float:left;
+    margin-left: 4%;
+    margin-right: 8%;
+}
+
+#StarWarsFilmInfo {
+    float:left;
+    margin-right: 10%;
+}
+
+.FloatLeft {
+    float: left;
+}
+.block {
+    display: block;
+}
+p {
+    font-size: xx-large;
+    margin-top: -1em;
+}
