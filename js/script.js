@@ -38,7 +38,7 @@ $(function () {
     //Function to get json data for events
     function getEventData(eventType) {
         
-        var eventApi = 'http://eventful.com/json/events?q=' + eventType + 'setting&cors_filter=1&app_key=' + apikey;
+        var eventApi = 'http://eventful.com/json/events?q=' + eventType + '&cors_filter=1&app_key=' + apikey;
         
         console.log("apikey=" + apikey);
         console.log("eventType=" + eventType);
