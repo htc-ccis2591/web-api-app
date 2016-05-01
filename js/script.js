@@ -72,7 +72,7 @@ $(function () {
         nItem += '<p>Description: ' + data.events[0].description + '</p>';
        // nItem += '<p>' + data.events[0].description + '</p>';
         $('#form').append('<div id = events>' + nItem + '</div>');
-    }*/
+    }
 
 
 });
