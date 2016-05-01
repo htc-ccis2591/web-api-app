@@ -68,9 +68,9 @@ $(function () {
 
     function addNewItem(data) {
         var nItem = '';
-        nItem += '<h3>Event chosen was' + ' ' + data.title + '</h3>';
-        nItem += '<p>Description: ' + data.events[0].description + '</p>';
-       // nItem += '<p>' + data.events[0].description + '</p>';
+        
+        nItem += '<h3>Event chosen was' + ' ' + data.events.event[0].title + '</h3>';
+        nItem += '<p>Description: ' + data.events.event[0].description + '</p>';
         $('#form').append('<div id = events>' + nItem + '</div>');
     }
 
