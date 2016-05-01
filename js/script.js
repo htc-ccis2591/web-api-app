@@ -66,12 +66,12 @@ $(function () {
 
     
 
-   /* function addNewItem(data) {
+    function addNewItem(data) {
         var nItem = '';
-        nItem += '<h3>The weather info for' + ' ' + data.name + '</h3>';
-        nItem += '<p>Current Temperature: ' + convertTemp(data.main.temp) + '</p>';
-        nItem += '<p>' + data.weather[0].description + '</p>';
-        $('#form').append('<div id = weather>' + nItem + '</div>');
+        nItem += '<h3>Event chosen was' + ' ' + data.title + '</h3>';
+        nItem += '<p>Description: ' + data.events[0].description + '</p>';
+       // nItem += '<p>' + data.events[0].description + '</p>';
+        $('#form').append('<div id = events>' + nItem + '</div>');
     }*/
 
 
