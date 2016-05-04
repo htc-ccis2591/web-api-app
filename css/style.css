@@ -22,3 +22,34 @@ h1 {
     width: 50%;
     margin: auto;
 }
+
+#mPage {
+    float: left;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 1;
+    background: url(../images/M5OXzA0.jpg) no-repeat center fixed;
+}
+    
+#content {
+    color: antiquewhite
+}
+
+#sType {
+    text-align: center;
+    color: antiquewhite;
+    margin: 1;
+    width: inherit;
+    padding: 2px;
+}
+    
+
+#displayOptions {
+    width: inherit;
+    color: antiquewhite;
+    padding: 2px;
+}
+
+
