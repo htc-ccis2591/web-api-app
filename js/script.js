@@ -11,7 +11,7 @@ $(function() {
     function loadFilmData(selectedValue) { 
       // ajax method creates html elements when successful
         
-        $StarWarsFilmInfo.append('<img src="/Images/Episode' + selectedValue + '.png" >');
+        $StarWarsFilmInfo.append('<img src="Images/Episode' + selectedValue + '.png" >');
         
     }
 
