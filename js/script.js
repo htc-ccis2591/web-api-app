@@ -7,6 +7,7 @@ $(function () {
     var $sType = $('#sType');
     var $visited = '';
     var $displayOptions = $('#displayOptions');
+    var $searchresults = $('#SearchResults');
     $.ajax({
         beforeSend: function (xhr) {
             if (xhr.overrideMimeType) {
@@ -27,6 +28,7 @@ $(function () {
     //function to display type of search
     //this one is for event
     $event.on("click", function () {
+        var $eventContent = '';
         var $content = '';
         var $evSearch = '';
         var $back = '';
@@ -73,7 +75,7 @@ $(function () {
             $sType.show();
             $displayOptions.show();
             $evSearch.remove();
-            //$eventContent.remove();
+            $eventContent.remove();
             $back.remove();
         });
 
@@ -81,7 +83,7 @@ $(function () {
     //Begin Performer setup
     //var $performer = $('#performers');
         $performer.on("click", function () {
-        var $eventContent = '';
+        var $performerContent = '';
         var $perSearch = '';
         var $back = '';
 
@@ -186,7 +188,7 @@ $(function () {
         var nItem = '';
         nItem += '<h3>Event type chosen was' + ' ' + data.events.event[0].title + '</h3>';
         nItem += '<p>Description: ' + data.events.event[0].description + '</p>';
-        $('#mPage').after('<div id = eventContent>' + nItem + '</div>');
+        $searchresults.after('<div id = eventContent>' + nItem + '</div>');
     }
     
     //this is for adding performer
