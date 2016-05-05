@@ -1,3 +1,4 @@
+//8:48pm 5/4/16
 $(function () {
     var $event = $('#events');
     var $performer = $('#performers');
@@ -75,7 +76,7 @@ $(function () {
             $sType.show();
             $displayOptions.show();
             $evSearch.remove();
-            $eventContent.remove();
+            $("#eventContent").remove();
             $back.remove();
         });
 
