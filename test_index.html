@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>It's a TraApp</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class='header'>
+        <img class='banner' src='img/LOGO2.png' alt="It's a TrApp!">
+    </div>
+    <div class='sidebar'>
+        <h3>Locations</h3>
+        <ul>
+            <li>New Zealand</li>
+            <li>Thailand</li>
+            <li>Sweden</li>
+            <li>California</li>
+        </ul>
+    </div>
+
+    <div class='main' aria-live="polite" aria-relevant="additions removals">
+        <!--  <h1>Where would you like to go?</h1>   --> 
+        <h1>Welcome to Sweden!</h1>
+        <div id='time'>
+            <h2>Local Time</h2>
+        </div>
+        <div id='currency'>
+            <h2>Local Currency</h2>
+        </div>
+        <br>
+        <div id='language'>
+            <h2>Local Language</h2>
+        </div>
+        <div id='map'>
+            <h2>Map of the Area</h2>
+        </div>
+        
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" language="Javascript"></script>
+    <script src="//cdn.timezonedb.com/js/timezonedb.min.js" type="text/javascript"></script>
+
+    <!-- javascript -->
+    <script src="js/script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8mqTP9eH-CayOE_0xJsxcTOzlrqwaUxg">
+    </script>
+
+</body>
+
+</html>
