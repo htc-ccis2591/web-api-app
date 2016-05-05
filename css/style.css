@@ -3,7 +3,7 @@ article, aside, figure, figcaption, footer, header, nav, section {
 }
 
 body {
-     background-color: black;
+    background-color: black;
     color: white;
 }
 
@@ -22,16 +22,18 @@ header {
     clear: both;
     float:left;
     margin-left: 4%;
-    margin-right: 8%;
+    margin-right: 4%;
 }
 
 #StarWarsFilmInfo {
-    float:left;
-    margin-right: 10%;
+    margin-right: 4%;
 }
-
-.FloatLeft {
+#filmPicture {
     float: left;
+    margin-right: 4%;
+}
+#Characters {
+    margin-bottom: 3%; 
 }
 .block {
     display: block;
@@ -40,3 +42,22 @@ p {
     font-size: xx-large;
     margin-top: -1em;
 }
+ul {
+    list-style: none;
+    
+}
+select {
+    display: block;
+}
+#StarWarsPeopleInfo{
+    float: right;
+    margin-top: -15em;
+    margin-right: 10em;
+}
+#StarWarsPlanetsInfo {
+    float: right;
+    display: block;
+    margin-top: 15em;
+    margin-right: -17em;
+}
+
