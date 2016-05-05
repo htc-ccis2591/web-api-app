@@ -188,7 +188,7 @@ $(function () {
         var nItem = '';
         nItem += '<h3>Event type chosen was' + ' ' + data.events.event[0].title + '</h3>';
         nItem += '<p>Description: ' + data.events.event[0].description + '</p>';
-        $searchresults.after('<div id = eventContent>' + nItem + '</div>');
+        $searchresults.append('<div id = eventContent>' + nItem + '</div>');
     }
     
     //this is for adding performer
