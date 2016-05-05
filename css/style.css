@@ -55,7 +55,13 @@ h1 {
     padding: 2px;
 }
 
-#events {
+#eventContent {
+    position: relative;
+    float: right;
+    padding: 5px;
+    border: 2px solid gray;
+    background: url(../images/c13.jpg) no-repeat center fixed;
+    background-size: cover;
     
 }
 
