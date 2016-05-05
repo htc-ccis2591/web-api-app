@@ -30,22 +30,24 @@ $(function () {
         var $content = '';
         var $evSearch = '';
         var $back = '';
+        var $evSearchfrm = '';
 
         $sType.hide();
         $displayOptions.hide();
-        $mPage.append('<div id = "content"></div>');
-        $content = $('#content');
-        $content.append('<form id = "eventSearch"><label>What type of event?</label><input type="text" name="eType" id="eType"><input type="submit" name="Submit" value="Submit"></form>');
-        $content.prepend('<h2>Search for types of events</h2>');
-        $evSearch = $('#eventSearch');
+        $mPage.append('<div id = "evSearch"></div>');
+        $evSearch = $('#evSearch');
+        $evSearch.append('<form id = "eventSearch"><label>What type of event?</label><input type="text" name="eType" id="eType"><input type="submit" name="Submit" value="Submit"></form>');
+        $evSearch.prepend('<h2>Search for types of events</h2>');
+        $evSearchfrm = $('#eventSearch');
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
         $back = $('#back');
-        //$event.addClass('visited');
+        
 
         $evSearch.on('submit', function (e) {
             eventType = $('#eType').val();
             e.preventDefault();
             getEventData(eventType);
+            $evSearch.remove();
         });
 
         //Function to get json data for events
@@ -70,7 +72,8 @@ $(function () {
         $back.on("click", function () {
             $sType.show();
             $displayOptions.show();
-            $content.remove();
+            $evSearch.remove();
+            //$eventContent.remove();
             $back.remove();
         });
 
@@ -78,7 +81,7 @@ $(function () {
     //Begin Performer setup
     //var $performer = $('#performers');
         $performer.on("click", function () {
-        var $content = '';
+        var $eventContent = '';
         var $perSearch = '';
         var $back = '';
 
@@ -139,7 +142,7 @@ $(function () {
         $venSearch = $('#venueSearch');
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
         $back = $('#back');
-        //$event.addClass('visited');
+       
 
         $venSearch.on('submit', function (e) {
             uVenue = $('#vType').val();
@@ -171,6 +174,7 @@ $(function () {
             $displayOptions.show();
             $content.remove();
             $back.remove();
+            
         });
 
     });
@@ -182,7 +186,7 @@ $(function () {
         var nItem = '';
         nItem += '<h3>Event type chosen was' + ' ' + data.events.event[0].title + '</h3>';
         nItem += '<p>Description: ' + data.events.event[0].description + '</p>';
-        $('#displayOptions').after('<div id = events>' + nItem + '</div>');
+        $('#mPage').after('<div id = eventContent>' + nItem + '</div>');
     }
     
     //this is for adding performer
@@ -190,7 +194,7 @@ $(function () {
         var nItem = '';
         nItem += '<h3>Performer chosen was' + ' ' + data.performers.performer[0].title + '</h3>';
         nItem += '<p>Description: ' + data.performers.performer[0].description + '</p>';
-        $('#displayOptions').after('<div id = performers>' + nItem + '</div>');
+        $('#displayOptions').after('<div id = performerContent>' + nItem + '</div>');
     }
     
     //this is for adding venue
@@ -198,7 +202,7 @@ $(function () {
         var nItem = '';
         nItem += '<h3>Venues included ' + ' ' + data.venues.venue[0].title + '</h3>';
         nItem += '<p>Description: ' + data.venues.venue[0].description + '</p>';
-        $('#displayOptions').after('<div id = venues>' + nItem + '</div>');
+        $('#displayOptions').after('<div id = venuesContent>' + nItem + '</div>');
     }
 
 });
