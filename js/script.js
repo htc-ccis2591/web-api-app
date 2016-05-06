@@ -133,6 +133,7 @@ $(function () {
 
 
         //////// Time!
+        //////// info on time API http://timezonedb.com/api
         function loadTime(location) {
             //get current local time and date and add to the dom
             var localTime = new Date();
@@ -222,6 +223,7 @@ $(function () {
 
 
         ////// Currency!
+        ////// info on currency api  https://currencylayer.com/documentation  (go down to API features)
         function loadCurrency(location) {
             var currency;
             //determine currency
@@ -293,6 +295,7 @@ $(function () {
 
         
         //////// Language!
+        //////// informationon language api  https://cloud.google.com/translate/v2/quickstart
         function loadLanguage(location) {
 
             //array of phrases I want to add, as a string for the api call and as an array
@@ -361,6 +364,8 @@ $(function () {
 
 
         //////// Maps!
+        //////// information on map api https://developers.google.com/maps/documentation/javascript/tutorial#Map_DOM_Elements
+
         function loadMaps(location) {
 
             // determine the correct lat/long/zoom
