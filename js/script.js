@@ -1,4 +1,4 @@
-//8:48pm 5/4/16
+// 5/5/16
 $(function () {
     var $event = $('#events');
     var $performer = $('#performers');
@@ -29,8 +29,7 @@ $(function () {
     //function to display type of search
     //this one is for event
     $event.on("click", function () {
-        var $eventContent = '';
-        var $content = '';
+        //var $content = '';
         var $evSearch = '';
         var $back = '';
         var $evSearchfrm = '';
@@ -77,6 +76,7 @@ $(function () {
             $displayOptions.show();
             $evSearch.remove();
             $("#eventContent").remove();
+            //$searchresults.hide();
             $back.remove();
         });
 
@@ -87,14 +87,15 @@ $(function () {
         var $performerContent = '';
         var $perSearch = '';
         var $back = '';
+        var $perSearchfrm = '';
 
         $sType.hide();
         $displayOptions.hide();
-        $mPage.append('<div id = "content"></div>');
-        $content = $('#content');
-        $content.append('<form id = "performerSearch"><label>What specific perfomer are you looking for?</label><input type="text" name="pType" id="pType"><input type="submit" name="Submit" value="Submit"></form>');
-        $content.prepend('<h2>Search for a specific performer</h2>');
-        $perSearch = $('#performerSearch');
+        $mPage.after('<div id = "perfSearch"></div>');
+        $perSearch = $('#perfSearch');
+        $perSearch.append('<form id = "performerSearch"><label>What specific perfomer are you looking for?</label><input type="text" name="pType" id="pType"><input type="submit" name="Submit" value="Submit"></form>');
+        $perSearch.prepend('<h2>Search for a specific performer</h2>');
+        $perSearchfrm = $('#performerSearch');
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
         $back = $('#back');
         //$event.addClass('visited');
@@ -103,6 +104,7 @@ $(function () {
             pFormer = $('#pType').val();
             e.preventDefault();
             getPerformerData(pFormer);
+            $perSearchfrm.remove();
         });
 
         //Function to get json data for performers
@@ -124,7 +126,7 @@ $(function () {
         $back.on("click", function () {
             $sType.show();
             $displayOptions.show();
-            $content.remove();
+            $perSearch.remove();
             $back.remove();
         });
 
@@ -195,9 +197,9 @@ $(function () {
     //this is for adding performer
     function addNewPerformer(data) {
         var nItem = '';
-        nItem += '<h3>Performer chosen was' + ' ' + data.performers.performer[0].title + '</h3>';
-        nItem += '<p>Description: ' + data.performers.performer[0].description + '</p>';
-        $('#displayOptions').after('<div id = performerContent>' + nItem + '</div>');
+        nItem += '<h3>Performer chosen was' + ' ' + data.performers.performer[0].name + '</h3>';
+        nItem += '<p>Description: ' + data.performers.performer[0].short_bio + '</p>';
+        $searchresults.append('<div id = performerContent>' + nItem + '</div>');
     }
     
     //this is for adding venue
