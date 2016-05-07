@@ -127,7 +127,7 @@ $(function () {
             $sType.show();
             $displayOptions.show();
             $perSearch.remove();
-            $("#performerContent").remove():
+            $("#performerContent").remove();
             $back.remove();
         });
 
