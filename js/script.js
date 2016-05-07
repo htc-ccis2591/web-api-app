@@ -98,7 +98,6 @@ $(function () {
         $perSearchfrm = $('#performerSearch');
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
         $back = $('#back');
-        //$event.addClass('visited');
 
         $perSearch.on('submit', function (e) {
             pFormer = $('#pType').val();
@@ -197,8 +196,8 @@ $(function () {
     //this is for adding performer
     function addNewPerformer(data) {
         var nItem = '';
-        nItem += '<h3>Performer chosen was' + ' ' + data.performers.performer[0].name + '</h3>';
-        nItem += '<p>Description: ' + data.performers.performer[0].short_bio + '</p>';
+        nItem += '<h3>Performer chosen was' + ' ' + data.performers.performer.name + '</h3>';
+        nItem += '<p>Description: ' + data.performers.performer.short_bio + '</p>';
         $searchresults.append('<div id = performerContent>' + nItem + '</div>');
     }
     
