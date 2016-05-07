@@ -3,12 +3,14 @@ $(function () {
     var $event = $('#events');
     var $performer = $('#performers');
     var $venue = $('#venues');
-    var apikey = '';
     var $mPage = $('#mPage');
     var $sType = $('#sType');
-    var $visited = '';
     var $displayOptions = $('#displayOptions');
     var $searchresults = $('#SearchResults');
+    var apikey = '';
+    var $visited = '';
+    
+    
     $.ajax({
         beforeSend: function (xhr) {
             if (xhr.overrideMimeType) {
@@ -136,16 +138,17 @@ $(function () {
     //begin venue
     $venue.on("click", function () {
         var $content = '';
+        var $venSearchfrm = '';
         var $venSearch = '';
         var $back = '';
 
         $sType.hide();
         $displayOptions.hide();
-        $mPage.append('<div id = "content"></div>');
-        $content = $('#content');
-        $content.append('<form id = "venueSearch"><label>What specific venue are you looking for?</label><input type="text" name="vType" id="vType"><input type="submit" name="Submit" value="Submit"></form>');
-        $content.prepend('<h2>Search for a specific venue</h2>');
+        $mPage.append('<div id = "venueSearch"></div>');
         $venSearch = $('#venueSearch');
+        $venSearch.append('<form id = "venueSearchfrm"><label>What specific venue are you looking for?</label><input type="text" name="vType" id="vType"><input type="submit" name="Submit" value="Submit"></form>');
+        $venSearch.prepend('<h2>Search for a specific venue</h2>');
+        $venSearchfrm = $('#venueSearchfrm');
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
         $back = $('#back');
        
@@ -154,6 +157,7 @@ $(function () {
             uVenue = $('#vType').val();
             e.preventDefault();
             getVenueData(uVenue);
+            $venSearchfrm.remove();
         });
 
         //Function to get json data for performers
@@ -176,6 +180,7 @@ $(function () {
             $sType.show();
             $displayOptions.show();
             $("#venuesContent").remove();
+            $perSearch.remove();
             $back.remove();
             
         });
