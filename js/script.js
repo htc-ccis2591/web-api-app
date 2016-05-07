@@ -1,4 +1,4 @@
-// 5/5/16
+// 5/7/16
 $(function () {
     var $event = $('#events');
     var $performer = $('#performers');
@@ -97,6 +97,7 @@ $(function () {
         $perSearch.prepend('<h2>Search for a specific performer</h2>');
         $perSearchfrm = $('#performerSearch');
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
+        
         $back = $('#back');
 
         $perSearch.on('submit', function (e) {
@@ -126,6 +127,7 @@ $(function () {
             $sType.show();
             $displayOptions.show();
             $perSearch.remove();
+           // $searchresults.hide();
             $back.remove();
         });
 
@@ -204,9 +206,9 @@ $(function () {
     //this is for adding venue
     function addNewVenue(data) {
         var nItem = '';
-        nItem += '<h3>Venues included ' + ' ' + data.venues.venue[0].title + '</h3>';
+        nItem += '<h3>Venues included ' + ' ' + data.venues.venue[0].venue_name + '</h3>';
         nItem += '<p>Description: ' + data.venues.venue[0].description + '</p>';
-        $('#displayOptions').after('<div id = venuesContent>' + nItem + '</div>');
+        $searchresults.append('<div id = venuesContent>' + nItem + '</div>');
     }
 
 });
