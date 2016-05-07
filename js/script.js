@@ -1,4 +1,4 @@
-// 5/7/16 5:40
+// 5/7/16 6:38
 $(function () {
     var $event = $('#events');
     var $performer = $('#performers');
@@ -180,7 +180,7 @@ $(function () {
             $sType.show();
             $displayOptions.show();
             $("#venuesContent").remove();
-            $perSearch.remove();
+            $venSearch.remove();
             $back.remove();
             
         });
