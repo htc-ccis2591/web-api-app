@@ -1,4 +1,4 @@
-// 5/7/16
+// 5/7/16 5:40
 $(function () {
     var $event = $('#events');
     var $performer = $('#performers');
@@ -127,7 +127,7 @@ $(function () {
             $sType.show();
             $displayOptions.show();
             $perSearch.remove();
-           // $searchresults.hide();
+            $("#performerContent").remove():
             $back.remove();
         });
 
@@ -172,13 +172,10 @@ $(function () {
                     $('#API').append('<p> Can not load data </p>');
                 });
         }
-
-
-
         $back.on("click", function () {
             $sType.show();
             $displayOptions.show();
-            $content.remove();
+            $("#venuesContent").remove();
             $back.remove();
             
         });
