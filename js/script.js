@@ -1,4 +1,4 @@
-// 5/7/16 6:38
+// 5/7/16 7:09
 $(function () {
     var $event = $('#events');
     var $performer = $('#performers');
@@ -26,6 +26,8 @@ $(function () {
         e.preventDefault();
         $('#API').remove();
         $mPage.show();
+        $searchresults.append('<div id = "searchContent"></div>');
+        $searchresults.hide();
         //getEventfulData($('#zip').val());
     });
     //function to display type of search
@@ -44,6 +46,7 @@ $(function () {
         $evSearch.prepend('<h2>Search for types of events</h2>');
         $evSearchfrm = $('#eventSearch');
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
+        
         $back = $('#back');
         
 
@@ -51,6 +54,7 @@ $(function () {
             eventType = $('#eType').val();
             e.preventDefault();
             getEventData(eventType);
+            $searchresults.show();
             $evSearch.remove();
         });
 
@@ -93,7 +97,7 @@ $(function () {
 
         $sType.hide();
         $displayOptions.hide();
-        $mPage.after('<div id = "perfSearch"></div>');
+        $mPage.append('<div id = "perfSearch"></div>');
         $perSearch = $('#perfSearch');
         $perSearch.append('<form id = "performerSearch"><label>What specific perfomer are you looking for?</label><input type="text" name="pType" id="pType"><input type="submit" name="Submit" value="Submit"></form>');
         $perSearch.prepend('<h2>Search for a specific performer</h2>');
@@ -194,7 +198,7 @@ $(function () {
         var nItem = '';
         nItem += '<h3>Event type chosen was' + ' ' + data.events.event[0].title + '</h3>';
         nItem += '<p>Description: ' + data.events.event[0].description + '</p>';
-        $searchresults.append('<div id = eventContent>' + nItem + '</div>');
+        $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
     }
     
     //this is for adding performer
@@ -202,7 +206,7 @@ $(function () {
         var nItem = '';
         nItem += '<h3>Performer chosen was' + ' ' + data.performers.performer.name + '</h3>';
         nItem += '<p>Description: ' + data.performers.performer.short_bio + '</p>';
-        $searchresults.append('<div id = performerContent>' + nItem + '</div>');
+         $("#searchContent").append('<div id = performerContent>' + nItem + '</div>');
     }
     
     //this is for adding venue
@@ -210,7 +214,7 @@ $(function () {
         var nItem = '';
         nItem += '<h3>Venues included ' + ' ' + data.venues.venue[0].venue_name + '</h3>';
         nItem += '<p>Description: ' + data.venues.venue[0].description + '</p>';
-        $searchresults.append('<div id = venuesContent>' + nItem + '</div>');
+         $("#searchContent").append('<div id = venuesContent>' + nItem + '</div>');
     }
 
 });
