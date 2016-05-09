@@ -1,0 +1,40 @@
+{    
+    "stations" : [
+        
+        {
+            "stationName" : "Lake Worth Pier (near Palm Springs)",
+            "stationID" : "8722670",
+			"image" : "lakeWorthPier.jpg"
+        },
+        
+        {
+            "stationName" : "Virginia Key (near Miami)",
+            "stationID" : "8723214",
+			"image" : "virginiaKey.jpg"
+        },
+        
+        {
+            "stationName" : "Key West",
+            "stationID" : "8724580",
+			"image" : "keyWest.jpg"
+        },
+        
+        {
+            "stationName" : "Naples",
+            "stationID" : "8725110",
+			"image" : "naples.jpg"
+        },
+        
+        {
+            "stationName" : "Clearwater Beach",
+            "stationID" : "8726724",
+			"image" : "clearwaterBeach.jpg"
+        },
+        
+        {
+            "stationName" : "Panama City",
+            "stationID" : "8729108",
+			"image" : "none"
+        }
+        ]
+}

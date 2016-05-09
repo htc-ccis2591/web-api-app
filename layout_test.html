@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Project 3 - The Tide is High</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+    
+    <h1>How high's the water, Mama?</h1>
+    
+    <img src="./images/coverPic.jpg" class="topImg">
+    
+    <p>Spring in Minnesota and, as usual, it is still cold! We need a break so how about if we run down to sunny
+    Florida for a few days and do some sailing? </p>
+    
+    <p>Before we head out it's probably a good idea to check on the tides. We don't want to set sail if the water
+    is too low and risk breaking the keel off the boat. Nobody likes to sink. And we don't want to find ourselves
+    fighting against the tide on our way in or out. That's makes for lots of hard work on the boat while making
+    very little progress. Better to go with tide than against it.</p>
+    
+    <p>In the drop-down box below you'll find a list of select stations in Florida. Choose one,
+        pick a date, and click the button. You'll get a list of the tide activity for that
+        day.</p>
+    
+    <hr>
+    
+    <form>
+    
+        <div id="inputsDiv">
+        <p>
+            <b>Select a station:</b> 
+            
+            <select id="stations">
+                <option value="default">Select a station from this list.</option>
+            </select>
+        </p>
+        
+        <p>
+            
+            <span id="sailDate"><b>Select a date: </b> </span>
+        </p>
+        
+        </div>
+        
+        <p><input type="button" id='doIt' value="Get Tide Data"></p>
+        
+        <p><em>Select a station and a date, then click the button to retreive station and
+            tide information.</em></p>
+        
+        
+    </form>
+    
+    <hr>
+    
+    <div class="outerDiv" id="stationOuter">
+        <div class="titleDiv">Station Information</div>
+        <div class="tableDiv">
+            <table class="dataTable">
+                <tr><th>Name:</th><td>Lake Calhoun</td></tr>
+                <tr><th>Station ID:</th><td>1234567</td></tr>
+            </table>
+        </div>
+    </div>
+    
+    <div class="outerDiv" id="tideOuter">
+        <div class="titleDiv">Tide Information</div>
+        
+        <div class="tableDiv">
+            <table class="dataTable">
+                <tr><th>Date/Time</th><th>Height</th></tr>
+                <tr><td>04/03/2016 13:06</td><td>5' 5"</td></tr>
+                <tr><td>04/03/2016 13:12</td><td>5' 0"</td></tr>
+                <tr><td>04/03/2016 13:18</td><td>4' 6"</td></tr>
+            </table>
+        </div>
+    </div>
+    
+    <div class="outerDiv" id="baromOuter">
+        <div class="titleDiv">Barometric Pressure Information</div>
+        
+        <div class="tableDiv">
+            <table class="dataTable">
+                <tr><th>Date/Time</th><th>Pressure (millibars)</th></tr>
+                <tr><td>04/03/2016 13:06</td><td>5' 5"</td></tr>
+                <tr><td>04/03/2016 13:12</td><td>5' 0"</td></tr>
+                <tr><td>04/03/2016 13:18</td><td>4' 6"</td></tr>
+                <tr><td>04/03/2016 13:18</td><td>4' 6"</td></tr>
+            </table>
+        </div>
+    </div>
+    
+    <div class="outerDiv" id="windOuter">
+        <div class="titleDiv">Wind Information</div>
+        
+        <div class="tableDiv">
+            <table class="dataTable">
+                <tr><th>Date/Time</th><th>Wind Speed</th></tr>
+                <tr><td>04/03/2016 13:06</td><td>5' 5"</td></tr>
+                <tr><td>04/03/2016 13:12</td><td>5' 0"</td></tr>
+                <tr><td>04/03/2016 13:18</td><td>4' 6"</td></tr>
+            </table>
+        </div>
+    </div>
+    
+        
+    <!-- load JQuery and jquery ui from CDN -->
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        
+    <script>
+        $(function(){
+            $('#sailDate').datepicker({
+                inline:true
+            });
+            $('#dateTest').datepicker();
+        })
+        
+        $('#doIt').on('click', function(){
+            var $myDate = $('#sailDate').datepicker('getDate');
+            console.log($myDate);
+            console.log('did it') ;
+        });
+    </script>
+    
+
+</body>
+</html>    
