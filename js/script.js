@@ -25,12 +25,6 @@ var zip = "55344";
 
     getWine(wineKey);
     
-    function addPokemonType(obj){
-        for (var i = 0; i < obj.length; i++){
-            ()
-        };
-    };
-    
     function getPokemon(){
         $.getJSON('//pokeapi.co/api/v2/type/')
         .done(function(data){
