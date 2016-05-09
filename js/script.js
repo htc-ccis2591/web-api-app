@@ -25,16 +25,16 @@ var zip = "55344";
 
     getWine(wineKey);
     
-    function addWineCtg(obj){
+    function addPokemonType(obj){
         for (var i = 0; i < obj.length; i++){
-            
+            ()
         };
     };
     
     function getPokemon(){
         $.getJSON('//pokeapi.co/api/v2/type/')
         .done(function(data){
-            console.log(data);
+            $('#pokemon .dropdown-menu').append('<li>'+ data.type[0] + '</li>');
         })
         .fail(function(){
             alert("We couldn't catch any Pokemon");
