@@ -26,7 +26,20 @@ var zip = "55344";
     getWine(wineKey);
     
     function addWineCtg(obj){
-        
-    }
+        for (var i = 0; i < obj.length; i++){
+            
+        };
+    };
+    
+    function getPokemon(){
+        $.getJSON('//pokeapi.co/api/v2/type/')
+        .done(function(data){
+            console.log(data);
+        })
+        .fail(function(){
+            alert("We couldn't catch any Pokemon");
+        });
+    };
+    getPokemon();
     
 });
