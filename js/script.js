@@ -48,11 +48,10 @@ var zip = "55344";
         });
     };
     getPokemon();
-    function loadPokeDmg(){
+  /*  function loadPokeDmg(){
         $('#pokemon li').on('click', function (e){
                e.preventDefault();
                var url = $(this).attr('href');
-               console.log(url);
                $.getJSON(url)
                .done(function (data){
                    console.log(data);
@@ -61,5 +60,5 @@ var zip = "55344";
                    alert('Something went wrong');
                });
            });
-    };
+    };*/
 });
