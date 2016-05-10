@@ -48,7 +48,6 @@ var zip = "55344";
         });
     };
     getPokemon();
-    loadPokeDmg();
     function loadPokeDmg(){
         $('#pokemon li').on('click', function (e){
                e.preventDefault();
