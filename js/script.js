@@ -28,7 +28,9 @@ var zip = "55344";
     function getPokemon(){
         $.getJSON('//pokeapi.co/api/v2/type/')
         .done(function(data){
-           $('#pokemon .dropdown-menu').append('<li>' + data.results[0].name + '</li>');
+           for (var i = 0; i < data.results.length; i++){
+               $('#pokemon .dropdown-menu').append('<li>' + data.results[i].name + '</li>');
+           };
         })
         .fail(function(){
             alert("We couldn't catch any Pokemon");
