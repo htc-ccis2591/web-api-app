@@ -1,4 +1,4 @@
-// 5/7/16 7:09
+//5/10/2016
 $(function () {
     var $event = $('#events');
     var $performer = $('#performers');
@@ -42,7 +42,7 @@ $(function () {
         $displayOptions.hide();
         $mPage.append('<div id = "evSearch"></div>');
         $evSearch = $('#evSearch');
-        $evSearch.append('<form id = "eventSearch"><label>What type of event?</label><input type="text" name="eType" id="eType"><input type="submit" name="Submit" value="Submit"></form>');
+        $evSearch.append('<form id = "eventSearch"><label>What type of event?</label><input type="text" name="eType" id="eType"><label>Enter a zip code: </label><input type="text" name="zip" id="zip"><input type="submit" name="Submit" value="Submit"></form>');
         $evSearch.prepend('<h2>Search for types of events</h2>');
         $evSearchfrm = $('#eventSearch');
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
@@ -52,6 +52,7 @@ $(function () {
 
         $evSearch.on('submit', function (e) {
             eventType = $('#eType').val();
+            zip = $('#zip').val();
             e.preventDefault();
             getEventData(eventType);
             $searchresults.show();
@@ -59,12 +60,13 @@ $(function () {
         });
 
         //Function to get json data for events
-        function getEventData(eventType) {
+        function getEventData(eventType, zip) {
 
-            var eventApi = 'http://api.eventful.com/json/events/search?q=' + eventType + '&cors_filter=1&app_key=' + apikey;
+            var eventApi = 'http://api.eventful.com/json/events/search?q=' + eventType + '&l=' + zip + '&cors_filter=1&app_key=' + apikey;
 
             /* console.log("apikey=" + apikey);*/
             console.log("eventType=" + eventType);
+            console.log("zipcode=" + zip);
 
 
             $.getJSON(eventApi)
