@@ -7,6 +7,7 @@ $(function () {
     var $sType = $('#sType');
     var $displayOptions = $('#displayOptions');
     var $searchresults = $('#SearchResults');
+    var $error = '';
     var apikey = '';
     var $visited = '';
     
@@ -27,19 +28,18 @@ $(function () {
         $('#API').remove();
         $mPage.show();
         $searchresults.append('<div id = "searchContent"></div>');
-        $searchresults.hide();
-        //getEventfulData($('#zip').val());
+        $searchresults.toggle("slow");
     });
+    
     //function to display type of search
     //this one is for event
     $event.on("click", function () {
-        //var $content = '';
         var $evSearch = '';
         var $back = '';
         var $evSearchfrm = '';
 
-        $sType.hide();
-        $displayOptions.hide();
+        $sType.toggle("slow");
+        $displayOptions.toggle("slow");
         $mPage.append('<div id = "evSearch"></div>');
         $evSearch = $('#evSearch');
         $evSearch.append('<form id = "eventSearch"><label>What type of event?</label><input type="text" name="eType" id="eType"><label>Enter a zip code: </label><input type="text" name="zip" id="zip"><input type="submit" name="Submit" value="Submit"></form>');
@@ -55,7 +55,7 @@ $(function () {
             zip = $('#zip').val();
             e.preventDefault();
             getEventData(eventType, zip);
-            $searchresults.show();
+            $searchresults.toggle();
             $evSearch.remove();
         });
 
@@ -80,8 +80,8 @@ $(function () {
 
 
         $back.on("click", function () {
-            $sType.show();
-            $displayOptions.show();
+            $sType.toggle();
+            $displayOptions.toggle();
             $evSearch.remove();
             $("#eventContent").remove();
             //$searchresults.hide();
@@ -97,8 +97,8 @@ $(function () {
         var $back = '';
         var $perSearchfrm = '';
 
-        $sType.hide();
-        $displayOptions.hide();
+        $sType.toggle("slow");
+        $displayOptions.toggle("slow");
         $mPage.append('<div id = "perfSearch"></div>');
         $perSearch = $('#perfSearch');
         $perSearch.append('<form id = "performerSearch"><label>What specific perfomer are you looking for?</label><input type="text" name="pType" id="pType"><input type="submit" name="Submit" value="Submit"></form>');
@@ -132,8 +132,8 @@ $(function () {
                 });
         }
         $back.on("click", function () {
-            $sType.show();
-            $displayOptions.show();
+            $sType.toggle("slow");
+            $displayOptions.toggle("slow");
             $perSearch.remove();
             $("#performerContent").remove();
             $back.remove();
@@ -148,8 +148,8 @@ $(function () {
         var $venSearch = '';
         var $back = '';
 
-        $sType.hide();
-        $displayOptions.hide();
+        $sType.toggle("slow");
+        $displayOptions.toggle("slow");
         $mPage.append('<div id = "venueSearch"></div>');
         $venSearch = $('#venueSearch');
         $venSearch.append('<form id = "venueSearchfrm"><label>What specific venue are you looking for?</label><input type="text" name="vType" id="vType"><input type="submit" name="Submit" value="Submit"></form>');
@@ -183,8 +183,8 @@ $(function () {
                 });
         }
         $back.on("click", function () {
-            $sType.show();
-            $displayOptions.show();
+            $sType.toggle("slow");;
+            $displayOptions.toggle("slow");;
             $("#venuesContent").remove();
             $venSearch.remove();
             $back.remove();
@@ -197,6 +197,12 @@ $(function () {
     //begin functions for adding data
     //first is for event type
     function addNewEvent(data) {
+        if (jQuery.isEmptyObject(anyObjectIncludingJSON)) {
+            $(this).append('<p id ="error"> Error no information was returned, Try Again!</p>');
+            $error = ('#error');
+            $error.slideToggle("slow");
+            $('#eventSearch').trigger("reset");
+        }
         var nItem = '';
         nItem += '<h3>Event type chosen was' + ' ' + data.events.event[0].title + '</h3>';
         nItem += '<p>Description: ' + data.events.event[0].description + '</p>';
