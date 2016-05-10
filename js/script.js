@@ -1,4 +1,4 @@
-//5/10/2016
+//5/10/2016 6:10pm
 $(function () {
     var $event = $('#events');
     var $performer = $('#performers');
@@ -10,8 +10,8 @@ $(function () {
     var $error = '';
     var apikey = '';
     var $visited = '';
-    
-    
+
+
     $.ajax({
         beforeSend: function (xhr) {
             if (xhr.overrideMimeType) {
@@ -30,7 +30,7 @@ $(function () {
         $searchresults.append('<div id = "searchContent"></div>');
         $searchresults.toggle("slow");
     });
-    
+
     //function to display type of search
     //this one is for event
     $event.on("click", function () {
@@ -46,9 +46,9 @@ $(function () {
         $evSearch.prepend('<h2>Search for types of events</h2>');
         $evSearchfrm = $('#eventSearch');
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
-        
+
         $back = $('#back');
-        
+
 
         $evSearch.on('submit', function (e) {
             eventType = $('#eType').val();
@@ -91,7 +91,7 @@ $(function () {
     }); //end of event set up, adds for each are at bottom
     //Begin Performer setup
     //var $performer = $('#performers');
-        $performer.on("click", function () {
+    $performer.on("click", function () {
         var $performerContent = '';
         var $perSearch = '';
         var $back = '';
@@ -105,7 +105,7 @@ $(function () {
         $perSearch.prepend('<h2>Search for a specific performer</h2>');
         $perSearchfrm = $('#performerSearch');
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
-        
+
         $back = $('#back');
 
         $perSearch.on('submit', function (e) {
@@ -157,7 +157,7 @@ $(function () {
         $venSearchfrm = $('#venueSearchfrm');
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
         $back = $('#back');
-       
+
 
         $venSearch.on('submit', function (e) {
             uVenue = $('#vType').val();
@@ -188,41 +188,42 @@ $(function () {
             $("#venuesContent").remove();
             $venSearch.remove();
             $back.remove();
-            
+
         });
 
     });
-    
+
     //end of displaying seaches
     //begin functions for adding data
     //first is for event type
     function addNewEvent(data) {
-        var nItem = '';
-        nItem += '<h3>Event type chosen was' + ' ' + data.events.event[0].title + '</h3>';
-        nItem += '<p>Description: ' + data.events.event[0].description + '</p>';
-        $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
-                if (jQuery.isEmptyObject(data)) {
+        if (jQuery.isEmptyObject(data)) {
             $(this).append('<p id ="error"> Error no information was returned, Try Again!</p>');
             $error = ('#error');
             $error.slideToggle("slow");
             $('#eventSearch').trigger("reset");
+        } else {
+        var nItem = '';
+        nItem += '<h3>Event type chosen was' + ' ' + data.events.event[0].title + '</h3>';
+        nItem += '<p>Description: ' + data.events.event[0].description + '</p>';
+        $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
         }
     }
-    
+
     //this is for adding performer
     function addNewPerformer(data) {
         var nItem = '';
         nItem += '<h3>Performer chosen was' + ' ' + data.performers.performer.name + '</h3>';
         nItem += '<p>Description: ' + data.performers.performer.short_bio + '</p>';
-         $("#searchContent").append('<div id = performerContent>' + nItem + '</div>');
+        $("#searchContent").append('<div id = performerContent>' + nItem + '</div>');
     }
-    
+
     //this is for adding venue
     function addNewVenue(data) {
         var nItem = '';
         nItem += '<h3>Venues included ' + ' ' + data.venues.venue[0].venue_name + '</h3>';
         nItem += '<p>Description: ' + data.venues.venue[0].description + '</p>';
-         $("#searchContent").append('<div id = venuesContent>' + nItem + '</div>');
+        $("#searchContent").append('<div id = venuesContent>' + nItem + '</div>');
     }
 
 });
