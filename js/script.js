@@ -42,6 +42,7 @@ var zip = "55344";
         $('#pokemon li').on('click', function (e){
                e.preventDefault();
                var url = $(this).attr('href');
+               console.log(url);
                $.getJSON(url)
                .done(function (data){
                    console.log(data);
