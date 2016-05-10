@@ -48,14 +48,14 @@ $(function () {
 
 
     $('#fetchKeys').on('click', function () {
-        
+
         currencyKey = $('#currencyKeyInput').val();
         timeKey = $('#timeKeyInput').val();
         languageKey = $('#languageKeyInput').val();
         mapKey = $('#mapKeyInput').val();
 
         $('body').append('<script src="https://maps.googleapis.com/maps/api/js?key=' + mapKey + '"></script>');
-        
+
         $('.main').html("<h1>Where would you like to go?</h1>");
         $('.sidebar').html("<h3>Locations</h3>" +
             "<ul>" +
@@ -68,7 +68,7 @@ $(function () {
             "<li>Fiji</li>" +
             "</ul>");
 
-       
+
 
 
         //////// On click of location add the 4 info sections
@@ -129,7 +129,7 @@ $(function () {
 
             loadLanguage(location);
             loadMaps(location);
-        })
+        });
 
 
         //////// Time!
@@ -261,13 +261,8 @@ $(function () {
                 exchangeRate = rates[0].toFixed(2);
 
                 addExchangeRate(exchangeRate, currency);
-                var value = $('#usdAmount').val();
+                updateConverter(currency, exchangeRate);
 
-                $('#convertTOCurrency').text(currency + ': ');
-                $('#convertFROMCurrency').text(currency + ': ');
-
-                $('#convertTOResult').text(exchangeRate);
-                $('#convertFROMResult').text((1 / exchangeRate).toFixed(2));
 
             }).error(function (data) {
                 $('#conversiondiv').text('Sorry, the converter is not working.');
@@ -278,8 +273,8 @@ $(function () {
             $.getJSON(url2).done(function (data) {
                 var exchangeNameObj = data.currencies;
                 var currencyName = exchangeNameObj[currency];
-                console.log(currencyName);
-                $('#exchangerate').before('<p>The currency in ' + location + ' is called the ' + currencyName + ' (' + currency + ').</p>');
+
+                addCurrencyName(location, currencyName, currency);
 
             }).error(function (data) {
                 $('#currency').append('Sorry, the currency information is not available.');
@@ -287,13 +282,26 @@ $(function () {
 
         };
 
-        
+
         //add text about rate
         function addExchangeRate(rate, currency) {
-            $('#conversiondiv').before('<p id="exchangerate">1 USD = ' + rate + ' ' + currency + '</p>');
+            $('#conversiondiv').before('<p>1 USD = ' + rate + ' ' + currency + '</p>');
+        };
+        //update initial state of converter
+        function updateConverter(currency, exchangeRate) {
+            $('#convertTOCurrency').text(currency + ': ');
+            $('#convertFROMCurrency').text(currency + ': ');
+
+            $('#convertTOResult').text(exchangeRate);
+            $('#convertFROMResult').text((1 / exchangeRate).toFixed(2));
+
         };
 
-        
+        function addCurrencyName(location, currencyName, currency) {
+            $('#currency h2').after('<p>The currency in ' + location + ' is called the ' + currencyName + ' (' + currency + ').</p>');
+        };
+
+
         //////// Language!
         //////// informationon language api  https://cloud.google.com/translate/v2/quickstart
         function loadLanguage(location) {
