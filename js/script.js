@@ -31,6 +31,17 @@ var zip = "55344";
            for (var i = 0; i < data.results.length; i++){
                $('#pokemon .dropdown-menu').append('<li><a href="' + data.results[i].url +'">' + data.results[i].name + '</a></li>');
            };
+           $('#pokemon li').on('click', function (e){
+               e.preventDefault();
+               var url = $(this).attr('href');
+               $.getJSON(url)
+               .done(function (data){
+                   $('#pokemon .well').append('<p>' + data.damage_relations.no_damage_to.name + '</p>');
+               })
+               .fail(function (){
+                   alert('Something went wrong');
+               });
+           });
         })
         .fail(function(){
             alert("We couldn't catch any Pokemon");
