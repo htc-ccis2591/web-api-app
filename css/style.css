@@ -3,9 +3,7 @@ article, aside, figure, figcaption, footer, header, nav, section {
 }
 
 #weather {
-    background-color: forestgreen;
-    margin-top: 50px;
-    margin-bottom: 150px;
+    background-color: lightslategray;
     padding-top: 20px;
-    padding-bottom: 50px;
+    padding-bottom: 150px;
 }

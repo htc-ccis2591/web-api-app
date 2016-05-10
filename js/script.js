@@ -1,15 +1,21 @@
 $(function(){
     var weatherKey = "7b21daac2891491963f09e298f79e97e";
-    function getWeather(zipCode, apiKey){
-        $.getJSON('//api.openweathermap.org/data/2.5/weather?zip=' + zipCode + ',us&units=imperial&APPID=' + apiKey)
+    function getWeather(zipcode, apikey){
+        $.getJSON('//api.openweathermap.org/data/2.5/weather?zip=' + zipcode + ',us&units=imperial&APPID=' + apikey)
         .done(function(data){
-            $('#weatherData').append("<p>It's currently " + data.main.temp + "&deg</p>");
+            $('#weather').append('<p>The temp is ' + data.main.temp + ' degrees farenheit</p>');
+            $('#weather').append('<p>' + data.weather[0].description + '</p>');
         })
         .fail(function(){
-            alert('Something went wrong. Please check the zip code and try agian')
+            alert('Something went wrong. Please check your zip code');
         });
     };
-var zip = "55344";   
+      
+    
+    $('#submit').on('click', function(){
+        var zip = $('#zip').val();
+        getWeather(zip, weatherKey);
+    });
     
     
     var wineKey = "c2b17b38e2a85c5f2d0c9fcac6c39cef"
