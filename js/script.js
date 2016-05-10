@@ -33,6 +33,11 @@ var zip = "55344";
            };
            $('#pokemon li').on('click', function (e){
                e.preventDefault();
+               var url = $(this).attr('href');
+               $.getJSON(url)
+               .done(function (data){
+                   console.log(data);
+               });
            });
         })
         .fail(function(){
