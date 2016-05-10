@@ -4,7 +4,7 @@ article, aside, figure, figcaption, footer, header, nav, section {
 
 body {
     background-color: black;
-    background-image: url('Images/Stars.PNG');
+    background-image: url("Images/Stars.png");
     color: white;
 }
 #FilmSelect {
