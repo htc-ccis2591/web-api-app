@@ -29,7 +29,7 @@ var zip = "55344";
         $.getJSON('//pokeapi.co/api/v2/type/')
         .done(function(data){
            for (var i = 0; i < data.results.length; i++){
-               $('#pokemon .dropdown-menu').append('<li>' + data.results[i].name + '</li>');
+               $('#pokemon .dropdown-menu').append('<li><a href="' + data.results[i].url +'">' + data.results[i].name + '</a></li>');
            };
         })
         .fail(function(){
