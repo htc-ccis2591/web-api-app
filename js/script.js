@@ -197,16 +197,16 @@ $(function () {
     //begin functions for adding data
     //first is for event type
     function addNewEvent(data) {
-        if (jQuery.isEmptyObject(data)) {
+        var nItem = '';
+        nItem += '<h3>Event type chosen was' + ' ' + data.events.event[0].title + '</h3>';
+        nItem += '<p>Description: ' + data.events.event[0].description + '</p>';
+        $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
+                if (jQuery.isEmptyObject(data)) {
             $(this).append('<p id ="error"> Error no information was returned, Try Again!</p>');
             $error = ('#error');
             $error.slideToggle("slow");
             $('#eventSearch').trigger("reset");
         }
-        var nItem = '';
-        nItem += '<h3>Event type chosen was' + ' ' + data.events.event[0].title + '</h3>';
-        nItem += '<p>Description: ' + data.events.event[0].description + '</p>';
-        $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
     }
     
     //this is for adding performer
