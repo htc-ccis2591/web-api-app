@@ -4,16 +4,16 @@ article, aside, figure, figcaption, footer, header, nav, section {
 
 body {
     background-color: black;
+    background-image: url('/Images/Stars.png');
     color: white;
 }
-
-header {
-    
-    text-align: center;
+#FilmSelect {
+    float: left;
     font-size: 100%;
     color: yellow;
-    margin: .5% 20% 5%;
-
+    text-align: center;
+    margin-right: 4%;
+    
 }
 #lblFilms {
     font-size: 200%;
@@ -21,16 +21,18 @@ header {
 #FilmSelections {
     clear: both;
     float:left;
-    margin-left: 4%;
+    margin-top: 5%;
+    margin-left: 10%;
     margin-right: 4%;
 }
 
-#StarWarsFilmInfo {
-    margin-right: 4%;
-}
 #filmPicture {
     float: left;
-    margin-right: 4%;
+    margin-right: 2%;
+}
+#i {
+    padding-top: 2%;
+    margin-bottom: 2%;
 }
 #Characters {
     margin-bottom: 3%; 
@@ -38,9 +40,12 @@ header {
 .block {
     display: block;
 }
-p {
+#FilmSelect p {
     font-size: xx-large;
-    margin-top: -1em;
+    margin-top: -1.5%;
+}
+p {
+    font-size: xx-large; 
 }
 ul {
     list-style: none;
@@ -49,15 +54,17 @@ ul {
 select {
     display: block;
 }
-#StarWarsPeopleInfo{
+#StarWarsPeopleInfo {
+    display: inherit;
+    width: 18%;
     float: right;
-    margin-top: -15em;
-    margin-right: 10em;
+    margin-top: -9%;
+    margin-right: 3%;
+    
 }
+
 #StarWarsPlanetsInfo {
-    float: right;
-    display: block;
-    margin-top: 15em;
-    margin-right: -17em;
+    float: left;
+  
 }
 
