@@ -54,7 +54,7 @@ $(function () {
             eventType = $('#eType').val();
             zip = $('#zip').val();
             e.preventDefault();
-            getEventData(eventType);
+            getEventData(eventType, zip);
             $searchresults.show();
             $evSearch.remove();
         });
