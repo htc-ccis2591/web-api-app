@@ -31,11 +31,14 @@ var zip = "55344";
            for (var i = 0; i < data.results.length; i++){
                $('#pokemon .dropdown-menu').append('<li><a href="' + data.results[i].url +'">' + data.results[i].name + '</a></li>');
            };
+           $('#pokemon li').on('click', function (e){
+               e.preventDefault();
+           });
         })
         .fail(function(){
             alert("We couldn't catch any Pokemon");
         });
     };
     getPokemon();
-    
+
 });
