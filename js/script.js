@@ -18,7 +18,7 @@ $(function() {
             loadCharacters(selectedValue);
             
             
-            $StarWarsFilmInfo.append('<img id="filmPicture" src="/Images/Episode' + selectedValue + '.png" />');
+            $StarWarsFilmInfo.append('<img id="filmPicture" src="Images/Episode' + selectedValue + '.png" />');
             $StarWarsFilmInfo.append('<ul id="i"><li>Director: ' + swFilms.director + '</li><li>Release Date: ' + swFilms.release_date +  '</li></ul>'
                                      + '<div><label>Characters</label><select id="Characters"><option value="0">-- Select Character --</option>' +
                                     '<option value="' + characters[0].value + '">' + characters[0].name + 
