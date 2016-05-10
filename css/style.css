@@ -1,3 +1,193 @@
-article, aside, figure, figcaption, footer, header, nav, section {
-    display: block;
+
+body {
+    font-family: Arial;
+    font-size: 10pt;
+    margin: 30px;
 }
+
+h1 {
+    font-family: Impact, Charcoal, sans-serif;
+}
+
+hr { clear: both }
+
+img {
+    float: left;
+}
+
+br { clear: both; }
+
+.errMessageDiv {
+    color: red;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.stationImage {
+    float: right;
+    width: 20%;
+    height: 20%;
+}
+
+#stationTable {
+    width: auto;
+}
+
+.dataTable { width: 100%; }
+
+.dataTable th {
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    padding: 5px;
+}
+
+.dataTable td {
+    color: black;
+    background-color: lightblue;
+    padding: 5px;
+}
+
+#inputsDiv {
+    float: left;
+    margin: 10px;
+}
+
+#doIt {
+    border: 10px inset #0088aa;
+    color: white;
+    background-color: #0099bb;
+    padding: 15px;
+    margin: 15px;
+    font-size: 150%;
+    font-weight: bold;
+    
+}
+
+.outerDiv {
+    align-content: center;
+    margin-top: 15px;
+    width: 100%;
+}
+
+#windOuter {
+    width: 40%;
+    margin-left: 5%;
+    margin-right: 5%;
+    float: left;
+
+}
+
+#baromOuter {
+    width: 40%;
+    margin-left: 5%;
+    margin-right; 5%;
+    float: left;
+
+}
+
+#tideOuter {
+    //width: 90%;
+
+}
+
+#stationOuter {
+    //width: 100%;
+}
+
+hr { clear:both;}
+
+.titleDiv {
+    background-color: darkblue;
+    color: white;
+    align-content: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 1px solid darkblue;
+    padding-top: 10px;
+    padding: 5px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 110%;
+    width: 100%;
+}
+
+.tableDiv {
+    align-content: center;
+    border: 1px solid;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-bottom: 10px;
+    padding: 5px;
+    width: 100%;
+
+}
+
+.descDiv {
+    border: 1px solid;
+    font-style: italic;
+    padding: 10px;
+    min-height: 110px;
+}
+.listTitle {
+    font-weight: bold;
+}
+
+.topImg{
+    float: right;
+    padding-left: 15px;
+}
+
+.ui-datepicker {
+    background-color: #0099cc;
+    color: blue;
+    //border: 1px solid;
+    width: 250px;
+}
+
+.ui-datepicker table {
+    width: 100%;
+    text-align:center;
+}
+
+.ui-datepicker table td {
+    padding: 0;
+    text-align:center;
+    background-color: #00aadd;
+}
+ 
+.ui-datepicker a {
+    color: white;
+    cursor:pointer;
+    text-decoration:none;
+}
+
+.ui-datepicker-header {
+    background-color: black;
+    color: white;
+}
+ 
+.ui-datepicker-prev {
+    vertical-align: bottom;
+}
+ 
+.ui-datepicker-next {
+    float:right;
+}
+ 
+.ui-datepicker-title {
+    text-align: center;
+    font-weight:bold;
+}
+
+.ui-datepicker-calendar .ui-state-hover {
+    background: darkblue;
+}
+
+.ui-datepicker-calendar .ui-state-active {
+    background-color: red;
+}
+
+
+
+    
