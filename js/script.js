@@ -3,7 +3,7 @@ $(function() {
     // Declare Variables
     var $StarWarsFilms = $("#StarWarsFilms");
     var $StarWarsFilmInfo = $("#StarWarsFilmInfo");
-    var $FilmPeoplePlanets = $("#StarWarsFilmInfo, #StarWarsPeopleInfo, #StarWarsPlanetInfo");
+    var $FilmPeoplePlanets = $("#StarWarsFilmInfo, #StarWarsPeopleInfo, #StarWarsPlanetsInfo");
     var characters = [];
     var planets = [];
     // Hide children of asides
@@ -19,7 +19,7 @@ $(function() {
             
             
             $StarWarsFilmInfo.append('<img id="filmPicture" src="/Images/Episode' + selectedValue + '.png" />');
-            $StarWarsFilmInfo.append('<ul><li>Director: ' + swFilms.director + '</li><li>Release Date: ' + swFilms.release_date +  '</li></ul>'
+            $StarWarsFilmInfo.append('<ul id="i"><li>Director: ' + swFilms.director + '</li><li>Release Date: ' + swFilms.release_date +  '</li></ul>'
                                      + '<div><label>Characters</label><select id="Characters"><option value="0">-- Select Character --</option>' +
                                     '<option value="' + characters[0].value + '">' + characters[0].name + 
                                     '</option><option value="' + characters[1].value + '">' + characters[1].name + 
@@ -97,11 +97,19 @@ $(function() {
     
     function getCharImage(characterValue) { 
         
-        if (characterValue != '87'){
-            return '<img src="Images/char' + characterValue + '.jpg" />';
-        } else {
+        var filmValue = $StarWarsFilms.val();
+        
+        if (characterValue === '87'){
             return '<img src="Images/char' + characterValue + '.png" />';
         }
+        else if (filmValue === '7' && characterValue === '14')
+            {
+                return '<img src="Images/HanForceAwakens.jpg" />';
+            }
+        else {
+            return '<img src="Images/char' + characterValue + '.jpg" />';
+        }
+        
     }
     
     function loadPlanets(filmValue) {       
