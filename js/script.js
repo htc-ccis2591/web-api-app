@@ -33,9 +33,10 @@ $(function() {
            });
 
     //My final request for my favorite series section.
+    //They changed the order of 
     $.ajax({url: "http://gateway.marvel.com:80/v1/public/series?titleStartsWith=deadpool%20kills%20the&apikey=3c8c5553e9a58fb7b24cedd0eb1b0a19",
             success: function(json) {if (json.data.results.length > 0) {
-                $("main").append("<h2 id='2'>My favorite Deadpool series</h2><div id='series'><p>" + json.data.results[1].title + " is my favorite Deadpool series</p><p>There are " + json.data.results[1].comics.available + " comic books in this series.</p><img src=" + json.data.results[1].thumbnail.path + "." + json.data.results[1].thumbnail.extension + " alt='Deadpool Kills The Marvel Universe'></div>");
+                $("main").append("<h2 id='2'>My favorite Deadpool series</h2><div id='series'><p>" + json.data.results[0].title + " is my favorite Deadpool series</p><p>There are " + json.data.results[0].comics.available + " comic books in this series.</p><img src=" + json.data.results[0].thumbnail.path + "." + json.data.results[0].thumbnail.extension + " alt='Deadpool Kills The Marvel Universe'></div>");
                 $("div").hide();
                 $("#2").on("click", function() {
                     $("#series").fadeToggle();
