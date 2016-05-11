@@ -44,7 +44,7 @@ $('#pokemon li').on('click', function(){
         .done(function(data){
             var halfDmg = []
             for (var i = 0; i < data.damage_relations.half_damage_to.length; i++){
-                halfDmg += data.damage_relations.half_damage_to[i].name;
+                halfDmg += data.damage_relations.half_damage_to[i].name + ' ';
             };
             $('#pokemon .text-center').append('<p>The ' + type + ' type pokemon do half damage to ' + halfDmg + ' type Pokemon</p>');
         })
