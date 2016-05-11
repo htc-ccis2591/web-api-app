@@ -11,3 +11,19 @@ article, aside, figure, figcaption, footer, header, nav, section {
 .well {
     margin-top: 20px;
 }
+
+#starships {
+    background-color: black;
+    color: yellow;
+}
+
+#starships ul {
+    list-style: none;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#starships li {
+    padding-top: 5px;
+    font-size: 25px;
+}
