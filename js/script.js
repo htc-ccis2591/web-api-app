@@ -212,7 +212,7 @@ $(function () {
         if (data.total_items == 0) {
             $mPage.append('<p id ="error"> Error no information was returned, Try Again!</p>');
             $error = ('#error');
-            $error.slideToggle("slow");
+            $error.slideToggle("1500");
             $('#eventSearch').trigger("reset");
         } else {
         var nItem = '';
