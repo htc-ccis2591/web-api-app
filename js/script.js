@@ -1,4 +1,4 @@
-//5/10/2016 6:10pm
+//5/10/2016 7:41
 $(function () {
     var $event = $('#events');
     var $performer = $('#performers');
@@ -197,7 +197,7 @@ $(function () {
     //begin functions for adding data
     //first is for event type
     function addNewEvent(data) {
-        if (data.events.total_items == null) {
+        if (data.total_items == null) {
             $(this).append('<p id ="error"> Error no information was returned, Try Again!</p>');
             $error = ('#error');
             $error.slideToggle("slow");
