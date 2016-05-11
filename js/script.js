@@ -1,4 +1,4 @@
-//5/10/2016 7:55
+//5/10/2016 11:59
 $(function () {
     //*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
     //set up variables
@@ -52,7 +52,6 @@ $(function () {
         $evSearch.prepend('<h2>Search for types of events</h2>');
         $evSearchfrm = $('#eventSearch');
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
-
         $back = $('#back');
 
 
@@ -92,6 +91,7 @@ $(function () {
            // $displayOptions.toggle();
             $evSearch.remove();
             $("#eventContent").remove();
+            searchDisplayToggle();
             //$searchresults.hide();
             $back.remove();
         });
@@ -104,16 +104,17 @@ $(function () {
         var $perSearch = '';
         var $back = '';
         var $perSearchfrm = '';
-
-        $sType.toggle("slow");
-        $displayOptions.toggle("slow");
+       // goBack(back);
+        toggleDisplays();
+       // $sType.toggle("slow");
+      //  $displayOptions.toggle("slow");
         $mPage.append('<div id = "perfSearch"></div>');
         $perSearch = $('#perfSearch');
         $perSearch.append('<form id = "performerSearch"><label>What specific perfomer are you looking for?</label><input type="text" name="pType" id="pType"><input type="submit" name="Submit" value="Submit"></form>');
         $perSearch.prepend('<h2>Search for a specific performer</h2>');
         $perSearchfrm = $('#performerSearch');
+        
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
-
         $back = $('#back');
 
         $perSearch.on('submit', function (e) {
@@ -140,8 +141,9 @@ $(function () {
                 });
         }
         $back.on("click", function () {
-            $sType.toggle("slow");
-            $displayOptions.toggle("slow");
+            toggleDisplays();
+            //$sType.toggle("slow");
+           // $displayOptions.toggle("slow");
             $perSearch.remove();
             $("#performerContent").remove();
             $back.remove();
@@ -155,14 +157,16 @@ $(function () {
         var $venSearchfrm = '';
         var $venSearch = '';
         var $back = '';
-
-        $sType.toggle("slow");
-        $displayOptions.toggle("slow");
+        
+        toggleDisplays();
+       // $sType.toggle("slow");
+        //$displayOptions.toggle("slow");
         $mPage.append('<div id = "venueSearch"></div>');
         $venSearch = $('#venueSearch');
         $venSearch.append('<form id = "venueSearchfrm"><label>What specific venue are you looking for?</label><input type="text" name="vType" id="vType"><input type="submit" name="Submit" value="Submit"></form>');
         $venSearch.prepend('<h2>Search for a specific venue</h2>');
         $venSearchfrm = $('#venueSearchfrm');
+       // goBack(back);
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
         $back = $('#back');
 
@@ -181,6 +185,7 @@ $(function () {
 
             /* console.log("apikey=" + apikey);*/
             console.log("venueType=" + uVenue);
+          //  console.log("location=" + uLocation);
 
 
             $.getJSON(venueApi)
@@ -202,7 +207,7 @@ $(function () {
 
     });
 
-    //end of displaying seaches
+    ///////////////////////////////////end of displaying seaches\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
     //begin functions for adding data
     //first is for event type
     function addNewEvent(data) {
@@ -242,8 +247,12 @@ $(function () {
     }
     function searchDisplayToggle() {
         $searchresults.toggle();
-        $evSearch.remove();
-        
+        //$evSearch.remove();       
+    }
+    function goBack() {
+        var $back = '';
+        $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
+        $back = $('#back');
     }
 
 });
