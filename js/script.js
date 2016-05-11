@@ -1,4 +1,4 @@
-//5/11/2016 1:58
+//5/11/2016 2:06
 $(function () {
     //*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
     //set up variables
@@ -240,7 +240,7 @@ $(function () {
             $mPage.append('<p id ="error"> Error no information was returned, Try Again! Hint: click me to reset form!</p>');
             $('p#error').on("click", function () {
                 $('p#error').remove();
-                $('#venueSearch').trigger("reset");
+                $('#venueSearchfrm').trigger("reset");
             });
         } else {
             var nItem = '';
