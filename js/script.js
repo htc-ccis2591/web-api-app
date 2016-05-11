@@ -57,7 +57,7 @@ $(function () {
 
         $evSearch.on('submit', function (e) {
             eventType = $('#eType').val();
-            zip = $('#zip').val();
+            uLocation = $('#location').val();
             e.preventDefault();
             getEventData(eventType, zip);
             //searchDisplayToggle();
@@ -66,13 +66,13 @@ $(function () {
         });
 
         //Function to get json data for events
-        function getEventData(eventType, zip) {
+        function getEventData(eventType, uLocation) {
 
-            var eventApi = 'http://api.eventful.com/json/events/search?q=' + eventType + '&l=' + zip + '&cors_filter=1&app_key=' + apikey;
+            var eventApi = 'http://api.eventful.com/json/events/search?q=' + eventType + '&l=' + uLocation + '&cors_filter=1&app_key=' + apikey;
 
             /* console.log("apikey=" + apikey);*/
             console.log("eventType=" + eventType);
-            console.log("zipcode=" + zip);
+            console.log("uLocation=" + uLocation);
 
 
             $.getJSON(eventApi)
@@ -87,8 +87,6 @@ $(function () {
 
         $back.on("click", function () {
             toggleDisplays();
-           // $sType.toggle();
-           // $displayOptions.toggle();
             $evSearch.remove();
             $("#eventContent").remove();
             //searchDisplayToggle();
@@ -104,11 +102,9 @@ $(function () {
         var $back = '';
         var $perSearchfrm = '';
         toggleDisplays();
-       // $sType.toggle("slow");
-      //  $displayOptions.toggle("slow");
         $mPage.append('<div id = "perfSearch"></div>');
         $perSearch = $('#perfSearch');
-        $perSearch.append('<form id = "performerSearch"><label>What specific perfomer are you looking for?</label><input type="text" name="pType" id="pType"><label>Enter a City, State, or Zip code: </label><input type="text" name="zip" id="zip"><input type="submit" name="Submit" value="Submit"></form>');
+        $perSearch.append('<form id = "performerSearch"><label>What specific perfomer are you looking for?</label><input type="text" name="pType" id="pType"><label>Enter a City, State, or Zip code: </label><input type="text" name="location" id="location"><input type="submit" name="Submit" value="Submit"></form>');
         $perSearch.prepend('<h2>Search for a specific performer</h2>');
         $perSearchfrm = $('#performerSearch');
         
@@ -117,18 +113,21 @@ $(function () {
 
         $perSearch.on('submit', function (e) {
             pFormer = $('#pType').val();
+            uLocation = $('#location').val();
             e.preventDefault();
-            getPerformerData(pFormer);
+            getPerformerData(pFormer, uLocation);
             $perSearchfrm.remove();
         });
 
         //Function to get json data for performers
-        function getPerformerData(pFormer) {
+        function getPerformerData(pFormer, uLocation) {
 
-            var performerApi = 'http://api.eventful.com/json/performers/search?q=' + pFormer + '&cors_filter=1&app_key=' + apikey;
+            var performerApi = 'http://api.eventful.com/json/performers/search?q=' + pFormer + '&l=' + uLocation + '&cors_filter=1&app_key=' + apikey;
+
 
             /* console.log("apikey=" + apikey);*/
             console.log("performer=" + pFormer);
+            console.log("location=" + uLocation);
 
 
             $.getJSON(performerApi)
@@ -140,8 +139,6 @@ $(function () {
         }
         $back.on("click", function () {
             toggleDisplays();
-            //$sType.toggle("slow");
-           // $displayOptions.toggle("slow");
             $perSearch.remove();
             $("#performerContent").remove();
             $back.remove();
@@ -157,11 +154,9 @@ $(function () {
         var $back = '';
         
         toggleDisplays();
-       // $sType.toggle("slow");
-        //$displayOptions.toggle("slow");
         $mPage.append('<div id = "venueSearch"></div>');
         $venSearch = $('#venueSearch');
-        $venSearch.append('<form id = "venueSearchfrm"><label>What specific venue are you looking for?</label><input type="text" name="vType" id="vType"><input type="text" name="pType" id="pType"><label>Enter a City, State, or Zip code: </label><input type="text" name="zip" id="zip"><input type="submit" name="Submit" value="Submit"></form>');
+        $venSearch.append('<form id = "venueSearchfrm"><label>What specific venue are you looking for?</label><input type="text" name="vType" id="vType"><input type="text" name="pType" id="pType"><label>Enter a City, State, or Zip code: </label><input type="text" name="location" id="location"><input type="submit" name="Submit" value="Submit"></form>');
         $venSearch.prepend('<h2>Search for a specific venue</h2>');
         $venSearchfrm = $('#venueSearchfrm');
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
@@ -170,19 +165,20 @@ $(function () {
 
         $venSearch.on('submit', function (e) {
             uVenue = $('#vType').val();
+            uLocation = $('#location').val();
             e.preventDefault();
-            getVenueData(uVenue);
+            getVenueData(uVenue, uLocation);
             $venSearchfrm.remove();
         });
 
         //Function to get json data for performers
-        function getVenueData(uVenue) {
+        function getVenueData(uVenue, uLocation) {
 
-            var venueApi = 'http://api.eventful.com/json/venues/search?q=' + uVenue + '&cors_filter=1&app_key=' + apikey;
+            var venueApi = 'http://api.eventful.com/json/venues/search?q=' + uVenue + '&l=' + '&cors_filter=1&app_key=' + apikey;
 
             /* console.log("apikey=" + apikey);*/
             console.log("venueType=" + uVenue);
-          //  console.log("location=" + uLocation);
+            console.log("location=" + uLocation);
 
 
             $.getJSON(venueApi)
@@ -194,8 +190,6 @@ $(function () {
         }
         $back.on("click", function () {
             toggleDisplays();
-           // $sType.toggle("slow");
-          //  $displayOptions.toggle("slow");
             $("#venuesContent").remove();
             $venSearch.remove();
             $back.remove();
@@ -227,10 +221,19 @@ $(function () {
 
     //this is for adding performer
     function addNewPerformer(data) {
+         if (data.total_items == 0) {
+            $mPage.append('<p id ="error"> Error no information was returned, Try Again! Hint: click me to reset form!</p>');
+            $('p#error').on("click", function() {
+            $('p#error').remove();
+            $('#performerSearch').trigger("reset");
+                });
+         } else {
         var nItem = '';
         nItem += '<h3>Performer chosen was' + ' ' + data.performers.performer[0].name + '</h3>';
         nItem += '<p>Description: ' + data.performers.performer[0].short_bio + '</p>';
         $("#searchContent").append('<div id = performerContent>' + nItem + '</div>');
+        $('#performerSearch').remove();
+         }
     }
 
     //this is for adding venue
@@ -246,10 +249,10 @@ $(function () {
         $displayOptions.toggle("slow");
         
     }
-    function searchDisplayToggle() {
-        $searchresults.toggle();
+   // function searchDisplayToggle() {
+     //   $searchresults.toggle();
         //$evSearch.remove();       
-    }
+//    }
     function goBack() {
         var $back = '';
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
