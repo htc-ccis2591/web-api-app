@@ -44,8 +44,6 @@ $(function () {
         var $evSearchfrm = '';
 
         toggleDisplays();
-       // $sType.toggle("slow");
-       // $displayOptions.toggle("slow");
         $mPage.append('<div id = "evSearch"></div>');
         $evSearch = $('#evSearch');
         $evSearch.append('<form id = "eventSearch"><label>What type of event?</label><input type="text" name="eType" id="eType"><label>Enter a City, State, or Zip code: </label><input type="text" name="zip" id="zip"><input type="submit" name="Submit" value="Submit"></form>');
@@ -59,7 +57,7 @@ $(function () {
             eventType = $('#eType').val();
             uLocation = $('#location').val();
             e.preventDefault();
-            getEventData(eventType, zip);
+            getEventData(eventType, uLocation);
             //searchDisplayToggle();
             $searchresults.show();
             //$evSearch.remove();
@@ -124,8 +122,6 @@ $(function () {
 
             var performerApi = 'http://api.eventful.com/json/performers/search?q=' + pFormer + '&l=' + uLocation + '&cors_filter=1&app_key=' + apikey;
 
-
-            /* console.log("apikey=" + apikey);*/
             console.log("performer=" + pFormer);
             console.log("location=" + uLocation);
 
