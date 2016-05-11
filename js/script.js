@@ -10,7 +10,7 @@ $(function(){
         });
     };
       
-    
+   
     $('#submit').on('click', function(){
         var zip = $('#zip').val();
         $('#weather .well p').remove();
