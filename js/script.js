@@ -1,4 +1,4 @@
-//5/11/2016 10:29
+//5/11/2016 1:22
 $(function () {
     //*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
     //set up variables
@@ -46,7 +46,7 @@ $(function () {
         toggleDisplays();
         $mPage.append('<div id = "evSearch"></div>');
         $evSearch = $('#evSearch');
-        $evSearch.append('<form id = "eventSearch"><label>What type of event?</label><input type="text" name="eType" id="eType"><label>Enter a City, State, or Zip code: </label><input type="text" name="zip" id="zip"><input type="submit" name="Submit" value="Submit"></form>');
+        $evSearch.append('<form id = "eventSearch"><label>What type of event?</label><input type="text" name="eType" id="eType"><label>Enter a City, State, or Zip code: </label><input type="text" name="location" id="location"><input type="submit" name="Submit" value="Submit"></form>');
         $evSearch.prepend('<h2>Search for types of events</h2>');
         $evSearchfrm = $('#eventSearch');
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
