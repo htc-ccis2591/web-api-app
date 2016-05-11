@@ -3,13 +3,52 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Update Me</title>
+    <title>My Weather App</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+
+    <header>
+        <h1>MY WEB API PROJECT</h1>
+    </header>
     <main>
 
+
+        <h2 id="zipcode">WEATHER BY ZIPCODE</h2>
+        <form id="form1">
+
+            <label>Enter your Zipcode</label>
+            <input type="text" name="zip" id="zip">
+            <input type="submit" name="submit" id="submit">
+
+        </form>
+
+
+        <section id="form2">
+            <h2 id="cty">CITY</h2>
+            <form>
+
+                <label>Enter your city:</label>
+                <input type="text" name="city" id="city">
+                <input type="submit" name="submit" id="submit">
+            </form>
+        </section>
+
+        <section id="form3">
+            <h2 id="loc">LOCATION</h2>
+            <form>
+
+                <label>Enter your Location Coordinates:</label>
+                <label>Lattitude</label>
+                <input type="text" name="lat" id="lat">
+                <label>Longitude</label>
+                <input type="text" name="lon" id="lon">
+                <input type="submit" name="submit" id="submit">
+            </form>
+        </section>
+
+        <section id="weather" aria-live="polite" aria-relevant="additions removals"></section>
 
     </main>
 
