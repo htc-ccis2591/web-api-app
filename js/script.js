@@ -1,4 +1,4 @@
-//5/11/2016 1:52
+//5/11/2016 1:58
 $(function () {
     //*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
     //set up variables
@@ -152,7 +152,7 @@ $(function () {
         toggleDisplays();
         $mPage.append('<div id = "venueSearch"></div>');
         $venSearch = $('#venueSearch');
-        $venSearch.append('<form id = "venueSearchfrm"><label>What specific venue are you looking for?</label><input type="text" name="vType" id="vType"><input type="text" name="pType" id="pType"><label>Enter a City, State, or Zip code: </label><input type="text" name="location" id="location"><input type="submit" name="Submit" value="Submit"></form>');
+        $venSearch.append('<form id = "venueSearchfrm"><label>What specific venue are you looking for?</label><input type="text" name="vType" id="vType"><label>Enter a City, State, or Zip code: </label><input type="text" name="location" id="location"><input type="submit" name="Submit" value="Submit"></form>');
         $venSearch.prepend('<h2>Search for a specific venue</h2>');
         $venSearchfrm = $('#venueSearchfrm');
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
