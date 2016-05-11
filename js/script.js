@@ -164,7 +164,6 @@ $(function () {
             e.preventDefault();
             getVenueData(uVenue, uLocation);
             $searchresults.show();
-            //$venSearchfrm.remove();
         });
 
         //Function to get json data for performers
@@ -205,13 +204,15 @@ $(function () {
                 $('#eventSearch').trigger("reset");
             });
         } else {
+            var nItem = '';
             for (var i = 0; i < data.events.length; i++) {
-                var nItem = '';
+                
                 nItem += '<h3>Event type chosen was' + ' ' + data.events.event[i].title + '</h3>';
                 nItem += '<p>Description: ' + data.events.event[i].description + '</p>';
+                 }
                 $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
                 $('#evSearch').remove();
-            }
+           
         }
 
     }
