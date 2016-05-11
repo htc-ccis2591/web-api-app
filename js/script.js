@@ -43,7 +43,7 @@ $('#pokemon li').on('click', function(){
     function getPokeData(id, type){
         $.getJSON('//pokeapi.co/api/v2/type/' + id + '/')
         .done(function(data){
-            $('#pokemon .well').append('<p>The ' + type + ' type pokemon do no damage to ' + data.damage_relations.no_damage_to + ' type Pokemon</p>');
+            $('#pokemon .well').append('<p>The ' + type + ' type pokemon do no damage to ' + data.damage_relations.no_damage_to.name + ' type Pokemon</p>');
         })
         .fail(function(){
             alert('Something went wrong');
