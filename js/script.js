@@ -62,7 +62,7 @@ $(function () {
             getEventData(eventType, zip);
             //searchDisplayToggle();
             $searchresults.show();
-            $evSearch.remove();
+            //$evSearch.remove();
         });
 
         //Function to get json data for events
@@ -91,8 +91,8 @@ $(function () {
            // $displayOptions.toggle();
             $evSearch.remove();
             $("#eventContent").remove();
-            searchDisplayToggle();
-            //$searchresults.hide();
+            //searchDisplayToggle();
+            $searchresults.hide();
             $back.remove();
         });
 
@@ -210,23 +210,25 @@ $(function () {
     function addNewEvent(data) {
         if (data.total_items == 0) {
             $mPage.append('<p id ="error"> Error no information was returned, Try Again!</p>');
-            $error = ('#error');
-            
+            //$error = ('#error');
+            //toggleDisplays();
             $('#eventSearch').trigger("reset");
         } else {
+        
         var nItem = '';
         nItem += '<h3>Event type chosen was' + ' ' + data.events.event[0].title + '</h3>';
         nItem += '<p>Description: ' + data.events.event[0].description + '</p>';
         $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
+        $evSearch.remove();
         }
-        $error.remove();
+        $('p#error').remove();
     }
 
     //this is for adding performer
     function addNewPerformer(data) {
         var nItem = '';
-        nItem += '<h3>Performer chosen was' + ' ' + data.performers.performer.name + '</h3>';
-        nItem += '<p>Description: ' + data.performers.performer.short_bio + '</p>';
+        nItem += '<h3>Performer chosen was' + ' ' + data.performers.performer[0].name + '</h3>';
+        nItem += '<p>Description: ' + data.performers.performer[0].short_bio + '</p>';
         $("#searchContent").append('<div id = performerContent>' + nItem + '</div>');
     }
 
