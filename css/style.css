@@ -1,3 +1,45 @@
-article, aside, figure, figcaption, footer, header, nav, section {
+article,
+aside,
+figure,
+figcaption,
+footer,
+header,
+nav,
+section {
     display: block;
+}
+
+#wrapper {
+    width: 100 px;
+    margin: 0 auto;
+    border-width: 20px;
+    border-style: solid;
+    border-top-color: #FF1C1C;
+    border-left-color: #FF1C1C;
+    border-bottom-color: #FF1C1C;
+    border-right-color: #FF1C1C;
+    border-radius: 10px;
+}
+
+#stripe {
+    width: 100 px;
+    margin: 0 auto;
+    border-width: 20px;
+    border-style: solid;
+    border-top-color: #222224;
+    border-left-color: #222224;
+    border-bottom-color: #222224;
+    border-right-color: #222224;
+}
+
+body {
+    margin: 30px;
+    align-content: center;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+.thumbimg {
+    max-width: 300px;
+    max-height: 300px;
 }
