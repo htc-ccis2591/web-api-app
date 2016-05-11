@@ -36,7 +36,7 @@ $('#pokemon li').on('click', function(){
     var id = $(this).attr('id');
     var type = $(this).text();
     $('#pokemon .text-center p').remove();
-    getPokeData(str, type);
+    getPokeData(id, type);
 });
     
     function getPokeData(id, type){
