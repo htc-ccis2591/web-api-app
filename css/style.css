@@ -31,6 +31,7 @@ article, aside, figure, figcaption, footer, header, nav, section {
 #pokemon {
     padding-top: 20px;
     margin-bottom: 150px;
+    padding-bottom: 250px;
     background-color: darkgreen;
     color: white;
 }
