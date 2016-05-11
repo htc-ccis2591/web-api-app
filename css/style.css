@@ -1,3 +1,46 @@
 article, aside, figure, figcaption, footer, header, nav, section {
     display: block;
 }
+
+#weather {
+    background-color: lightslategray;
+    padding-top: 20px;
+    padding-bottom: 150px;
+}
+
+.well {
+    margin-top: 20px;
+}
+
+#starships {
+    background-color: black;
+    color: yellow;
+}
+
+#starships ul {
+    list-style: none;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#starships li {
+    padding-top: 5px;
+    font-size: 25px;
+}
+
+#pokemon {
+    padding-top: 20px;
+    margin-bottom: 150px;
+    padding-bottom: 250px;
+    background-color: darkgreen;
+    color: white;
+}
+
+#pokemon li {
+    color: black;
+}
+
+#pokemon p {
+    padding-top: 50px;
+    font-size: 25px;
+}
