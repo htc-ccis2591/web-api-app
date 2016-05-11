@@ -1,4 +1,4 @@
-//5/11/2016 6:22
+//5/11/2016 6:26
 $(function () {
     //*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
     //set up variables
@@ -213,7 +213,7 @@ $(function () {
                 
                 $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
                 $("#searchContent").show();
-                $('#evSearch').remove();*/
+                $('#evSearch').remove();*/ // was trying to show multiple results, but could not figure out
              var nItem = '';
                 
                 nItem += '<h3>Event type chosen was' + ' ' + data.events.event[0].title + '</h3>';
