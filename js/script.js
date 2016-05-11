@@ -1,4 +1,4 @@
-//5/11/2016 5:37
+//5/11/2016 5:50
 $(function () {
     //*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
     //set up variables
@@ -257,6 +257,7 @@ $(function () {
             var nItem = '';
             nItem += '<h3>Venues included ' + ' ' + data.venues.venue[0].venue_name + '</h3>';
             nItem += '<p>Description: ' + data.venues.venue[0].description + '</p>';
+            nItem += '<p>Here is a link: ' + data.venues.venue[0].url + '</p>';
             $("#searchContent").append('<div id = venuesContent>' + nItem + '</div>');
             $searchresults.show();
             $('#venueSearch').remove();
