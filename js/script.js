@@ -205,12 +205,13 @@ $(function () {
                 $('#eventSearch').trigger("reset");
             });
         } else {
-
-            var nItem = '';
-            nItem += '<h3>Event type chosen was' + ' ' + data.events.event[0].title + '</h3>';
-            nItem += '<p>Description: ' + data.events.event[0].description + '</p>';
-            $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
-            $('#evSearch').remove();
+            for (var i = 0; i < data.events.length; i++) {
+                var nItem = '';
+                nItem += '<h3>Event type chosen was' + ' ' + data.events.event[0].title + '</h3>';
+                nItem += '<p>Description: ' + data.events.event[0].description + '</p>';
+                $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
+                $('#evSearch').remove();
+            }
         }
 
     }
@@ -229,7 +230,7 @@ $(function () {
             nItem += '<p>Description: ' + data.performers.performer.short_bio + '</p>';
             $("#searchContent").append('<div id = performerContent>' + nItem + '</div>');
             $searchresults.show();
-            $('#perfSearch').remove();          
+            $('#perfSearch').remove();
         } else {
             var nItem = '';
             nItem += '<h3>Performer chosen was' + ' ' + data.performers.performer[0].name + '</h3>';
