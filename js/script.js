@@ -42,7 +42,11 @@ $('#pokemon li').on('click', function(){
     function getPokeData(id, type){
         $.getJSON('//pokeapi.co/api/v2/type/' + id + '/')
         .done(function(data){
-            $('#pokemon .text-center').append('<p>The ' + type + ' type pokemon do no damage to ' + data.damage_relations.no_damage_to.name + ' type Pokemon</p>');
+            var halfDmg = []
+            for (var i = 0; i < data.damage_relations.half_damage_to.length; i++){
+                halfDmg += data.damage_relations.half_damage_to[i].name;
+            };
+            $('#pokemon .text-center').append('<p>The ' + type + ' type pokemon do half damage to ' + halfDmg + ' type Pokemon</p>');
         })
         .fail(function(){
             alert('Something went wrong');
