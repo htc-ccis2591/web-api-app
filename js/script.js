@@ -216,8 +216,9 @@ $(function () {
                 $('#evSearch').remove();*/
              var nItem = '';
                 
-                nItem += '<h3>Event type chosen was' + ' ' + data.events.event[i].title + '</h3>';
-                nItem += '<p>Description: ' + data.events.event[i].description + '</p>';
+                nItem += '<h3>Event type chosen was' + ' ' + data.events.event[0].title + '</h3>';
+                nItem += '<p>Description: ' + data.events.event[0].description + '</p>';
+                nItem += '<p>Venue: ' + data.events.event[0].venue_name + '</p>';
                  
                 
                 $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
