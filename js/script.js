@@ -1,5 +1,8 @@
 //5/10/2016 7:55
 $(function () {
+    //*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
+    //set up variables
+   //*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
     var $event = $('#events');
     var $performer = $('#performers');
     var $venue = $('#venues');
@@ -11,7 +14,9 @@ $(function () {
     var apikey = '';
     var $visited = '';
 
-
+    //*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
+    //checking ajax
+    //*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
     $.ajax({
         beforeSend: function (xhr) {
             if (xhr.overrideMimeType) {
@@ -38,8 +43,9 @@ $(function () {
         var $back = '';
         var $evSearchfrm = '';
 
-        $sType.toggle("slow");
-        $displayOptions.toggle("slow");
+        toggleDisplays();
+       // $sType.toggle("slow");
+       // $displayOptions.toggle("slow");
         $mPage.append('<div id = "evSearch"></div>');
         $evSearch = $('#evSearch');
         $evSearch.append('<form id = "eventSearch"><label>What type of event?</label><input type="text" name="eType" id="eType"><label>Enter a zip code: </label><input type="text" name="zip" id="zip"><input type="submit" name="Submit" value="Submit"></form>');
@@ -55,6 +61,7 @@ $(function () {
             zip = $('#zip').val();
             e.preventDefault();
             getEventData(eventType, zip);
+            //searchDisplayToggle();
             $searchresults.toggle();
             $evSearch.remove();
         });
@@ -80,8 +87,9 @@ $(function () {
 
 
         $back.on("click", function () {
-            $sType.toggle();
-            $displayOptions.toggle();
+            toggleDisplays();
+           // $sType.toggle();
+           // $displayOptions.toggle();
             $evSearch.remove();
             $("#eventContent").remove();
             //$searchresults.hide();
@@ -183,8 +191,9 @@ $(function () {
                 });
         }
         $back.on("click", function () {
-            $sType.toggle("slow");;
-            $displayOptions.toggle("slow");;
+            toggleDisplays();
+           // $sType.toggle("slow");
+          //  $displayOptions.toggle("slow");
             $("#venuesContent").remove();
             $venSearch.remove();
             $back.remove();
@@ -224,6 +233,17 @@ $(function () {
         nItem += '<h3>Venues included ' + ' ' + data.venues.venue[0].venue_name + '</h3>';
         nItem += '<p>Description: ' + data.venues.venue[0].description + '</p>';
         $("#searchContent").append('<div id = venuesContent>' + nItem + '</div>');
+    }
+    //this is for toggle displays
+    function toggleDisplays() {
+        $sType.toggle("slow");
+        $displayOptions.toggle("slow");
+        
+    }
+    function searchDisplayToggle() {
+        $searchresults.toggle();
+        $evSearch.remove();
+        
     }
 
 });
