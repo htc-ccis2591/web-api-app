@@ -98,7 +98,6 @@ $(function () {
 
     }); //end of event set up, adds for each are at bottom
     //Begin Performer setup
-    //var $performer = $('#performers');
     $performer.on("click", function () {
         var $performerContent = '';
         var $perSearch = '';
@@ -212,7 +211,7 @@ $(function () {
         if (data.total_items == 0) {
             $mPage.append('<p id ="error"> Error no information was returned, Try Again!</p>');
             $error = ('#error');
-            $error.hide();
+            
             $('#eventSearch').trigger("reset");
         } else {
         var nItem = '';
@@ -220,6 +219,7 @@ $(function () {
         nItem += '<p>Description: ' + data.events.event[0].description + '</p>';
         $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
         }
+        $error.remove();
     }
 
     //this is for adding performer

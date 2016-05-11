@@ -56,11 +56,12 @@ h1 {
 }
 
 #searchContent {
+    color: gray;
     position: relative;
     float: right;
     padding: 5px;
     border: 2px solid gray;
-    background: url(../images/c13.jpg) no-repeat center fixed;
+    background: url(../images/bulletin-board-background.jpg) no-repeat center fixed;
     background-size: cover;
     
 }
