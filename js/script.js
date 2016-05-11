@@ -61,7 +61,7 @@ $(function () {
             e.preventDefault();
             getEventData(eventType, zip);
             //searchDisplayToggle();
-            $searchresults.toggle();
+            $searchresults.show();
             $evSearch.remove();
         });
 
