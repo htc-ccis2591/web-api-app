@@ -1,4 +1,4 @@
-//5/11/2016 6:26
+//5/11/2016 6:40 newest
 $(function () {
     //*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
     //set up variables
@@ -224,7 +224,15 @@ $(function () {
                 $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
                 $("#searchContent").show();
                 $('#evSearch').remove();
-           
+           $("#searchContent").append('<div id = more><p>Next event? click here</p></div>');
+            var nItem2 = '';
+            nItem2 += '<h3>Event type chosen was' + ' ' + data.events.event[1].title + '</h3>';
+                nItem2 += '<p>Description: ' + data.events.event[1].description + '</p>';
+                nItem2 += '<p>Venue: ' + data.events.event[1].venue_name + '</p>';      
+                $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
+                $("#searchContent").show();
+               // $('#evSearch').remove();
+            
         }
 
     }
@@ -292,10 +300,10 @@ var nItem = '';
     //   $searchresults.toggle();
     //$evSearch.remove();       
     //    }
-    function goBack() {
+/*    function goBack() {
         var $back = '';
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
         $back = $('#back');
-    }
+    } kept this to show what i was trying to do*/
 
 });
