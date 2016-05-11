@@ -219,7 +219,7 @@ $(function () {
         nItem += '<h3>Event type chosen was' + ' ' + data.events.event[0].title + '</h3>';
         nItem += '<p>Description: ' + data.events.event[0].description + '</p>';
         $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
-        $evSearch.remove();
+        $('#evSearch');.remove();
         }
         $('p#error').remove();
     }

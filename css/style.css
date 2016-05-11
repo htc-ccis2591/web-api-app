@@ -56,7 +56,8 @@ h1 {
 }
 
 #searchContent {
-    color: gray;
+    text-align: center;
+    color: black;
     position: relative;
     float: right;
     padding: 5px;
