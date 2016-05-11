@@ -34,7 +34,6 @@ getStarships();
 
 $('#pokemon li').on('click', function(){
     var id = $(this).attr('id');
-    var str = id.toString();
     var type = $(this).text();
     $('#pokemon .text-center p').remove();
     getPokeData(str, type);
