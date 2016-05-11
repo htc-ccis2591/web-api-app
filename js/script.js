@@ -21,9 +21,10 @@ $(function () {
             .done(function (data) {
 
                 var weatherInfo = "";
+                weatherInfo += "<h3>name " + data.name + "</h3>";
                 weatherInfo += "<h3> humidity " + data.main.humidity + "</h3>";
                 weatherInfo += "<h3>temperature " + converTemp(data.main.temp) + "</h3>";
-                weatherInfo += "<h3>wind " + data.wind.speed + "</h3>";
+                weatherInfo += "<h3>wind " + data.wind.speed + "</h3>"
                 $("#form1").append("<div>" + weatherInfo + "</div> ");
 
 
@@ -48,9 +49,9 @@ $(function () {
             .done(function (data) {
 
                 var cityWeather = "";
-                cityWeather += "<h3> description " + data.weather.description + "</h3>";
+                cityWeather += "<h3> speed " + data.wind.speed + "</h3>";
                 cityWeather += "<h3> sunrise " + data.sys.sunrise + "</h3>";
-                cityWeather += "<h3>sky " + data.clouds.all + "</h3>";
+                cityWeather += "<h3> sky " + data.clouds.all + "</h3>";
                 $("#form2").append("<div>" + cityWeather + "</div>");
 
 
@@ -76,7 +77,7 @@ $(function () {
 
                 var weatherCoord = "";
                 weatherCoord += "<h3> humidity " + data.main.humidity + "</h3>";
-                // weatherCoord += "<img src =" + data.weather[0].icon + "alt=" + data.weather[0].icon + " >";
+
 
 
 
