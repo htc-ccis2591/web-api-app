@@ -1,4 +1,4 @@
-//5/10/2016 11:59
+//5/11/2016 10:29
 $(function () {
     //*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
     //set up variables
@@ -48,7 +48,7 @@ $(function () {
        // $displayOptions.toggle("slow");
         $mPage.append('<div id = "evSearch"></div>');
         $evSearch = $('#evSearch');
-        $evSearch.append('<form id = "eventSearch"><label>What type of event?</label><input type="text" name="eType" id="eType"><label>Enter a zip code: </label><input type="text" name="zip" id="zip"><input type="submit" name="Submit" value="Submit"></form>');
+        $evSearch.append('<form id = "eventSearch"><label>What type of event?</label><input type="text" name="eType" id="eType"><label>Enter a City, State, or Zip code: </label><input type="text" name="zip" id="zip"><input type="submit" name="Submit" value="Submit"></form>');
         $evSearch.prepend('<h2>Search for types of events</h2>');
         $evSearchfrm = $('#eventSearch');
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
@@ -104,13 +104,12 @@ $(function () {
         var $perSearch = '';
         var $back = '';
         var $perSearchfrm = '';
-       // goBack(back);
         toggleDisplays();
        // $sType.toggle("slow");
       //  $displayOptions.toggle("slow");
         $mPage.append('<div id = "perfSearch"></div>');
         $perSearch = $('#perfSearch');
-        $perSearch.append('<form id = "performerSearch"><label>What specific perfomer are you looking for?</label><input type="text" name="pType" id="pType"><input type="submit" name="Submit" value="Submit"></form>');
+        $perSearch.append('<form id = "performerSearch"><label>What specific perfomer are you looking for?</label><input type="text" name="pType" id="pType"><label>Enter a City, State, or Zip code: </label><input type="text" name="zip" id="zip"><input type="submit" name="Submit" value="Submit"></form>');
         $perSearch.prepend('<h2>Search for a specific performer</h2>');
         $perSearchfrm = $('#performerSearch');
         
@@ -163,10 +162,9 @@ $(function () {
         //$displayOptions.toggle("slow");
         $mPage.append('<div id = "venueSearch"></div>');
         $venSearch = $('#venueSearch');
-        $venSearch.append('<form id = "venueSearchfrm"><label>What specific venue are you looking for?</label><input type="text" name="vType" id="vType"><input type="submit" name="Submit" value="Submit"></form>');
+        $venSearch.append('<form id = "venueSearchfrm"><label>What specific venue are you looking for?</label><input type="text" name="vType" id="vType"><input type="text" name="pType" id="pType"><label>Enter a City, State, or Zip code: </label><input type="text" name="zip" id="zip"><input type="submit" name="Submit" value="Submit"></form>');
         $venSearch.prepend('<h2>Search for a specific venue</h2>');
         $venSearchfrm = $('#venueSearchfrm');
-       // goBack(back);
         $mPage.append('<input type ="button" name ="back" id = "back" value = "go back"/>');
         $back = $('#back');
 
@@ -212,7 +210,7 @@ $(function () {
     //first is for event type
     function addNewEvent(data) {
         if (data.total_items == 0) {
-            $(this).append('<p id ="error"> Error no information was returned, Try Again!</p>');
+            $mPage.append('<p id ="error"> Error no information was returned, Try Again!</p>');
             $error = ('#error');
             $error.slideToggle("slow");
             $('#eventSearch').trigger("reset");
