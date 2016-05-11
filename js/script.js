@@ -211,7 +211,7 @@ $(function () {
     //begin functions for adding data
     //first is for event type
     function addNewEvent(data) {
-        if (data.total_items == null) {
+        if (data.total_items == 0) {
             $(this).append('<p id ="error"> Error no information was returned, Try Again!</p>');
             $error = ('#error');
             $error.slideToggle("slow");
