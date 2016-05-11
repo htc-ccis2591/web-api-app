@@ -3,15 +3,55 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Update Me</title>
+    <title>Pokemon Data Center</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <main>
+    <div id='wrapper'>
+        <div id='stripe'>
+            <main>
+                <div id='logo'><img src='pokelogo.png'></div>
+                <h1>Carl's Pokemon Data Center</h1>
+
+                <div id="PokeMon" aria-live="polite" aria-relevant="additions removals">
 
 
-    </main>
+
+                    <label>Pokemon</label>
+                    <input type="text" name="pokekey" id="pokepass">
+                    <button id="submitP">SUBMIT THE POKEMON</button>
+                    <div id="PokemonInfo"></div>
+
+                </div>
+
+
+                <div id="PokeType" aria-live="polite" aria-relevant="additions removals">
+                    <label>Enter A Pokemon Type </label>
+                    <input type="text" name="typekey" id="typepass">
+                    <button id="submitT">SUBMIT THE TYPE</button>
+                    <div id="TypeInfo"></div>
+
+
+
+                </div>
+
+
+                <div id="PokeAbi" aria-live="polite" aria-relevant="additions removals">
+
+                    <label>Get A bit of poke-abillity info</label>
+                    <input type="text" name="abikey" id="abipass">
+
+                    <button id="submitA">SUBMIT ABILLITY</button>
+                    <div id="AbiInfo"></div>
+
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+
 
 
     <!-- jQuery -->
