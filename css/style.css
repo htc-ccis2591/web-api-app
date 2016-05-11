@@ -39,3 +39,7 @@ article, aside, figure, figcaption, footer, header, nav, section {
 #pokemon li {
     color: black;
 }
+
+#pokemon p {
+    padding-top: 50px;
+}
