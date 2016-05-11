@@ -101,7 +101,7 @@ $(function () {
         toggleDisplays();
         $mPage.append('<div id = "perfSearch"></div>');
         $perSearch = $('#perfSearch');
-        $perSearch.append('<form id = "performerSearch"><label>What specific perfomer are you looking for?</label><input type="text" name="pType" id="pType"><label>Enter a City, State, or Zip code: </label><input type="text" name="location" id="location"><input type="submit" name="Submit" value="Submit"></form>');
+        $perSearch.append('<form id = "performerSearch"><label>What specific perfomer are you looking for?</label><input type="text" name="pType" id="pType"><input type="submit" name="Submit" value="Submit"></form>');
         $perSearch.prepend('<h2>Search for a specific performer</h2>');
         $perSearchfrm = $('#performerSearch');
 
@@ -110,19 +110,19 @@ $(function () {
 
         $perSearch.on('submit', function (e) {
             pFormer = $('#pType').val();
-            uLocation = $('#location').val();
+           // uLocation = $('#location').val();
             e.preventDefault();
-            getPerformerData(pFormer, uLocation);
+            getPerformerData(pFormer);
             $searchresults.show();
         });
 
         //Function to get json data for performers
-        function getPerformerData(pFormer, uLocation) {
+        function getPerformerData(pFormer) {
 
-            var performerApi = 'http://api.eventful.com/json/performers/search?q=' + pFormer + '&l=' + uLocation + '&cors_filter=1&app_key=' + apikey;
+            var performerApi = 'http://api.eventful.com/json/performers/search?q=' + pFormer + '&cors_filter=1&app_key=' + apikey;
 
             console.log("performer=" + pFormer);
-            console.log("location=" + uLocation);
+           // console.log("location=" + uLocation);
 
 
             $.getJSON(performerApi)
