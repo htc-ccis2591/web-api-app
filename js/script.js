@@ -33,7 +33,7 @@ $(function(){
 getStarships();
 
 $('#pokemon li').on('click', function(){
-    var id = $(this).attr('id').val();
+    var id = $(this).attr('id');
     var str = id.toString();
     var type = $(this).text();
     $('#pokemon .well p').remove();
