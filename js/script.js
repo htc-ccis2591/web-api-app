@@ -224,6 +224,12 @@ $(function () {
                 $('p#error').remove();
                 $('#performerSearch').trigger("reset");
             });
+        } else if (data.total_items == 1) {
+            var nItem = '';
+            nItem += '<h3>Performer chosen was' + ' ' + data.performers.performer.name + '</h3>';
+            nItem += '<p>Description: ' + data.performers.performer.short_bio + '</p>';
+            $("#searchContent").append('<div id = performerContent>' + nItem + '</div>');
+            $('#perfSearch').remove();          
         } else {
             var nItem = '';
             nItem += '<h3>Performer chosen was' + ' ' + data.performers.performer[0].name + '</h3>';
