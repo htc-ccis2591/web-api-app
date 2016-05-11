@@ -27,3 +27,7 @@ article, aside, figure, figcaption, footer, header, nav, section {
     padding-top: 5px;
     font-size: 25px;
 }
+
+#pokemon {
+    padding-top: 20px;
+}
