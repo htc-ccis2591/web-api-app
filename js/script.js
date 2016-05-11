@@ -36,14 +36,14 @@ $('#pokemon li').on('click', function(){
     var id = $(this).attr('id');
     var str = id.toString();
     var type = $(this).text();
-    $('#pokemon .well p').remove();
+    $('#pokemon .text-center p').remove();
     getPokeData(str, type);
 });
     
     function getPokeData(id, type){
         $.getJSON('//pokeapi.co/api/v2/type/' + id + '/')
         .done(function(data){
-            $('#pokemon .well').append('<p>The ' + type + ' type pokemon do no damage to ' + data.damage_relations.no_damage_to.name + ' type Pokemon</p>');
+            $('#pokemon .text-center').append('<p>The ' + type + ' type pokemon do no damage to ' + data.damage_relations.no_damage_to.name + ' type Pokemon</p>');
         })
         .fail(function(){
             alert('Something went wrong');
