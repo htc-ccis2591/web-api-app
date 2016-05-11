@@ -1,4 +1,4 @@
-//5/11/2016 1:48
+//5/11/2016 1:52
 $(function () {
     //*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
     //set up variables
@@ -33,7 +33,7 @@ $(function () {
         $('#API').remove();
         $mPage.show();
         $searchresults.append('<div id = "searchContent"></div>');
-        $searchresults.toggle("slow");
+        $searchresults.hide();
     });
 
     //function to display type of search
@@ -164,6 +164,7 @@ $(function () {
             uLocation = $('#location').val();
             e.preventDefault();
             getVenueData(uVenue, uLocation);
+            $searchresults.show();
             //$venSearchfrm.remove();
         });
 
@@ -246,6 +247,7 @@ $(function () {
             nItem += '<h3>Venues included ' + ' ' + data.venues.venue[0].venue_name + '</h3>';
             nItem += '<p>Description: ' + data.venues.venue[0].description + '</p>';
             $("#searchContent").append('<div id = venuesContent>' + nItem + '</div>');
+            $searchresults.show();
             $('#venueSearch').remove();
         }
     }
