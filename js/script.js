@@ -1,4 +1,4 @@
-//5/11/2016 1:31
+//5/11/2016 1:37
 $(function () {
             //*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
             //set up variables
@@ -228,7 +228,7 @@ $(function () {
                     nItem += '<h3>Performer chosen was' + ' ' + data.performers.performer[0].name + '</h3>';
                     nItem += '<p>Description: ' + data.performers.performer[0].short_bio + '</p>';
                     $("#searchContent").append('<div id = performerContent>' + nItem + '</div>');
-                    $('#performerSearch').remove();
+                    $('#perfSearch').remove();
 
                 }
             }
