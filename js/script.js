@@ -209,19 +209,20 @@ $(function () {
     //first is for event type
     function addNewEvent(data) {
         if (data.total_items == 0) {
-            $mPage.append('<p id ="error"> Error no information was returned, Try Again!</p>');
-            //$error = ('#error');
-            //toggleDisplays();
+            $mPage.append('<p id ="error"> Error no information was returned, Try Again! Hint: click me to reset form!</p>');
+            $('p#error').on("click", function() {
+            $('p#error').remove();
             $('#eventSearch').trigger("reset");
+                });
         } else {
         
         var nItem = '';
         nItem += '<h3>Event type chosen was' + ' ' + data.events.event[0].title + '</h3>';
         nItem += '<p>Description: ' + data.events.event[0].description + '</p>';
         $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
-        $('#evSearch');.remove();
+        $('#evSearch').remove();
         }
-        $('p#error').remove();
+        
     }
 
     //this is for adding performer
