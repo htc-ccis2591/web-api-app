@@ -271,7 +271,7 @@ var nItem = '';
             $("#searchContent").append('<div id = venuesContent>' + nItem + '</div>');
             $searchresults.show();
             $('#venueSearch').remove();
-        }
+        
         } else {
             var nItem = '';
             nItem += '<h3>Venues included ' + ' ' + data.venues.venue[0].venue_name + '</h3>';
