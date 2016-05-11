@@ -87,7 +87,6 @@ $(function () {
             toggleDisplays();
             $evSearch.remove();
             $("#eventContent").remove();
-            //searchDisplayToggle();
             $searchresults.hide();
             $back.remove();
         });
@@ -114,7 +113,7 @@ $(function () {
             uLocation = $('#location').val();
             e.preventDefault();
             getPerformerData(pFormer, uLocation);
-            // $perSearchfrm.remove();
+            $searchresults.show();
         });
 
         //Function to get json data for performers
@@ -229,12 +228,14 @@ $(function () {
             nItem += '<h3>Performer chosen was' + ' ' + data.performers.performer.name + '</h3>';
             nItem += '<p>Description: ' + data.performers.performer.short_bio + '</p>';
             $("#searchContent").append('<div id = performerContent>' + nItem + '</div>');
+            $searchresults.show();
             $('#perfSearch').remove();          
         } else {
             var nItem = '';
             nItem += '<h3>Performer chosen was' + ' ' + data.performers.performer[0].name + '</h3>';
             nItem += '<p>Description: ' + data.performers.performer[0].short_bio + '</p>';
             $("#searchContent").append('<div id = performerContent>' + nItem + '</div>');
+            $searchresults.show();
             $('#perfSearch').remove();
 
         }
