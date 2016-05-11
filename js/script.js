@@ -225,12 +225,14 @@ $(function () {
                 $("#searchContent").show();
                 $('#evSearch').remove();
            $("#searchContent").append('<div id = more><p>Next event? click here</p></div>');
+            $('#more').on("click", function () { 
             var nItem2 = '';
             nItem2 += '<h3>Event type chosen was' + ' ' + data.events.event[1].title + '</h3>';
                 nItem2 += '<p>Description: ' + data.events.event[1].description + '</p>';
                 nItem2 += '<p>Venue: ' + data.events.event[1].venue_name + '</p>';      
                 $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
                 $("#searchContent").show();
+                });
                // $('#evSearch').remove();
             
         }
