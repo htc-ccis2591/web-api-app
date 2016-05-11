@@ -1,4 +1,4 @@
-//5/11/2016 5:10
+//5/11/2016 5:37
 $(function () {
     //*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
     //set up variables
@@ -210,7 +210,9 @@ $(function () {
                 nItem += '<h3>Event type chosen was' + ' ' + data.events.event[i].title + '</h3>';
                 nItem += '<p>Description: ' + data.events.event[i].description + '</p>';
                  }
+                
                 $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
+                $("#searchContent").show();
                 $('#evSearch').remove();
            
         }
