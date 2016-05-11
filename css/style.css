@@ -33,3 +33,7 @@ article, aside, figure, figcaption, footer, header, nav, section {
     background-color: darkgreen;
     color: white;
 }
+
+#pokemon li {
+    color: black;
+}
