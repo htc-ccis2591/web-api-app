@@ -1,4 +1,4 @@
-//5/11/2016 3:00pm
+//5/11/2016 5:10
 $(function () {
     //*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
     //set up variables
@@ -207,8 +207,8 @@ $(function () {
         } else {
             for (var i = 0; i < data.events.length; i++) {
                 var nItem = '';
-                nItem += '<h3>Event type chosen was' + ' ' + data.events.event[0].title + '</h3>';
-                nItem += '<p>Description: ' + data.events.event[0].description + '</p>';
+                nItem += '<h3>Event type chosen was' + ' ' + data.events.event[i].title + '</h3>';
+                nItem += '<p>Description: ' + data.events.event[i].description + '</p>';
                 $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
                 $('#evSearch').remove();
             }
