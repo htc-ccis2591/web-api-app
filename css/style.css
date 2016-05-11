@@ -1,3 +1,27 @@
 article, aside, figure, figcaption, footer, header, nav, section {
     display: block;
 }
+body {
+    background-color: #000000;
+}
+main {
+    margin: auto;
+    margin-bottom: auto;
+}
+h1, h2 {
+    color: #ffffff;
+    text-align: center;
+    border: solid;
+    border-color: #990000;
+}
+div {
+    color: #ffffff;
+    align-content: center;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+img {
+    height: 100%;
+    width: 100%;
+}
