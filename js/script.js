@@ -211,7 +211,7 @@ $(function () {
                 nItem += '<p>Description: ' + data.events.event[i].description + '</p>';
                  
                 
-                $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
+                $("#searchContent").append('<div class = "eventContent">' + nItem + '</div>');
                 $("#searchContent").show();
                 $('#evSearch').remove();
                 }
