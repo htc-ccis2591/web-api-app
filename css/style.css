@@ -69,7 +69,8 @@ h1 {
 
 .eventContent {
     background-image: url(../images/StickyNoteWidget4.gif);
-    background-size: %100;
+    background-size: 100%;
+    background-repeat: no-repeat;
     padding: 20px 5px 5px 5px;
     margin: 20px 25px;
     
