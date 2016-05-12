@@ -204,35 +204,36 @@ $(function () {
                 $('#eventSearch').trigger("reset");
             });
         } else {
-/*            var nItem = '';
+            var nItem = '';
             for (var i = 0; i < data.events.event.length; i++) {
                 
                 nItem += '<h3>Event type chosen was' + ' ' + data.events.event[i].title + '</h3>';
                 nItem += '<p>Description: ' + data.events.event[i].description + '</p>';
-                 }
-                
-                $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
-                $("#searchContent").show();
-                $('#evSearch').remove();*/ // was trying to show multiple results, but could not figure out
-             var nItem = '';
-                
-                nItem += '<h3>Event type chosen was' + ' ' + data.events.event[0].title + '</h3>';
-                nItem += '<p>Description: ' + data.events.event[0].description + '</p>';
-                nItem += '<p>Venue: ' + data.events.event[0].venue_name + '</p>';
                  
                 
                 $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
                 $("#searchContent").show();
                 $('#evSearch').remove();
-           $("#searchContent").append('<div id = more><p>Next event? click here</p></div>');
-            $('#more').on("click", function () { 
+                }
+            //var nItem = '';
+/*                
+                nItem += '<h3>Event type chosen was' + ' ' + data.events.event[i].title + '</h3>';
+                nItem += '<p>Description: ' + data.events.event[i].description + '</p>';
+                nItem += '<p>Venue: ' + data.events.event[i].venue_name + '</p>';
+                 
+                
+                $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
+                $("#searchContent").show();
+                $('#evSearch').remove();*/
+          // $("#searchContent").append('<div id = more><p>Next event? click here</p></div>');
+/*            $('#more').on("click", function () { 
             var nItem2 = '';
             nItem2 += '<h3>Event type chosen was' + ' ' + data.events.event[1].title + '</h3>';
                 nItem2 += '<p>Description: ' + data.events.event[1].description + '</p>';
                 nItem2 += '<p>Venue: ' + data.events.event[1].venue_name + '</p>';      
                 $("#searchContent").append('<div id = eventContent>' + nItem + '</div>');
                 $("#searchContent").show();
-                });
+                });*/
                // $('#evSearch').remove();
             
         }
