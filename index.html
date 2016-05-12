@@ -3,15 +3,47 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Update Me</title>
+    <title>What's there to do?</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+
+    <header>
+        <h1>Events near you!</h1>
+    </header>
     <main>
 
+        <section id="API">
+            <form>
+                <div>
+                    <label>Enter your API Key: </label>
+                    <input type="password" name="apikey" id="apikey">
+                    <input type="submit" name="Submit" value="Submit">
+
+            </form>
+            </div>
+        </section>
+        <section id="mPage">
+            <section id="sType">
+                <div>
+                    <h2>What would you like to search for?</h2>
+                </div>
+            </section>
+
+            <section id="displayOptions">
+                <ul>
+                    <li id="events">Event type </li>
+                    <li id="performers">Performer </li>
+                    <li id="venues">Venue</li>
+                </ul>
+            </section>
+        </section>
+<section id="SearchResults" aria-live="polite" aria-relevant="additions removals"></section>
 
     </main>
+
+
 
 
     <!-- jQuery -->
