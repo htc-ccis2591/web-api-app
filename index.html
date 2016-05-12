@@ -9,8 +9,25 @@
 
 <body>
     <main>
-
-
+        <div id="FilmSelect">
+            <img src="Images/Star_Wars_Logo.png" />
+            <p>Film Information</p>
+            <section id="FilmSelections">    
+                <label id="lblFilms">Star Wars Films</label>
+                <select id="StarWarsFilms" class="block">
+                    <option value="0">-- Select Film to View Details --</option>
+                    <option value="1">A New Hope</option>
+                    <option value="2">Empire Strikes Back</option>
+                    <option value="3">Return Of The Jedi</option>
+                    <option value="7">Force Awakens</option>
+                </select>
+            </section>
+        </div>
+        
+        <!-- Dynamic Data will be appended to these elements -->
+        <aside id="StarWarsFilmInfo" role="img list option"></aside>        
+        <div id="StarWarsPlanetsInfo" role="list"></div>      
+        <aside id="StarWarsPeopleInfo" role="list img"></aside>
     </main>
 
 
