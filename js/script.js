@@ -204,9 +204,9 @@ $(function () {
                 $('#eventSearch').trigger("reset");
             });
         } else {
-            var nItem = '';
+            
             for (var i = 0; i < data.events.event.length; i++) {
-                
+                var nItem = '';
                 nItem += '<h3>Event type chosen was' + ' ' + data.events.event[i].title + '</h3>';
                 nItem += '<p>Description: ' + data.events.event[i].description + '</p>';
                  
